@@ -1,6 +1,6 @@
 # Textos do site gamemosaica.com em 8 idiomas.
 # Histórias dos clãs vêm de historias-clas.json (mesmos textos do jogo).
-EMAIL = "djpryk@gmail.com"
+EMAIL = "apps@ogrupoatos.com.br"
 LANGS = ["pt", "en", "es", "fr", "de", "it", "ja", "zh"]
 HTML_LANG = {"pt": "pt-BR", "en": "en", "es": "es", "fr": "fr", "de": "de", "it": "it", "ja": "ja", "zh": "zh-Hans"}
 LANG_NAME = {"pt": "Português", "en": "English", "es": "Español", "fr": "Français", "de": "Deutsch", "it": "Italiano", "ja": "日本語", "zh": "简体中文"}
