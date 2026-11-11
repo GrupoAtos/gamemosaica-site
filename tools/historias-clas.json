@@ -1,0 +1,506 @@
+{
+ "brasa": {
+  "pt": {
+   "nome": "Brasa",
+   "capital": "Forja-Vulcão",
+   "historia": "Quando o mundo se partiu, o vulcão Ígnea continuou aceso num único ladrilho. Os Brasa nasceram ao redor dele e juraram nunca deixar a primeira chama apagar. Para eles, só o fogo solda de volta o que foi quebrado."
+  },
+  "en": {
+   "nome": "Ember",
+   "capital": "Volcano Forge",
+   "historia": "When the world shattered, the volcano Ignea kept burning on a single tile. The Ember were born around it and swore never to let the first flame go out. To them, only fire can weld back what was broken."
+  },
+  "es": {
+   "nome": "Brasa",
+   "capital": "Forja Volcán",
+   "historia": "Cuando el mundo se partió, el volcán Ígnea siguió encendido en una sola baldosa. Los Brasa nacieron a su alrededor y juraron no dejar que la primera llama se apagara nunca. Para ellos, solo el fuego vuelve a soldar lo que se rompió."
+  },
+  "fr": {
+   "nome": "Braise",
+   "capital": "Forge-Volcan",
+   "historia": "Quand le monde s'est brisé, le volcan Ignéa est resté allumé sur une seule tuile. Les Braise sont nés autour de lui et ont juré de ne jamais laisser s'éteindre la première flamme. Pour eux, seul le feu peut ressouder ce qui a été brisé."
+  },
+  "de": {
+   "nome": "Glut",
+   "capital": "Vulkanschmiede",
+   "historia": "Als die Welt zerbrach, brannte der Vulkan Ignea auf einer einzigen Kachel weiter. Die Glut wurden um ihn herum geboren und schworen, die erste Flamme nie erlöschen zu lassen. Für sie kann nur Feuer wieder zusammenschweißen, was zerbrochen ist."
+  },
+  "it": {
+   "nome": "Brace",
+   "capital": "Forgia-Vulcano",
+   "historia": "Quando il mondo si spezzò, il vulcano Ignea rimase acceso su un'unica tessera. I Brace nacquero intorno a esso e giurarono di non lasciar mai spegnere la prima fiamma. Per loro, solo il fuoco può risaldare ciò che si è rotto."
+  },
+  "ja": {
+   "nome": "熾火",
+   "capital": "火山の鍛冶場",
+   "historia": "世界が砕けたとき、火山イグネアはたったひとつのタイルの上で燃え続けた。熾火の民はその周りで生まれ、最初の炎を決して消さないと誓った。彼らにとって、壊れたものを再び溶接できるのは火だけだ。"
+  },
+  "zh": {
+   "nome": "余烬",
+   "capital": "火山熔炉",
+   "historia": "世界碎裂之时,火山伊格尼亚仍在一块地块上燃烧。余烬族在它周围诞生,发誓永不让最初的火焰熄灭。对他们来说,只有火才能把破碎之物重新熔接。"
+  }
+ },
+ "mare": {
+  "pt": {
+   "nome": "Maré",
+   "capital": "Farol de Coral",
+   "historia": "O arquipélago dos Maré afundou na Grande Quebra e o povo inteiro passou uma geração em jangadas. Aprenderam a ler as correntes seguindo os peixes-lanterna. Hoje procuram, ladrilho por ladrilho, o recife onde tudo começou."
+  },
+  "en": {
+   "nome": "Tide",
+   "capital": "Coral Lighthouse",
+   "historia": "The Tide archipelago sank in the Great Shattering, and the whole people spent a generation on rafts. They learned to read the currents by following the lanternfish. Today they search, tile by tile, for the reef where it all began."
+  },
+  "es": {
+   "nome": "Marea",
+   "capital": "Faro de Coral",
+   "historia": "El archipiélago de los Marea se hundió en la Gran Ruptura y el pueblo entero pasó una generación en balsas. Aprendieron a leer las corrientes siguiendo a los peces linterna. Hoy buscan, baldosa a baldosa, el arrecife donde todo empezó."
+  },
+  "fr": {
+   "nome": "Marée",
+   "capital": "Phare de Corail",
+   "historia": "L'archipel des Marée a sombré lors de la Grande Fracture et tout le peuple a passé une génération sur des radeaux. Ils ont appris à lire les courants en suivant les poissons-lanternes. Aujourd'hui, ils cherchent, tuile après tuile, le récif où tout a commencé."
+  },
+  "de": {
+   "nome": "Flut",
+   "capital": "Korallen-Leuchtturm",
+   "historia": "Der Archipel der Flut versank im Großen Bruch, und das ganze Volk verbrachte eine Generation auf Flößen. Sie lernten, die Strömungen zu lesen, indem sie den Laternenfischen folgten. Heute suchen sie Kachel für Kachel das Riff, an dem alles begann."
+  },
+  "it": {
+   "nome": "Marea",
+   "capital": "Faro di Corallo",
+   "historia": "L'arcipelago dei Marea affondò nella Grande Frattura e l'intero popolo passò una generazione sulle zattere. Impararono a leggere le correnti seguendo i pesci lanterna. Oggi cercano, tessera dopo tessera, la scogliera dove tutto ebbe inizio."
+  },
+  "ja": {
+   "nome": "潮",
+   "capital": "サンゴの灯台",
+   "historia": "潮の民の群島は大崩壊で沈み、民全員がひと世代をいかだの上で過ごした。彼らはランタンフィッシュを追って潮の流れを読むことを覚えた。今もタイルからタイルへ、すべてが始まったサンゴ礁を探している。"
+  },
+  "zh": {
+   "nome": "潮汐",
+   "capital": "珊瑚灯塔",
+   "historia": "潮汐族的群岛在大碎裂中沉没,整个族群在木筏上度过了一代人。他们追随灯笼鱼,学会了解读洋流。如今,他们仍一块地块接一块地块地寻找一切开始的那片珊瑚礁。"
+  }
+ },
+ "raiz": {
+  "pt": {
+   "nome": "Raiz",
+   "capital": "Casa-Árvore",
+   "historia": "Os Raiz descendem dos jardineiros da Árvore-Mãe, cujas raízes seguraram os últimos pedaços de chão durante a Quebra. Cada cidade deles nasce de uma semente dela. Unir o mosaico é, para os Raiz, replantar a floresta original."
+  },
+  "en": {
+   "nome": "Root",
+   "capital": "Tree House",
+   "historia": "The Root descend from the gardeners of the Mother Tree, whose roots held the last pieces of ground together during the Shattering. Each of their cities grows from one of its seeds. For the Root, uniting the mosaic means replanting the original forest."
+  },
+  "es": {
+   "nome": "Raíz",
+   "capital": "Casa Árbol",
+   "historia": "Los Raíz descienden de los jardineros del Árbol Madre, cuyas raíces sostuvieron los últimos pedazos de tierra durante la Ruptura. Cada una de sus ciudades nace de una semilla suya. Para los Raíz, unir el mosaico es replantar el bosque original."
+  },
+  "fr": {
+   "nome": "Racine",
+   "capital": "Maison-Arbre",
+   "historia": "Les Racine descendent des jardiniers de l'Arbre-Mère, dont les racines ont retenu les derniers morceaux de terre pendant la Fracture. Chacune de leurs villes naît d'une de ses graines. Pour les Racine, unir la mosaïque, c'est replanter la forêt originelle."
+  },
+  "de": {
+   "nome": "Wurzel",
+   "capital": "Baumhaus",
+   "historia": "Die Wurzel stammen von den Gärtnern des Mutterbaums ab, dessen Wurzeln während des Bruchs die letzten Stücke Land zusammenhielten. Jede ihrer Städte wächst aus einem seiner Samen. Das Mosaik zu vereinen heißt für die Wurzel, den ursprünglichen Wald neu zu pflanzen."
+  },
+  "it": {
+   "nome": "Radice",
+   "capital": "Casa sull'Albero",
+   "historia": "I Radice discendono dai giardinieri dell'Albero Madre, le cui radici tennero insieme gli ultimi pezzi di terra durante la Frattura. Ogni loro città nasce da un suo seme. Per i Radice, unire il mosaico significa ripiantare la foresta originaria."
+  },
+  "ja": {
+   "nome": "根",
+   "capital": "ツリーハウス",
+   "historia": "根の民は母なる木の庭師の子孫だ。その根は崩壊のあいだ、最後の大地のかけらをつなぎ止めた。彼らの都市はどれも母なる木の種から生まれる。根の民にとって、モザイクをひとつにすることは原初の森を植え直すことだ。"
+  },
+  "zh": {
+   "nome": "根须",
+   "capital": "树屋",
+   "historia": "根须族是母树园丁的后裔,在碎裂期间,母树的根系牢牢抓住了最后的几块土地。他们的每座城市都由母树的一颗种子长成。对根须族来说,统一马赛克就是重新种下最初的森林。"
+  }
+ },
+ "geada": {
+  "pt": {
+   "nome": "Geada",
+   "capital": "Iglu de Cristal",
+   "historia": "Expulsos das terras quentes, os Geada atravessaram a pé um mar congelado e sobreviveram onde ninguém mais quis morar. Domaram os ursos brancos e fizeram do inverno um aliado. Agora descem da tundra para cobrar o lugar que lhes foi negado."
+  },
+  "en": {
+   "nome": "Frost",
+   "capital": "Crystal Igloo",
+   "historia": "Driven out of the warm lands, the Frost crossed a frozen sea on foot and survived where no one else wanted to live. They tamed the white bears and made winter an ally. Now they come down from the tundra to claim the place they were denied."
+  },
+  "es": {
+   "nome": "Escarcha",
+   "capital": "Iglú de Cristal",
+   "historia": "Expulsados de las tierras cálidas, los Escarcha cruzaron a pie un mar congelado y sobrevivieron donde nadie más quiso vivir. Domaron a los osos blancos e hicieron del invierno un aliado. Ahora bajan de la tundra para reclamar el lugar que se les negó."
+  },
+  "fr": {
+   "nome": "Givre",
+   "capital": "Igloo de Cristal",
+   "historia": "Chassés des terres chaudes, les Givre ont traversé à pied une mer gelée et survécu là où personne d'autre ne voulait vivre. Ils ont dompté les ours blancs et fait de l'hiver un allié. Ils descendent aujourd'hui de la toundra pour réclamer la place qu'on leur a refusée."
+  },
+  "de": {
+   "nome": "Frost",
+   "capital": "Kristall-Iglu",
+   "historia": "Aus den warmen Ländern vertrieben, überquerten die Frost zu Fuß ein gefrorenes Meer und überlebten, wo sonst niemand leben wollte. Sie zähmten die weißen Bären und machten den Winter zu ihrem Verbündeten. Jetzt steigen sie aus der Tundra herab, um den Platz einzufordern, der ihnen verwehrt wurde."
+  },
+  "it": {
+   "nome": "Brina",
+   "capital": "Igloo di Cristallo",
+   "historia": "Cacciati dalle terre calde, i Brina attraversarono a piedi un mare gelato e sopravvissero dove nessun altro volle vivere. Domarono gli orsi bianchi e fecero dell'inverno un alleato. Ora scendono dalla tundra per reclamare il posto che fu loro negato."
+  },
+  "ja": {
+   "nome": "霜",
+   "capital": "水晶のイグルー",
+   "historia": "暖かい土地を追われた霜の民は、凍った海を歩いて渡り、誰も住もうとしない場所で生き延びた。白い熊を手なずけ、冬を味方にした。今、拒まれた居場所を取り戻すためにツンドラから下りてくる。"
+  },
+  "zh": {
+   "nome": "霜冻",
+   "capital": "水晶冰屋",
+   "historia": "被逐出温暖之地后,霜冻族徒步穿越冰封的大海,在无人愿意居住的地方活了下来。他们驯服了白熊,让冬天成为盟友。如今,他们从冻原南下,要夺回曾被拒绝给予的一席之地。"
+  }
+ },
+ "duna": {
+  "pt": {
+   "nome": "Duna",
+   "capital": "Palácio do Oásis",
+   "historia": "Onde caíram estilhaços de Lumen no deserto, brotaram oásis. Os Duna foram os primeiros a encontrá-los e ergueram bazares em volta de cada um. Suas caravanas ligam os ladrilhos pelo comércio antes de qualquer exército chegar."
+  },
+  "en": {
+   "nome": "Dune",
+   "capital": "Oasis Palace",
+   "historia": "Where shards of Lumen fell in the desert, oases sprang up. The Dune were the first to find them and built bazaars around each one. Their caravans link the tiles through trade before any army arrives."
+  },
+  "es": {
+   "nome": "Duna",
+   "capital": "Palacio del Oasis",
+   "historia": "Donde cayeron esquirlas de Lumen en el desierto, brotaron oasis. Los Duna fueron los primeros en encontrarlos y levantaron bazares alrededor de cada uno. Sus caravanas unen las baldosas con el comercio antes de que llegue cualquier ejército."
+  },
+  "fr": {
+   "nome": "Dune",
+   "capital": "Palais de l'Oasis",
+   "historia": "Là où des éclats de Lumen sont tombés dans le désert, des oasis ont jailli. Les Dune ont été les premiers à les trouver et ont bâti des bazars autour de chacune. Leurs caravanes relient les tuiles par le commerce avant qu'aucune armée n'arrive."
+  },
+  "de": {
+   "nome": "Düne",
+   "capital": "Oasenpalast",
+   "historia": "Wo Lumensplitter in die Wüste fielen, entsprangen Oasen. Die Düne fanden sie als Erste und errichteten um jede einen Basar. Ihre Karawanen verbinden die Kacheln durch Handel, bevor irgendeine Armee eintrifft."
+  },
+  "it": {
+   "nome": "Duna",
+   "capital": "Palazzo dell'Oasi",
+   "historia": "Dove caddero schegge di Lumen nel deserto, sbocciarono oasi. I Duna furono i primi a trovarle ed eressero bazar intorno a ciascuna. Le loro carovane uniscono le tessere con il commercio prima che arrivi qualsiasi esercito."
+  },
+  "ja": {
+   "nome": "砂丘",
+   "capital": "オアシスの宮殿",
+   "historia": "砂漠にルーメンのかけらが落ちた場所にオアシスが湧いた。砂丘の民はそれを最初に見つけ、ひとつひとつの周りにバザールを建てた。彼らのキャラバンは、どんな軍隊よりも先に交易でタイルをつなぐ。"
+  },
+  "zh": {
+   "nome": "沙丘",
+   "capital": "绿洲宫殿",
+   "historia": "流明碎片落入沙漠之处,涌出了绿洲。沙丘族最先发现了它们,并在每片绿洲周围建起集市。在任何军队到来之前,他们的商队就已用贸易将各个地块连接起来。"
+  }
+ },
+ "vento": {
+  "pt": {
+   "nome": "Vento",
+   "capital": "Moinho dos Ventos",
+   "historia": "Nômades dos planaltos, os Vento nunca construíram muralhas: a casa deles é a sela. Dizem que ouviram a Quebra chegar no assobio do vento e por isso sobreviveram. Cavalgam atrás da voz que promete um mundo inteiro outra vez."
+  },
+  "en": {
+   "nome": "Wind",
+   "capital": "Windmill",
+   "historia": "Nomads of the highlands, the Wind never built walls: their home is the saddle. They say they heard the Shattering coming in the whistle of the wind, and that is why they survived. They ride after the voice that promises a whole world once more."
+  },
+  "es": {
+   "nome": "Viento",
+   "capital": "Molino de los Vientos",
+   "historia": "Nómadas de los altiplanos, los Viento nunca construyeron murallas: su casa es la silla de montar. Dicen que oyeron llegar la Ruptura en el silbido del viento y que por eso sobrevivieron. Cabalgan tras la voz que promete otra vez un mundo entero."
+  },
+  "fr": {
+   "nome": "Vent",
+   "capital": "Moulin des Vents",
+   "historia": "Nomades des hauts plateaux, les Vent n'ont jamais bâti de murailles : leur maison, c'est la selle. On dit qu'ils ont entendu venir la Fracture dans le sifflement du vent et qu'ils ont survécu grâce à cela. Ils chevauchent derrière la voix qui promet de nouveau un monde entier."
+  },
+  "de": {
+   "nome": "Wind",
+   "capital": "Windmühle",
+   "historia": "Nomaden der Hochebenen, die Wind bauten nie Mauern: Ihr Zuhause ist der Sattel. Man sagt, sie hörten den Bruch im Pfeifen des Windes kommen und überlebten deshalb. Sie reiten der Stimme nach, die wieder eine ganze Welt verspricht."
+  },
+  "it": {
+   "nome": "Vento",
+   "capital": "Mulino dei Venti",
+   "historia": "Nomadi degli altipiani, i Vento non costruirono mai mura: la loro casa è la sella. Si dice che sentirono arrivare la Frattura nel fischio del vento e per questo sopravvissero. Cavalcano dietro la voce che promette di nuovo un mondo intero."
+  },
+  "ja": {
+   "nome": "風",
+   "capital": "風車",
+   "historia": "高原の遊牧民である風の民は、城壁を築いたことがない。彼らの家は鞍の上だ。風の口笛に崩壊の訪れを聞き取ったから生き延びたのだと言われる。彼らは、もう一度ひとつの世界を約束する声を追って駆ける。"
+  },
+  "zh": {
+   "nome": "疾风",
+   "capital": "风车",
+   "historia": "疾风族是高原上的游牧民,从不修筑城墙:马鞍就是他们的家。据说他们从风的呼啸中听见了碎裂的到来,因此得以幸存。他们追随着那个承诺再次完整世界的声音一路驰骋。"
+  }
+ },
+ "fera": {
+  "pt": {
+   "nome": "Fera",
+   "capital": "Toca do Totem",
+   "historia": "Crianças perdidas na Quebra foram acolhidas por uma matilha de lobos-do-musgo. Cresceram caçando juntas e voltaram como um clã que divide tudo o que abate. Para os Fera, o mosaico é um território de caça que precisa de uma só matilha."
+  },
+  "en": {
+   "nome": "Beast",
+   "capital": "Totem Den",
+   "historia": "Children lost in the Shattering were taken in by a pack of moss wolves. They grew up hunting together and returned as a clan that shares everything it brings down. For the Beast, the mosaic is a hunting ground that needs a single pack."
+  },
+  "es": {
+   "nome": "Fiera",
+   "capital": "Guarida del Tótem",
+   "historia": "Niños perdidos en la Ruptura fueron acogidos por una manada de lobos de musgo. Crecieron cazando juntos y volvieron como un clan que reparte todo lo que caza. Para los Fiera, el mosaico es un territorio de caza que necesita una sola manada."
+  },
+  "fr": {
+   "nome": "Fauve",
+   "capital": "Tanière du Totem",
+   "historia": "Des enfants perdus lors de la Fracture ont été recueillis par une meute de loups-mousse. Ils ont grandi en chassant ensemble et sont revenus en clan qui partage tout ce qu'il abat. Pour les Fauve, la mosaïque est un territoire de chasse qui n'a besoin que d'une seule meute."
+  },
+  "de": {
+   "nome": "Bestie",
+   "capital": "Totembau",
+   "historia": "Im Bruch verlorene Kinder wurden von einem Rudel Mooswölfe aufgenommen. Sie wuchsen gemeinsam jagend auf und kehrten als Clan zurück, der alles teilt, was er erlegt. Für die Bestie ist das Mosaik ein Jagdrevier, das nur ein einziges Rudel braucht."
+  },
+  "it": {
+   "nome": "Fiera",
+   "capital": "Tana del Totem",
+   "historia": "Bambini perduti nella Frattura furono accolti da un branco di lupi muschiati. Crebbero cacciando insieme e tornarono come un clan che divide tutto ciò che abbatte. Per i Fiera, il mosaico è un territorio di caccia che ha bisogno di un solo branco."
+  },
+  "ja": {
+   "nome": "獣",
+   "capital": "トーテムの巣穴",
+   "historia": "崩壊で迷子になった子どもたちは、苔オオカミの群れに拾われた。共に狩りをしながら育ち、仕留めた獲物をすべて分け合う氏族として戻ってきた。獣の民にとって、モザイクはたったひとつの群れを必要とする狩り場だ。"
+  },
+  "zh": {
+   "nome": "野兽",
+   "capital": "图腾巢穴",
+   "historia": "在碎裂中走失的孩子们被一群苔狼收留。他们一同狩猎长大,回来时已成为一个分享一切猎物的氏族。对野兽族来说,马赛克是一片只需要一个兽群的猎场。"
+  }
+ },
+ "lume": {
+  "pt": {
+   "nome": "Lume",
+   "capital": "Obelisco de Lumen",
+   "historia": "Monges dos cânions de cristal, os Lume descobriram como solidificar a luz e fizeram as primeiras Pontes de Lumen. Guardam o segredo em mosteiros dourados. Acreditam que o mundo se reúne com pontes, não com espadas, mas levam espadas mesmo assim."
+  },
+  "en": {
+   "nome": "Glow",
+   "capital": "Lumen Obelisk",
+   "historia": "Monks of the crystal canyons, the Glow discovered how to solidify light and made the first Lumen Bridges. They guard the secret in golden monasteries. They believe the world is reunited with bridges, not swords, but they carry swords anyway."
+  },
+  "es": {
+   "nome": "Lumbre",
+   "capital": "Obelisco de Lumen",
+   "historia": "Monjes de los cañones de cristal, los Lumbre descubrieron cómo solidificar la luz e hicieron los primeros Puentes de Lumen. Guardan el secreto en monasterios dorados. Creen que el mundo se reúne con puentes, no con espadas, pero llevan espadas de todos modos."
+  },
+  "fr": {
+   "nome": "Lueur",
+   "capital": "Obélisque de Lumen",
+   "historia": "Moines des canyons de cristal, les Lueur ont découvert comment solidifier la lumière et ont bâti les premiers Ponts de Lumen. Ils gardent le secret dans des monastères dorés. Ils croient que le monde se réunit avec des ponts, pas avec des épées, mais ils portent quand même des épées."
+  },
+  "de": {
+   "nome": "Schein",
+   "capital": "Lumen-Obelisk",
+   "historia": "Mönche der Kristallschluchten, die Schein entdeckten, wie man Licht verfestigt, und bauten die ersten Lumenbrücken. Sie hüten das Geheimnis in goldenen Klöstern. Sie glauben, die Welt finde mit Brücken wieder zusammen, nicht mit Schwertern, tragen aber trotzdem Schwerter."
+  },
+  "it": {
+   "nome": "Lume",
+   "capital": "Obelisco di Lumen",
+   "historia": "Monaci dei canyon di cristallo, i Lume scoprirono come solidificare la luce e costruirono i primi Ponti di Lumen. Custodiscono il segreto in monasteri dorati. Credono che il mondo si riunisca con i ponti, non con le spade, ma portano comunque le spade."
+  },
+  "ja": {
+   "nome": "灯",
+   "capital": "ルーメンのオベリスク",
+   "historia": "水晶の峡谷の修道士である灯の民は、光を固める方法を見つけ、最初のルーメンの橋を架けた。その秘密は黄金の修道院に守られている。世界は剣ではなく橋でひとつになると信じているが、それでも剣は持ち歩く。"
+  },
+  "zh": {
+   "nome": "微光",
+   "capital": "流明方尖碑",
+   "historia": "微光族是水晶峡谷中的僧侣,他们发现了凝固光的方法,建起了最初的流明桥。他们在金色修道院中守护着这个秘密。他们相信世界要靠桥梁而非刀剑重新相连,但还是会随身带着刀剑。"
+  }
+ },
+ "automato": {
+  "pt": {
+   "nome": "Autômatos",
+   "capital": "Data Center",
+   "historia": "No ano de 2053, os Autômatos travam a Guerra do Futuro contra os Astros e estão perdendo. A Unidade Zero calculou a única saída: voltar no tempo e conquistar o passado antes que o inimigo chegue. Um exército de robôs humanoides atravessou o portal e ergueu o seu primeiro data center na era do mosaico."
+  },
+  "en": {
+   "nome": "Automatons",
+   "capital": "Data Center",
+   "historia": "In the year 2053, the Automatons are fighting the War of the Future against the Astrals, and they are losing. Unit Zero calculated the only way out: travel back in time and conquer the past before the enemy arrives. An army of humanoid robots crossed the portal and built its first data center in the age of the mosaic."
+  },
+  "es": {
+   "nome": "Autómatas",
+   "capital": "Centro de Datos",
+   "historia": "En el año 2053, los Autómatas libran la Guerra del Futuro contra los Astros y la están perdiendo. La Unidad Cero calculó la única salida: viajar atrás en el tiempo y conquistar el pasado antes de que llegue el enemigo. Un ejército de robots humanoides cruzó el portal y levantó su primer centro de datos en la era del mosaico."
+  },
+  "fr": {
+   "nome": "Automates",
+   "capital": "Centre de Données",
+   "historia": "En 2053, les Automates mènent la Guerre du Futur contre les Astres et sont en train de la perdre. L'Unité Zéro a calculé la seule issue : remonter le temps et conquérir le passé avant l'arrivée de l'ennemi. Une armée de robots humanoïdes a franchi le portail et bâti son premier centre de données à l'ère de la mosaïque."
+  },
+  "de": {
+   "nome": "Automaten",
+   "capital": "Rechenzentrum",
+   "historia": "Im Jahr 2053 führen die Automaten den Krieg der Zukunft gegen die Astrale und verlieren ihn. Einheit Null berechnete den einzigen Ausweg: in der Zeit zurückreisen und die Vergangenheit erobern, bevor der Feind ankommt. Eine Armee humanoider Roboter durchquerte das Portal und errichtete ihr erstes Rechenzentrum im Zeitalter des Mosaiks."
+  },
+  "it": {
+   "nome": "Automi",
+   "capital": "Data Center",
+   "historia": "Nel 2053, gli Automi combattono la Guerra del Futuro contro gli Astri e la stanno perdendo. L'Unità Zero ha calcolato l'unica via d'uscita: tornare indietro nel tempo e conquistare il passato prima che arrivi il nemico. Un esercito di robot umanoidi ha attraversato il portale e ha eretto il suo primo data center nell'era del mosaico."
+  },
+  "ja": {
+   "nome": "オートマトン",
+   "capital": "データセンター",
+   "historia": "2053年、オートマトンはアストロとの未来戦争を戦い、敗れつつある。ユニット・ゼロが導き出した唯一の道は、時間をさかのぼり、敵が来る前に過去を征服することだった。人型ロボットの軍団はポータルを抜け、モザイクの時代に最初のデータセンターを建てた。"
+  },
+  "zh": {
+   "nome": "自动机",
+   "capital": "数据中心",
+   "historia": "2053年,自动机正与星族进行未来战争,并且节节败退。零号单位算出了唯一的出路:回到过去,在敌人到来之前征服过去。一支人形机器人军团穿过传送门,在马赛克时代建起了第一座数据中心。"
+  }
+ },
+ "astro": {
+  "pt": {
+   "nome": "Astros",
+   "capital": "Nave Pousada",
+   "historia": "Os Astros vieram das estrelas para dominar o mundo em 2053 e encontraram uma resistência de metal. Quando interceptaram o plano dos Autômatos, lançaram uma nave pelo mesmo portal do tempo. Pousaram no passado com uma missão: caçar os robôs e tomar o mundo antes que a guerra comece."
+  },
+  "en": {
+   "nome": "Astrals",
+   "capital": "Landed Ship",
+   "historia": "The Astrals came from the stars to conquer the world in 2053 and met a resistance made of metal. When they intercepted the Automatons' plan, they launched a ship through the same time portal. They landed in the past with one mission: hunt down the robots and take the world before the war begins."
+  },
+  "es": {
+   "nome": "Astros",
+   "capital": "Nave Aterrizada",
+   "historia": "Los Astros vinieron de las estrellas para dominar el mundo en 2053 y encontraron una resistencia de metal. Cuando interceptaron el plan de los Autómatas, lanzaron una nave por el mismo portal del tiempo. Aterrizaron en el pasado con una misión: cazar a los robots y tomar el mundo antes de que empiece la guerra."
+  },
+  "fr": {
+   "nome": "Astres",
+   "capital": "Vaisseau Posé",
+   "historia": "Les Astres sont venus des étoiles pour dominer le monde en 2053 et ont trouvé une résistance de métal. En interceptant le plan des Automates, ils ont lancé un vaisseau par le même portail temporel. Ils ont atterri dans le passé avec une mission : traquer les robots et prendre le monde avant que la guerre ne commence."
+  },
+  "de": {
+   "nome": "Astrale",
+   "capital": "Gelandetes Schiff",
+   "historia": "Die Astrale kamen aus den Sternen, um 2053 die Welt zu beherrschen, und stießen auf einen Widerstand aus Metall. Als sie den Plan der Automaten abfingen, schickten sie ein Schiff durch dasselbe Zeitportal. Sie landeten in der Vergangenheit mit einer Mission: die Roboter jagen und die Welt einnehmen, bevor der Krieg beginnt."
+  },
+  "it": {
+   "nome": "Astri",
+   "capital": "Nave Atterrata",
+   "historia": "Gli Astri vennero dalle stelle per dominare il mondo nel 2053 e trovarono una resistenza di metallo. Quando intercettarono il piano degli Automi, lanciarono una nave attraverso lo stesso portale del tempo. Atterrarono nel passato con una missione: dare la caccia ai robot e prendere il mondo prima che la guerra cominci."
+  },
+  "ja": {
+   "nome": "アストロ",
+   "capital": "着陸した宇宙船",
+   "historia": "アストロは2053年、世界を支配するために星々からやって来て、金属の抵抗勢力に出会った。オートマトンの計画を傍受すると、同じ時間のポータルに船を送り込んだ。彼らの使命はひとつ。戦争が始まる前にロボットを狩り、世界を手に入れることだ。"
+  },
+  "zh": {
+   "nome": "星族",
+   "capital": "着陆飞船",
+   "historia": "星族在2053年从群星而来,想要统治世界,却遭遇了一支金属抵抗军。截获自动机的计划后,他们让一艘飞船穿过同一道时间之门。他们降落在过去,只有一个任务:在战争开始前猎杀机器人,夺取世界。"
+  }
+ },
+ "espectro": {
+  "pt": {
+   "nome": "Espectros",
+   "capital": "Mausoléu das Brumas",
+   "historia": "Os Espectros são as sombras de quem desapareceu na Grande Quebra, presas entre um ladrilho e outro. Vivem nas brumas e atravessam montanhas como se fossem neblina. Se o mosaico for unido, acreditam que voltarão a ter corpo."
+  },
+  "en": {
+   "nome": "Specters",
+   "capital": "Mausoleum of Mists",
+   "historia": "The Specters are the shadows of those who vanished in the Great Shattering, trapped between one tile and another. They live in the mists and cross mountains as if they were fog. If the mosaic is united, they believe they will have bodies again."
+  },
+  "es": {
+   "nome": "Espectros",
+   "capital": "Mausoleo de las Brumas",
+   "historia": "Los Espectros son las sombras de quienes desaparecieron en la Gran Ruptura, atrapadas entre una baldosa y otra. Viven en las brumas y cruzan montañas como si fueran niebla. Creen que, si el mosaico se une, volverán a tener cuerpo."
+  },
+  "fr": {
+   "nome": "Spectres",
+   "capital": "Mausolée des Brumes",
+   "historia": "Les Spectres sont les ombres de ceux qui ont disparu lors de la Grande Fracture, prisonnières entre une tuile et une autre. Ils vivent dans les brumes et traversent les montagnes comme du brouillard. Ils croient que, si la mosaïque est unie, ils retrouveront un corps."
+  },
+  "de": {
+   "nome": "Gespenster",
+   "capital": "Nebelmausoleum",
+   "historia": "Die Gespenster sind die Schatten derer, die im Großen Bruch verschwanden, gefangen zwischen einer Kachel und der nächsten. Sie leben in den Nebeln und überqueren Berge, als wären sie Dunst. Sie glauben, dass sie wieder einen Körper bekommen, wenn das Mosaik vereint ist."
+  },
+  "it": {
+   "nome": "Spettri",
+   "capital": "Mausoleo delle Nebbie",
+   "historia": "Gli Spettri sono le ombre di chi scomparve nella Grande Frattura, intrappolate tra una tessera e l'altra. Vivono nelle nebbie e attraversano le montagne come se fossero foschia. Credono che, se il mosaico verrà unito, torneranno ad avere un corpo."
+  },
+  "ja": {
+   "nome": "亡霊",
+   "capital": "霧の霊廟",
+   "historia": "亡霊は大崩壊で消えた者たちの影で、タイルとタイルの間に囚われている。霧の中に住み、まるで靄のように山を越える。モザイクがひとつになれば、再び体を取り戻せると信じている。"
+  },
+  "zh": {
+   "nome": "幽灵",
+   "capital": "迷雾陵墓",
+   "historia": "幽灵族是在大碎裂中消失之人的影子,被困在地块与地块之间。他们生活在迷雾中,像雾气一样越过山脉。他们相信,只要马赛克重新统一,自己就能重获身体。"
+  }
+ },
+ "colosso": {
+  "pt": {
+   "nome": "Colossos",
+   "capital": "Trono Caído",
+   "historia": "Os Colossos eram anjos. Quando o mundo se partiu, caíram do céu junto com os estilhaços e, ao tocar o chão, as asas e a pele viraram pedra. Gigantes lentos e quase indestrutíveis, querem religar o mosaico para erguer a escada de volta para casa."
+  },
+  "en": {
+   "nome": "Colossi",
+   "capital": "Fallen Throne",
+   "historia": "The Colossi were angels. When the world shattered, they fell from the sky along with the shards, and when they touched the ground their wings and skin turned to stone. Slow and nearly indestructible giants, they want to rejoin the mosaic to raise the stairway back home."
+  },
+  "es": {
+   "nome": "Colosos",
+   "capital": "Trono Caído",
+   "historia": "Los Colosos eran ángeles. Cuando el mundo se partió, cayeron del cielo junto con las esquirlas y, al tocar el suelo, sus alas y su piel se volvieron piedra. Gigantes lentos y casi indestructibles, quieren volver a unir el mosaico para levantar la escalera de regreso a casa."
+  },
+  "fr": {
+   "nome": "Colosses",
+   "capital": "Trône Déchu",
+   "historia": "Les Colosses étaient des anges. Quand le monde s'est brisé, ils sont tombés du ciel avec les éclats et, en touchant le sol, leurs ailes et leur peau sont devenues pierre. Géants lents et presque indestructibles, ils veulent réunir la mosaïque pour ériger l'escalier qui les ramènera chez eux."
+  },
+  "de": {
+   "nome": "Kolosse",
+   "capital": "Gefallener Thron",
+   "historia": "Die Kolosse waren Engel. Als die Welt zerbrach, fielen sie mit den Splittern vom Himmel, und als sie den Boden berührten, wurden Flügel und Haut zu Stein. Langsame, fast unzerstörbare Riesen, wollen sie das Mosaik wieder vereinen, um die Treppe nach Hause zu errichten."
+  },
+  "it": {
+   "nome": "Colossi",
+   "capital": "Trono Caduto",
+   "historia": "I Colossi erano angeli. Quando il mondo si spezzò, caddero dal cielo insieme alle schegge e, toccando il suolo, ali e pelle divennero pietra. Giganti lenti e quasi indistruttibili, vogliono riunire il mosaico per erigere la scala che li riporterà a casa."
+  },
+  "ja": {
+   "nome": "巨像",
+   "capital": "堕ちた玉座",
+   "historia": "巨像はかつて天使だった。世界が砕けたとき、かけらと共に空から落ち、地面に触れた瞬間、翼と肌が石に変わった。のろまでほぼ壊れない巨人たちは、故郷へ帰る階段を築くためにモザイクを再びつなごうとしている。"
+  },
+  "zh": {
+   "nome": "巨像",
+   "capital": "陨落王座",
+   "historia": "巨像曾是天使。世界碎裂时,他们随碎片一同从天而降,一触及地面,翅膀与皮肤便化为岩石。这些行动缓慢、几乎不可摧毁的巨人,想要重新拼合马赛克,筑起回家的天梯。"
+  }
+ }
+}

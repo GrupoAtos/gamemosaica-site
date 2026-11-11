@@ -6,20 +6,39 @@
 <title>Mosaica · Estratégia por turnos em ilhas</title>
 <meta name="description" content="Mosaica é um jogo de estratégia por turnos em ilhas isométricas. Escolha um clã, explore a névoa e construa o maior reino em 30 turnos. Sem internet, sem anúncios.">
 <meta name="theme-color" content="#141236">
-<meta property="og:title" content="Mosaica">
-<meta property="og:description" content="Estratégia por turnos em ilhas. Partidas rápidas, sem internet e sem anúncios.">
+<meta property="og:title" content="Mosaica · Estratégia por turnos em ilhas">
+<meta property="og:description" content="Mosaica é um jogo de estratégia por turnos em ilhas isométricas. Escolha um clã, explore a névoa e construa o maior reino em 30 turnos. Sem internet, sem anúncios.">
 <meta property="og:image" content="https://gamemosaica.com/img/og.jpg">
 <meta property="og:url" content="https://gamemosaica.com/">
 <meta property="og:type" content="website">
+<link rel="canonical" href="https://gamemosaica.com/">
+<link rel="alternate" hreflang="pt-BR" href="https://gamemosaica.com/">
+<link rel="alternate" hreflang="en" href="https://gamemosaica.com/en/">
+<link rel="alternate" hreflang="es" href="https://gamemosaica.com/es/">
+<link rel="alternate" hreflang="fr" href="https://gamemosaica.com/fr/">
+<link rel="alternate" hreflang="de" href="https://gamemosaica.com/de/">
+<link rel="alternate" hreflang="it" href="https://gamemosaica.com/it/">
+<link rel="alternate" hreflang="ja" href="https://gamemosaica.com/ja/">
+<link rel="alternate" hreflang="zh-Hans" href="https://gamemosaica.com/zh/">
+<link rel="alternate" hreflang="x-default" href="https://gamemosaica.com/">
 <link rel="icon" href="/img/favicon.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <link rel="stylesheet" href="/style.css">
+<script>
+(function(){try{
+  var map={pt:'/',en:'/en/',es:'/es/',fr:'/fr/',de:'/de/',it:'/it/',ja:'/ja/',zh:'/zh/'};
+  var saved=null;try{saved=localStorage.getItem('site-idioma')}catch(e){}
+  if(saved){return;}
+  var l=(navigator.languages&&navigator.languages[0]||navigator.language||'pt').toLowerCase().slice(0,2);
+  if(l!=='pt'&&map[l]&&location.pathname==='/'&&!/[?&]lang=pt/.test(location.search))location.replace(map[l]);
+}catch(e){}})();
+</script>
 </head>
-<body>
-<div class="wrap">
+<body><div class="wrap">
   <header class="top">
     <a class="brand" href="/"><img src="/img/icone.webp" alt=""><span>MOSAICA</span></a>
-    <nav class="top"><a href="/jogar/">Jogar</a><a href="/suporte/">Suporte</a><a href="/privacidade/">Privacidade</a></nav>
+    <nav class="top"><a href="/jogar/">Jogar</a><a href="/clas/">Clãs</a><a href="/suporte/">Suporte</a>
+      <label class="lang-pick"><span class="sr">Idioma</span><select aria-label="Idioma" onchange="try{localStorage.setItem('site-idioma',this.options[this.selectedIndex].lang)}catch(e){};location.href=this.value"><option value="/" selected lang="pt-BR">Português</option><option value="/en/" lang="en">English</option><option value="/es/" lang="es">Español</option><option value="/fr/" lang="fr">Français</option><option value="/de/" lang="de">Deutsch</option><option value="/it/" lang="it">Italiano</option><option value="/ja/" lang="ja">日本語</option><option value="/zh/" lang="zh-Hans">简体中文</option></select></label></nav>
   </header>
 
   <div class="hero">
@@ -29,7 +48,7 @@
       <p class="lead">Um jogo de estratégia por turnos num mundo de ilhas isométricas. Lidere um clã, explore o mapa escondido pela névoa, funde cidades, pesquise tecnologias e dispute território com clãs rivais. Cada partida dura 30 turnos e cabe numa pausa do dia.</p>
       <div class="badges">
         <a class="btn primary" href="/jogar/">Jogar agora no navegador</a>
-        <a class="btn ghost" href="/suporte/">Precisa de ajuda?</a>
+        <a class="btn ghost" href="/clas/">Conheça os 12 clãs</a>
       </div>
       <p class="soon">Grátis, direto no navegador do computador ou do celular. Em breve na App Store e no Google Play.</p>
     </div>
@@ -41,7 +60,7 @@
 
   <section>
     <div class="grid">
-      <div class="card"><h3><span class="dot" style="background:var(--c1)"></span>12 clãs, 12 histórias</h3><p>Brasa, Maré, Raiz, Geada, Duna, Vento, Fera e Lume, mais os especiais Autômatos, Astros, Espectros e Colossos. Cada um tem sua história, uma unidade exclusiva, capital própria e uma Grande Obra.</p></div>
+      <div class="card"><h3><span class="dot" style="background:var(--c1)"></span>12 clãs, 12 histórias</h3><p>Cada clã tem sua história, uma unidade exclusiva, capital própria e uma Grande Obra. Quatro deles são especiais: Autômatos, Astros, Espectros e Colossos.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--c2)"></span>Lumens ✦</h3><p>Colha recursos, construa e treine unidades. Cada Lumen gasto é uma escolha.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--c3)"></span>Tecnologias</h3><p>Uma árvore em três níveis para seguir o seu caminho: comércio, guerra, mar ou diplomacia.</p></div>
       <div class="card"><h3><span class="dot" style="background:var(--c4)"></span>Tréguas e pactos</h3><p>Os rivais negociam, propõem paz e quebram acordos. Escolha bem em quem confiar.</p></div>
@@ -51,7 +70,7 @@
   </section>
 </div>
 <footer><div class="wrap">
-  <a href="/suporte/">Suporte</a><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos de Uso</a>
+  <a href="/jogar/">Jogar</a><a href="/clas/">Clãs</a><a href="/suporte/">Suporte</a><a href="/privacidade/">Privacidade</a><a href="/termos/">Termos de Uso</a>
   <div style="margin-top:10px">© 2026 Paulo Ricardo Pereira Serra</div>
 </div></footer>
 </body>
