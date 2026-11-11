@@ -70,7 +70,7 @@ def footer(l):
     return f'''</div>
 <footer><div class="wrap">
   <a href="/jogar/">{t["nav_play"]}</a><a href="{url(l, "clas/")}">{t["nav_clans"]}</a><a href="{url(l, "suporte/")}">{t["nav_support"]}</a><a href="{url(l, "privacidade/")}">{t["nav_privacy"]}</a><a href="{url(l, "termos/")}">{t["nav_terms"]}</a>
-  <div style="margin-top:10px">© 2026 Paulo Ricardo Pereira Serra</div>
+  <div style="margin-top:10px">© 2026 ATOS PRODUÇÕES</div>
 </div></footer>
 </body>
 </html>
