@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#14163a">
-<meta name="description" content="Jogue Mosaica no navegador: estratégia por turnos em ilhas, 12 clãs, 30 turnos.">
+<meta name="description" content="Jogue Mosaica no navegador: estratégia por turnos em ilhas, 12 clãs, 32 turnos.">
 <link rel="icon" href="/img/favicon.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <title>Mosaica</title>
@@ -333,7 +333,10 @@ function detectLang(){try{const s=localStorage.getItem(LANG_KEY);if(s&&LANGS[s])
   for(const l of list){const b=String(l).toLowerCase().split(/[-_]/)[0];if(LANGS[b])return b;}return 'en';}
 let LANG=detectLang();
 const L10N=(()=>{const R=window.MOSAICA_L10N||{},o={};if(R.keys)for(const l in R){if(l==='keys')continue;o[l]={};R.keys.forEach((k,i)=>{if(R[l][i]!=null)o[l][k]=R[l][i];});}return o;})();
-(()=>{const X=window.MOSAICA_L10N_X||{};['en','es','fr','de','it','ja','zh'].forEach((l,i)=>{L10N[l]=L10N[l]||{};for(const k in X)if(L10N[l][k]==null&&X[k][i]!=null)L10N[l][k]=X[k][i];});})();
+window.MOSAICA_L10N_V={" e um Fragmento do Mosaico ({n}/3)": [" and a Mosaic Fragment ({n}/3)", " y un Fragmento del Mosaico ({n}/3)", " et un Fragment de la Mosaïque ({n}/3)", " und ein Mosaikfragment ({n}/3)", " e un Frammento del Mosaico ({n}/3)", "と、モザイクのかけら（{n}/3）", "，以及一块马赛克碎片（{n}/3）"], "+100 pontos e +1 de população nas suas outras cidades": ["+100 points and +1 population in your other cities", "+100 puntos y +1 de población en tus otras ciudades", "+100 points et +1 population dans vos autres villes", "+100 Punkte und +1 Bevölkerung in deinen anderen Städten", "+100 punti e +1 popolazione nelle tue altre città", "+100ポイント、ほかの都市の人口+1", "+100 分，其他城市人口 +1"], "+2 vagas de unidade nesta cidade": ["+2 unit slots in this city", "+2 plazas de unidad en esta ciudad", "+2 places d'unité dans cette ville", "+2 Einheitenplätze in dieser Stadt", "+2 posti unità in questa città", "この都市のユニット枠+2", "本城单位上限 +2"], "+{n} pontos acumulados (até +120)": ["+{n} points gathered (up to +120)", "+{n} puntos acumulados (hasta +120)", "+{n} points accumulés (jusqu'à +120)", "+{n} Punkte gesammelt (bis +120)", "+{n} punti accumulati (fino a +120)", "+{n}ポイント蓄積（最大+120）", "已累积 +{n} 分（最多 +120）"], ", alvo congelado": [", target frozen", ", objetivo congelado", ", cible gelée", ", Ziel eingefroren", ", bersaglio congelato", "、標的は凍結", "，目标被冰冻"], ", alvo em chamas": [", target on fire", ", objetivo en llamas", ", cible en feu", ", Ziel brennt", ", bersaglio in fiamme", "、標的は炎上", "，目标起火"], ", alvo enraizado": [", target rooted", ", objetivo enraizado", ", cible enracinée", ", Ziel verwurzelt", ", bersaglio radicato", "、標的は根に縛られた", "，目标被缠根"], ", estilhaços nos vizinhos": [", shards hit the neighbors", ", esquirlas a los vecinos", ", éclats sur les voisins", ", Splitter treffen die Nachbarn", ", schegge sui vicini", "、破片が周囲に命中", "，碎片波及周围"], "Abrir clareira (vira campo)": ["Open a clearing (becomes field)", "Abrir un claro (se vuelve campo)", "Ouvrir une clairière (devient champ)", "Lichtung schlagen (wird Feld)", "Aprire una radura (diventa campo)", "森を切り開く（平地になる）", "开辟林间空地（变为平原）"], "Altar da Calma": ["Altar of Calm", "Altar de la Calma", "Autel du Calme", "Altar der Ruhe", "Altare della Calma", "静けさの祭壇", "宁静祭坛"], "Altar de pedra com um cristal de Lumen. Pode ser erguido em campo ou floresta livres; cada novo santuário custa 4 ✦ a mais. Vale +10 pontos a cada 3 turnos, até +120.": ["Stone altar with a Lumen crystal. Can be raised on free fields or forests; each new shrine costs 4 ✦ more. Worth +10 points every 3 turns, up to +120.", "Altar de piedra con un cristal de Lumen. Se puede levantar en campo o bosque libres; cada santuario nuevo cuesta 4 ✦ más. Vale +10 puntos cada 3 turnos, hasta +120.", "Autel de pierre avec un cristal de Lumen. Peut être érigé sur un champ ou une forêt libres ; chaque nouveau sanctuaire coûte 4 ✦ de plus. Vaut +10 points tous les 3 tours, jusqu'à +120.", "Steinaltar mit einem Lumenkristall. Kann auf freiem Feld oder Wald errichtet werden; jedes neue Heiligtum kostet 4 ✦ mehr. Bringt alle 3 Runden +10 Punkte, bis +120.", "Altare di pietra con un cristallo di Lumen. Si erige su campo o foresta liberi; ogni nuovo santuario costa 4 ✦ in più. Vale +10 punti ogni 3 turni, fino a +120.", "ルーメンの結晶をのせた石の祭壇。空いている平地か森に建てられ、新しい聖堂は4 ✦ずつ高くなる。3ターンごとに+10ポイント（最大+120）。", "嵌着流明水晶的石坛。可建在空闲的平原或森林；每座新圣所多花 4 ✦。每 3 回合 +10 分，最多 +120。"], "Amistoso": ["Friendly", "Amistoso", "Amical", "Freundlich", "Amichevole", "友好的", "友好"], "Arma de cerco que dispara a 3 casas. Frágil de perto. Estilhaço: atinge também os inimigos ao lado do alvo.": ["Siege weapon that fires 3 tiles away. Fragile up close. Shards: also hits enemies next to the target.", "Arma de asedio que dispara a 3 casillas. Frágil de cerca. Esquirlas: también golpea a los enemigos junto al objetivo.", "Arme de siège qui tire à 3 cases. Fragile de près. Éclats : touche aussi les ennemis à côté de la cible.", "Belagerungswaffe mit 3 Feldern Reichweite. Im Nahkampf zerbrechlich. Splitter: trifft auch Feinde neben dem Ziel.", "Arma d'assedio che spara a 3 caselle. Fragile da vicino. Schegge: colpisce anche i nemici accanto al bersaglio.", "3マス先を撃つ攻城兵器。接近戦に弱い。破片：標的の隣の敵にも当たる。", "射程 3 格的攻城武器，近战脆弱。碎片：同时击中目标旁的敌人。"], "As próximas 2 tecnologias custam metade": ["Your next 2 technologies cost half", "Las próximas 2 tecnologías cuestan la mitad", "Les 2 prochaines technologies coûtent moitié prix", "Die nächsten 2 Technologien kosten die Hälfte", "Le prossime 2 tecnologie costano la metà", "次の2つの技術が半額", "接下来 2 项科技半价"], "Ataca e recua no campo": ["Attacks and retreats on fields", "Ataca y se retira en el campo", "Attaque et recule en plaine", "Greift an und zieht sich auf Feldern zurück", "Attacca e si ritira in campo aperto", "平地では攻撃後に退ける", "在平原上可攻击后撤退"], "Ataca sem sofrer contra-ataque. Bruma: invisível para quem não estiver ao lado.": ["Attacks without counterattack. Mist: invisible to anyone not next to it.", "Ataca sin sufrir contraataque. Bruma: invisible para quien no esté al lado.", "Attaque sans subir de riposte. Brume : invisible pour qui n'est pas à côté.", "Greift ohne Gegenangriff an. Nebel: unsichtbar für alle, die nicht daneben stehen.", "Attacca senza subire contrattacco. Bruma: invisibile a chi non è accanto.", "反撃を受けずに攻撃。霧：隣にいない相手からは見えない。", "攻击时不受反击。迷雾：不在身旁的单位看不见它。"], "Ateliê de Cristal": ["Crystal Workshop", "Taller de Cristal", "Atelier de Cristal", "Kristallwerkstatt", "Laboratorio di Cristallo", "水晶工房", "水晶工坊"], "Barato e veloz: anda 2 casas, ataca e recua. Investida: ao derrotar um inimigo, pode atacar de novo.": ["Cheap and fast: moves 2 tiles, attacks and retreats. Charge: after defeating an enemy, it can attack again.", "Barato y veloz: anda 2 casillas, ataca y se retira. Embestida: al derrotar a un enemigo, puede atacar de nuevo.", "Bon marché et rapide : 2 cases, attaque et recule. Charge : après avoir vaincu un ennemi, il peut attaquer encore.", "Billig und schnell: 2 Felder, greift an und zieht sich zurück. Ansturm: nach einem Sieg darf er erneut angreifen.", "Economico e veloce: 2 caselle, attacca e si ritira. Carica: dopo aver sconfitto un nemico, può attaccare di nuovo.", "安くて速い：2マス移動し、攻撃して退く。突撃：敵を倒すともう一度攻撃できる。", "便宜又迅速：移动 2 格，攻击后撤退。冲锋：击败敌人后可再次攻击。"], "Barco de Guerra": ["Warboat", "Barco de Guerra", "Navire de guerre", "Kriegsboot", "Nave da guerra", "軍船", "战船"], "Barcos de Lumen: construa um Porto na água rasa (Navegação). Uma unidade na água ao lado dele vira Barco de Guerra (alcance 2, exige Mar Aberto) ou Navio-Farol (+1 de movimento e +2 de visão).": ["Lumen Boats: build a Port in shallow water (Navigation). A unit on the water next to it becomes a Warboat (range 2, needs Open Sea) or a Lightship (+1 movement and +2 vision).", "Barcos de Lumen: construye un Puerto en agua poco profunda (Navegación). Una unidad en el agua a su lado se vuelve Barco de Guerra (alcance 2, requiere Mar Abierto) o Barco-Faro (+1 de movimiento y +2 de visión).", "Bateaux de Lumen : construisez un Port en eau peu profonde (Navigation). Une unité sur l'eau à côté devient Navire de guerre (portée 2, exige Haute Mer) ou Bateau-phare (+1 déplacement et +2 vision).", "Lumenboote: Baue einen Hafen im Flachwasser (Navigation). Eine Einheit im Wasser daneben wird zum Kriegsboot (Reichweite 2, braucht Offenes Meer) oder Leuchtschiff (+1 Bewegung, +2 Sicht).", "Barche di Lumen: costruisci un Porto in acqua bassa (Navigazione). Un'unità in acqua accanto diventa Nave da guerra (gittata 2, richiede Mare Aperto) o Nave-faro (+1 movimento e +2 visuale).", "ルーメンの船：浅瀬に港を建てる（航海術）。隣の水上ユニットは軍船（射程2、外洋が必要）か灯台船（移動+1、視界+2）になれる。", "流明之船：在浅水建造港口（航海）。港口旁水上的单位可变为战船（射程 2，需要远洋）或灯船（移动 +1，视野 +2）。"], "Biblioteca de Cristal": ["Crystal Library", "Biblioteca de Cristal", "Bibliothèque de Cristal", "Kristallbibliothek", "Biblioteca di Cristallo", "水晶の図書館", "水晶图书馆"], "Bruma": ["Mist", "Bruma", "Brume", "Nebel", "Bruma", "霧", "迷雾"], "Bruma: invisível para quem não estiver ao lado. Ao entrar numa cidade rival, deixa a cidade instável por 2 turnos e some.": ["Mist: invisible to anyone not next to it. Entering a rival city makes it unstable for 2 turns, then it vanishes.", "Bruma: invisible para quien no esté al lado. Al entrar en una ciudad rival, la deja inestable 2 turnos y desaparece.", "Brume : invisible pour qui n'est pas à côté. En entrant dans une ville rivale, la rend instable 2 tours et disparaît.", "Nebel: unsichtbar für alle, die nicht daneben stehen. Betritt sie eine gegnerische Stadt, wird diese 2 Runden instabil und sie verschwindet.", "Bruma: invisibile a chi non è accanto. Entrando in una città rivale la rende instabile per 2 turni e svanisce.", "霧：隣にいない相手からは見えない。敵の都市に入ると2ターン不安定にして消える。", "迷雾：不在身旁的单位看不见它。进入敌方城市会使其动荡 2 回合，然后消失。"], "Cais de madeira com uma lanterna de Lumen, na água rasa. Um por cidade. Uma unidade na água ao lado do porto pode virar Barco de Guerra (alcance 2) ou Navio-Farol (+1 de movimento e +2 de visão). Exige Navegação.": ["Wooden pier with a Lumen lantern, in shallow water. One per city. A unit on the water next to the port can become a Warboat (range 2) or a Lightship (+1 movement and +2 vision). Needs Navigation.", "Muelle de madera con una linterna de Lumen, en agua poco profunda. Uno por ciudad. Una unidad en el agua junto al puerto puede volverse Barco de Guerra (alcance 2) o Barco-Faro (+1 de movimiento y +2 de visión). Requiere Navegación.", "Quai en bois avec une lanterne de Lumen, en eau peu profonde. Un par ville. Une unité sur l'eau à côté du port peut devenir Navire de guerre (portée 2) ou Bateau-phare (+1 déplacement et +2 vision). Exige Navigation.", "Holzsteg mit Lumenlaterne im Flachwasser. Einer pro Stadt. Eine Einheit im Wasser daneben kann zum Kriegsboot (Reichweite 2) oder Leuchtschiff (+1 Bewegung, +2 Sicht) werden. Braucht Navigation.", "Molo di legno con una lanterna di Lumen, in acqua bassa. Uno per città. Un'unità in acqua accanto al porto può diventare Nave da guerra (gittata 2) o Nave-faro (+1 movimento e +2 visuale). Richiede Navigazione.", "浅瀬に立つルーメンのランタン付きの木の桟橋。都市ごとに1つ。隣の水上ユニットは軍船（射程2）か灯台船（移動+1、視界+2）になれる。航海術が必要。", "浅水中挂着流明灯的木码头。每城一座。港口旁水上的单位可变为战船（射程 2）或灯船（移动 +1，视野 +2）。需要航海。"], "Canta para um inimigo com metade da vida ou menos e o traz para o seu clã.": ["Sings to an enemy at half health or less and brings it to your clan.", "Canta a un enemigo con la mitad de vida o menos y lo trae a tu clan.", "Chante pour un ennemi à moitié de sa vie ou moins et le rallie à votre clan.", "Singt für einen Feind mit halber Lebenskraft oder weniger und holt ihn in deinen Clan.", "Canta a un nemico con metà vita o meno e lo porta nel tuo clan.", "体力が半分以下の敵に歌いかけ、自分の部族に迎え入れる。", "向生命值不足一半的敌人歌唱，将其带入你的部族。"], "Cantor de Lumen": ["Lumen Singer", "Cantor de Lumen", "Chanteur de Lumen", "Lumensänger", "Cantore di Lumen", "ルーメンの歌い手", "流明歌者"], "Cofre de Lumen": ["Lumen Vault", "Cofre de Lumen", "Coffre de Lumen", "Lumentresor", "Forziere di Lumen", "ルーメンの金庫", "流明宝库"], "Comprar Muralha em qualquer cidade (6 ✦) e treinar a Guarda de Cristal (14 de vida, ataque 3, defesa 3).": ["Buy a Wall in any city (6 ✦) and train the Crystal Guard (14 health, attack 3, defense 3).", "Comprar Muralla en cualquier ciudad (6 ✦) y entrenar la Guardia de Cristal (14 de vida, ataque 3, defensa 3).", "Acheter une Muraille dans n'importe quelle ville (6 ✦) et entraîner la Garde de Cristal (14 vie, attaque 3, défense 3).", "Mauer in jeder Stadt kaufen (6 ✦) und die Kristallwache ausbilden (14 Leben, Angriff 3, Verteidigung 3).", "Comprare Mura in qualsiasi città (6 ✦) e addestrare la Guardia di Cristallo (14 vita, attacco 3, difesa 3).", "どの都市でも城壁を購入（6 ✦）、水晶の衛兵を訓練（体力14、攻撃3、防御3）。", "可在任意城市购买城墙（6 ✦），并训练水晶卫士（生命 14，攻击 3，防御 3）。"], "Congela": ["Freezes", "Congela", "Gèle", "Friert ein", "Congela", "凍らせる", "冰冻"], "Construir Mina no minério (+2 pop) e Ateliê de Cristal ao lado das minas (+1 ✦ por mina vizinha).": ["Build a Mine on ore (+2 pop) and a Crystal Workshop next to mines (+1 ✦ per nearby mine).", "Construir Mina en el mineral (+2 pob) y Taller de Cristal junto a las minas (+1 ✦ por mina vecina).", "Construire une Mine sur le minerai (+2 pop) et un Atelier de Cristal près des mines (+1 ✦ par mine voisine).", "Mine auf Erz bauen (+2 Bev.) und Kristallwerkstatt neben Minen (+1 ✦ pro Nachbarmine).", "Costruire Miniera sul minerale (+2 pop) e Laboratorio di Cristallo vicino alle miniere (+1 ✦ per miniera vicina).", "鉱石に鉱山（人口+2）、鉱山の隣に水晶工房（隣の鉱山1つにつき+1 ✦）を建てる。", "在矿石上建矿场（人口 +2），并在矿场旁建水晶工坊（每座相邻矿场 +1 ✦）。"], "Construir ateliê de cristal": ["Build crystal workshop", "Construir taller de cristal", "Construire un atelier de cristal", "Kristallwerkstatt bauen", "Costruire laboratorio di cristallo", "水晶工房を建てる", "建造水晶工坊"], "Construir porto de Lumen": ["Build Lumen port", "Construir puerto de Lumen", "Construire un port de Lumen", "Lumenhafen bauen", "Costruire porto di Lumen", "ルーメンの港を建てる", "建造流明港口"], "Construção · +1 pop": ["Building · +1 pop", "Construcción · +1 pob", "Bâtiment · +1 pop", "Gebäude · +1 Bev.", "Edificio · +1 pop", "建物 · 人口+1", "建筑 · 人口 +1"], "Construção · +1 pop · +1 ✦ por mina vizinha": ["Building · +1 pop · +1 ✦ per nearby mine", "Construcción · +1 pob · +1 ✦ por mina vecina", "Bâtiment · +1 pop · +1 ✦ par mine voisine", "Gebäude · +1 Bev. · +1 ✦ pro Nachbarmine", "Edificio · +1 pop · +1 ✦ per miniera vicina", "建物 · 人口+1 · 隣の鉱山1つにつき+1 ✦", "建筑 · 人口 +1 · 每座相邻矿场 +1 ✦"], "Converte feridos": ["Converts the wounded", "Convierte heridos", "Convertit les blessés", "Bekehrt Verwundete", "Converte i feriti", "負傷者を改宗", "转化伤员"], "Coro de Cristal": ["Crystal Choir", "Coro de Cristal", "Chœur de Cristal", "Kristallchor", "Coro di Cristallo", "水晶の聖歌隊", "水晶合唱团"], "Corrida": ["Race", "Carrera", "Course", "Wettlauf", "Corsa", "レース", "竞速"], "Desconfiado": ["Wary", "Desconfiado", "Méfiant", "Misstrauisch", "Diffidente", "警戒", "戒备"], "Dispensar": ["Dismiss", "Despedir", "Renvoyer", "Entlassen", "Congedare", "解散", "解散"], "Encerrar a partida livre": ["End the free game", "Terminar la partida libre", "Terminer la partie libre", "Freie Partie beenden", "Terminare la partita libera", "フリー対戦を終える", "结束自由对局"], "Enraíza": ["Roots", "Enraíza", "Enracine", "Verwurzelt", "Radica", "根で縛る", "缠根"], "Entrar em água rasa, pescar (+1 pop) e construir Porto de Lumen.": ["Enter shallow water, fish (+1 pop) and build a Lumen Port.", "Entrar en agua poco profunda, pescar (+1 pob) y construir Puerto de Lumen.", "Entrer en eau peu profonde, pêcher (+1 pop) et construire un Port de Lumen.", "Flachwasser betreten, fischen (+1 Bev.) und Lumenhafen bauen.", "Entrare in acqua bassa, pescare (+1 pop) e costruire il Porto di Lumen.", "浅瀬に入り、漁をし（人口+1）、ルーメンの港を建てる。", "进入浅水、捕鱼（人口 +1）并建造流明港口。"], "Escola de Lumen": ["Lumen School", "Escuela de Lumen", "École de Lumen", "Lumenschule", "Scuola di Lumen", "ルーメンの学校", "流明学堂"], "Estilhaço": ["Shards", "Esquirlas", "Éclats", "Splitter", "Schegge", "破片", "碎片"], "Faz tempo que você não os ataca": ["You haven't attacked them in a long time", "Hace tiempo que no los atacas", "Vous ne les avez pas attaqués depuis longtemps", "Du hast sie lange nicht angegriffen", "È da tempo che non li attacchi", "しばらく攻撃していない", "你很久没有攻击他们了"], "Fio de Lumen: ligada à capital por terra do clã (+1 ✦).": ["Lumen Thread: linked to the capital by clan land (+1 ✦).", "Hilo de Lumen: unida a la capital por tierra del clan (+1 ✦).", "Fil de Lumen : reliée à la capitale par les terres du clan (+1 ✦).", "Lumenfaden: über Clanland mit der Hauptstadt verbunden (+1 ✦).", "Filo di Lumen: collegata alla capitale da terre del clan (+1 ✦).", "ルーメンの糸：部族の土地で首都とつながっている（+1 ✦）。", "流明之线：通过部族土地与首都相连（+1 ✦）。"], "Fios de Lumen: cada cidade de nível 2 ou mais ligada à capital por terra do clã (ou ponte) rende +1 ✦ (⟡ no nome). Um inimigo parado no caminho corta o fio.": ["Lumen Threads: each city of level 2 or more linked to the capital by clan land (or bridge) earns +1 ✦ (⟡ by its name). An enemy standing on the path cuts the thread.", "Hilos de Lumen: cada ciudad de nivel 2 o más unida a la capital por tierra del clan (o puente) rinde +1 ✦ (⟡ en el nombre). Un enemigo en el camino corta el hilo.", "Fils de Lumen : chaque ville de niveau 2 ou plus reliée à la capitale par les terres du clan (ou un pont) rapporte +1 ✦ (⟡ dans le nom). Un ennemi sur le chemin coupe le fil.", "Lumenfäden: Jede Stadt ab Stufe 2, die über Clanland (oder Brücke) mit der Hauptstadt verbunden ist, bringt +1 ✦ (⟡ im Namen). Ein Feind auf dem Weg kappt den Faden.", "Fili di Lumen: ogni città di livello 2 o più collegata alla capitale da terre del clan (o ponte) rende +1 ✦ (⟡ nel nome). Un nemico sul percorso taglia il filo.", "ルーメンの糸：部族の土地（または橋）で首都とつながったレベル2以上の都市は+1 ✦（名前に⟡）。途中に敵がいると糸が切れる。", "流明之线：通过部族土地（或桥）与首都相连、等级 2 以上的城市 +1 ✦（名字旁有 ⟡）。路上有敌人会切断丝线。"], "Guarda de Cristal": ["Crystal Guard", "Guardia de Cristal", "Garde de Cristal", "Kristallwache", "Guardia di Cristallo", "水晶の衛兵", "水晶卫士"], "Habilidades: Investida (ataca de novo após derrotar), Estilhaço (atinge os vizinhos do alvo), Bruma (invisível de longe), Enraizar, Congelar e Queimar.": ["Abilities: Charge (attacks again after a win), Shards (hits the target's neighbors), Mist (invisible from afar), Root, Freeze and Burn.", "Habilidades: Embestida (ataca de nuevo tras derrotar), Esquirlas (golpea a los vecinos del objetivo), Bruma (invisible de lejos), Enraizar, Congelar y Quemar.", "Capacités : Charge (attaque encore après une victoire), Éclats (touche les voisins de la cible), Brume (invisible de loin), Enraciner, Geler et Brûler.", "Fähigkeiten: Ansturm (greift nach einem Sieg erneut an), Splitter (trifft die Nachbarn des Ziels), Nebel (aus der Ferne unsichtbar), Verwurzeln, Einfrieren und Verbrennen.", "Abilità: Carica (attacca di nuovo dopo una vittoria), Schegge (colpisce i vicini del bersaglio), Bruma (invisibile da lontano), Radicare, Congelare e Bruciare.", "能力：突撃（倒すと再攻撃）、破片（標的の隣にも命中）、霧（遠くから見えない）、根縛り、凍結、炎上。", "能力：冲锋（击败后再次攻击）、碎片（波及目标周围）、迷雾（远处不可见）、缠根、冰冻与灼烧。"], "Hostil": ["Hostile", "Hostil", "Hostile", "Feindselig", "Ostile", "敵対的", "敌对"], "Humor dos clãs: no painel Pactos, cada rival mostra o que pensa de você. Um clã hostil recusa tréguas e mira as suas cidades.": ["Clan mood: in the Pacts panel, each rival shows what it thinks of you. A hostile clan refuses truces and targets your cities.", "Humor de los clanes: en el panel Pactos, cada rival muestra lo que piensa de ti. Un clan hostil rechaza treguas y apunta a tus ciudades.", "Humeur des clans : dans le panneau Pactes, chaque rival montre ce qu'il pense de vous. Un clan hostile refuse les trêves et vise vos villes.", "Clanstimmung: Im Pakte-Fenster zeigt jeder Rivale, was er von dir hält. Ein feindseliger Clan lehnt Waffenruhen ab und zielt auf deine Städte.", "Umore dei clan: nel pannello Patti ogni rivale mostra cosa pensa di te. Un clan ostile rifiuta le tregue e punta alle tue città.", "部族の気分：協定画面で各ライバルがあなたをどう思っているか表示。敵対的な部族は休戦を断り、あなたの都市を狙う。", "部族情绪：在盟约面板中，每个对手都会显示对你的看法。敌对部族会拒绝休战并瞄准你的城市。"], "Humor: {m}": ["Mood: {m}", "Humor: {m}", "Humeur : {m}", "Stimmung: {m}", "Umore: {m}", "気分：{m}", "情绪：{m}"], "Infantaria pesada: +1 de defesa no território do clã.": ["Heavy infantry: +1 defense in clan territory.", "Infantería pesada: +1 de defensa en el territorio del clan.", "Infanterie lourde : +1 défense sur le territoire du clan.", "Schwere Infanterie: +1 Verteidigung im Clangebiet.", "Fanteria pesante: +1 difesa nel territorio del clan.", "重歩兵：部族の領土で防御+1。", "重步兵：在部族领土内防御 +1。"], "Investida": ["Charge", "Embestida", "Charge", "Ansturm", "Carica", "突撃", "冲锋"], "Juntar 3 Fragmentos do Mosaico nas ruínas": ["Gather 3 Mosaic Fragments from ruins", "Reunir 3 Fragmentos del Mosaico en las ruinas", "Réunir 3 Fragments de la Mosaïque dans les ruines", "3 Mosaikfragmente in Ruinen sammeln", "Raccogliere 3 Frammenti del Mosaico nelle rovine", "遺跡でモザイクのかけらを3つ集める", "在遗迹中收集 3 块马赛克碎片"], "Juntar 60 ✦ de uma vez": ["Hold 60 ✦ at once", "Juntar 60 ✦ a la vez", "Réunir 60 ✦ d'un coup", "60 ✦ auf einmal besitzen", "Accumulare 60 ✦ in una volta", "一度に60 ✦を貯める", "一次存下 60 ✦"], "Lança fogo a 2 casas com ataque 3 e deixa o alvo queimando (1 de dano por 2 turnos).": ["Throws fire 2 tiles away with attack 3 and leaves the target burning (1 damage for 2 turns).", "Lanza fuego a 2 casillas con ataque 3 y deja el objetivo ardiendo (1 de daño por 2 turnos).", "Lance du feu à 2 cases avec attaque 3 et laisse la cible en feu (1 dégât pendant 2 tours).", "Wirft Feuer 2 Felder weit mit Angriff 3 und lässt das Ziel brennen (1 Schaden für 2 Runden).", "Lancia fuoco a 2 caselle con attacco 3 e lascia il bersaglio in fiamme (1 danno per 2 turni).", "2マス先へ攻撃3の炎を放ち、標的を燃やす（2ターンの間1ダメージ）。", "向 2 格外喷火，攻击 3，并使目标燃烧（2 回合内每回合 1 点伤害）。"], "Lendária": ["Legendary", "Legendaria", "Légendaire", "Legendär", "Leggendaria", "伝説", "传奇"], "Livre": ["Free", "Libre", "Libre", "Frei", "Libera", "フリー", "自由"], "Moldar o terreno: com Lavoura dá para abrir clareiras na floresta; os Brasa fazem queimadas férteis e os Raiz plantam bosques.": ["Shape the land: with Farming you can open clearings in forests; the Ember burn fertile clearings and the Root plant groves.", "Moldear el terreno: con Labranza puedes abrir claros en el bosque; los Brasa hacen quemas fértiles y los Raíz plantan bosques.", "Modeler le terrain : avec l'Agriculture, ouvrez des clairières ; les Braise font des brûlis fertiles et les Racine plantent des bosquets.", "Land formen: Mit Ackerbau schlägst du Lichtungen; die Glut brennen fruchtbare Flächen und die Wurzel pflanzen Haine.", "Modellare il terreno: con l'Agricoltura apri radure nella foresta; i Brace fanno roghi fertili e i Radice piantano boschetti.", "地形を変える：農耕で森を切り開ける。ブラサは肥沃な焼き畑を、ライズは林を植えられる。", "塑造地形：掌握农耕后可在森林开辟空地；余烬族能烧出肥沃土地，根系族能种植树林。"], "Montaria pesada: 16 de vida e ataque 3. O golpe congela: o alvo perde o próximo ataque.": ["Heavy mount: 16 health and attack 3. Its blow freezes: the target loses its next attack.", "Montura pesada: 16 de vida y ataque 3. El golpe congela: el objetivo pierde su próximo ataque.", "Monture lourde : 16 vie et attaque 3. Son coup gèle : la cible perd sa prochaine attaque.", "Schweres Reittier: 16 Leben und Angriff 3. Der Schlag friert ein: Das Ziel verliert seinen nächsten Angriff.", "Cavalcatura pesante: 16 vita e attacco 3. Il colpo congela: il bersaglio perde il prossimo attacco.", "重騎乗：体力16、攻撃3。一撃で凍らせ、標的は次の攻撃を失う。", "重型坐骑：生命 16，攻击 3。一击冰冻：目标失去下一次攻击。"], "Mosaico Completo": ["Complete Mosaic", "Mosaico Completo", "Mosaïque Complète", "Vollständiges Mosaik", "Mosaico Completo", "完成したモザイク", "完整马赛克"], "Na água: +1 de movimento e +2 de visão.": ["On water: +1 movement and +2 vision.", "En el agua: +1 de movimiento y +2 de visión.", "Sur l'eau : +1 déplacement et +2 vision.", "Auf dem Wasser: +1 Bewegung und +2 Sicht.", "In acqua: +1 movimento e +2 visuale.", "水上：移動+1、視界+2。", "水上：移动 +1，视野 +2。"], "Na água: alcance 2.": ["On water: range 2.", "En el agua: alcance 2.", "Sur l'eau : portée 2.", "Auf dem Wasser: Reichweite 2.", "In acqua: gittata 2.", "水上：射程2。", "水上：射程 2。"], "Navio-Farol": ["Lightship", "Barco-Faro", "Bateau-phare", "Leuchtschiff", "Nave-faro", "灯台船", "灯船"], "Neutro": ["Neutral", "Neutral", "Neutre", "Neutral", "Neutrale", "中立", "中立"], "No começo do turno, cura 3 de vida dos aliados vizinhos. Seu golpe enraíza: o alvo não anda no turno seguinte.": ["At the start of the turn, heals 3 health of nearby allies. Its blow roots: the target can't move next turn.", "Al comienzo del turno, cura 3 de vida a los aliados vecinos. Su golpe enraíza: el objetivo no anda el turno siguiente.", "Au début du tour, soigne 3 vie des alliés voisins. Son coup enracine : la cible ne bouge pas au tour suivant.", "Heilt zu Rundenbeginn 3 Leben benachbarter Verbündeter. Sein Schlag verwurzelt: Das Ziel kann in der nächsten Runde nicht ziehen.", "All'inizio del turno cura 3 vita agli alleati vicini. Il suo colpo radica: il bersaglio non si muove nel turno seguente.", "ターン開始時、隣の味方の体力を3回復。一撃で根を張らせ、標的は次のターン動けない。", "回合开始时为相邻友军恢复 3 点生命。一击缠根：目标下回合无法移动。"], "Oficina que lapida os cristais das minas ao redor. Rende +1 ✦ por turno para cada mina vizinha (até 3). Exige Mineração e uma mina ao lado.": ["Workshop that cuts the crystals of nearby mines. Earns +1 ✦ per turn for each neighboring mine (up to 3). Needs Mining and a mine next to it.", "Taller que talla los cristales de las minas cercanas. Rinde +1 ✦ por turno por cada mina vecina (hasta 3). Requiere Minería y una mina al lado.", "Atelier qui taille les cristaux des mines voisines. Rapporte +1 ✦ par tour par mine voisine (jusqu'à 3). Exige Exploitation minière et une mine à côté.", "Werkstatt, die die Kristalle der nahen Minen schleift. Bringt +1 ✦ pro Runde je Nachbarmine (bis 3). Braucht Bergbau und eine Mine daneben.", "Laboratorio che taglia i cristalli delle miniere vicine. Rende +1 ✦ a turno per ogni miniera vicina (fino a 3). Richiede Estrazione e una miniera accanto.", "周りの鉱山の水晶を磨く工房。隣の鉱山1つにつき毎ターン+1 ✦（最大3）。採掘と隣の鉱山が必要。", "打磨周围矿场水晶的工坊。每座相邻矿场每回合 +1 ✦（最多 3）。需要采矿且旁边有矿场。"], "Partida livre encerrada no turno {n}.": ["Free game ended on turn {n}.", "Partida libre terminada en el turno {n}.", "Partie libre terminée au tour {n}.", "Freie Partie in Runde {n} beendet.", "Partita libera terminata al turno {n}.", "フリー対戦はターン{n}で終了。", "自由对局于第 {n} 回合结束。"], "Passar 8 turnos seguidos sem atacar (a partir do turno 12)": ["Go 8 turns in a row without attacking (from turn 12)", "Pasar 8 turnos seguidos sin atacar (desde el turno 12)", "Passer 8 tours d'affilée sans attaquer (dès le tour 12)", "8 Runden in Folge nicht angreifen (ab Runde 12)", "Passare 8 turni di fila senza attaccare (dal turno 12)", "8ターン連続で攻撃しない（ターン12以降）", "连续 8 回合不进攻（第 12 回合起）"], "Pesquisar todas as tecnologias": ["Research every technology", "Investigar todas las tecnologías", "Rechercher toutes les technologies", "Alle Technologien erforschen", "Ricercare tutte le tecnologie", "すべての技術を研究する", "研究全部科技"], "Plantar bosque (floresta com caça)": ["Plant a grove (forest with game)", "Plantar bosque (bosque con caza)", "Planter un bosquet (forêt avec gibier)", "Hain pflanzen (Wald mit Wild)", "Piantare un boschetto (foresta con selvaggina)", "林を植える（獲物のいる森）", "种植树林（有猎物的森林）"], "Porto de Lumen": ["Lumen Port", "Puerto de Lumen", "Port de Lumen", "Lumenhafen", "Porto di Lumen", "ルーメンの港", "流明港口"], "Propor pactos de trégua e treinar a Sombra (invisível, sabota cidades rivais).": ["Propose truce pacts and train the Shade (invisible, sabotages rival cities).", "Proponer pactos de tregua y entrenar la Sombra (invisible, sabotea ciudades rivales).", "Proposer des pactes de trêve et entraîner l'Ombre (invisible, sabote les villes rivales).", "Waffenruhen vorschlagen und den Schatten ausbilden (unsichtbar, sabotiert gegnerische Städte).", "Proporre patti di tregua e addestrare l'Ombra (invisibile, sabota le città rivali).", "休戦協定を提案し、影を訓練（見えず、敵の都市を妨害）。", "提议休战盟约并训练暗影（隐形，破坏敌方城市）。"], "Quartel": ["Barracks", "Cuartel", "Caserne", "Kaserne", "Caserma", "兵舎", "兵营"], "Queima": ["Burns", "Quema", "Brûle", "Verbrennt", "Brucia", "燃やす", "灼烧"], "Queimada fértil (campo com bagas)": ["Fertile burn (field with berries)", "Quema fértil (campo con bayas)", "Brûlis fertile (champ avec baies)", "Fruchtbares Abbrennen (Feld mit Beeren)", "Rogo fertile (campo con bacche)", "肥沃な焼き畑（ベリーのある平地）", "肥沃火耕（有浆果的平原）"], "Ressonância: fazenda, mina e serraria ao lado de outra igual rendem +1 pop por vizinha (até +2). O Ateliê de Cristal rende +1 ✦ por mina vizinha.": ["Resonance: a farm, mine or sawmill next to another of the same kind gives +1 pop per neighbor (up to +2). The Crystal Workshop earns +1 ✦ per nearby mine.", "Resonancia: granja, mina y aserradero junto a otro igual rinden +1 pob por vecino (hasta +2). El Taller de Cristal rinde +1 ✦ por mina vecina.", "Résonance : ferme, mine et scierie à côté d'une autre identique donnent +1 pop par voisine (jusqu'à +2). L'Atelier de Cristal rapporte +1 ✦ par mine voisine.", "Resonanz: Hof, Mine und Sägewerk neben einem gleichen bringen +1 Bev. pro Nachbar (bis +2). Die Kristallwerkstatt bringt +1 ✦ pro Nachbarmine.", "Risonanza: fattoria, miniera e segheria accanto a un'altra uguale danno +1 pop per vicina (fino a +2). Il Laboratorio di Cristallo rende +1 ✦ per miniera vicina.", "共鳴：同じ種類の隣にある農場・鉱山・製材所は隣1つにつき人口+1（最大+2）。水晶工房は隣の鉱山1つにつき+1 ✦。", "共鸣：农场、矿场和锯木厂紧邻同类时，每个相邻同类人口 +1（最多 +2）。水晶工坊每座相邻矿场 +1 ✦。"], "Sabota": ["Sabotages", "Sabotea", "Sabote", "Sabotiert", "Sabota", "妨害", "破坏"], "Sem Fio de Lumen: com nível 2 e terra do clã contínua até a capital (ou ponte), a cidade rende +1 ✦.": ["No Lumen Thread: at level 2 and with unbroken clan land to the capital (or a bridge), the city earns +1 ✦.", "Sin Hilo de Lumen: con nivel 2 y tierra del clan continua hasta la capital (o puente), la ciudad rinde +1 ✦.", "Pas de Fil de Lumen : au niveau 2 et avec des terres du clan continues jusqu'à la capitale (ou un pont), la ville rapporte +1 ✦.", "Kein Lumenfaden: Ab Stufe 2 und mit durchgehendem Clanland bis zur Hauptstadt (oder Brücke) bringt die Stadt +1 ✦.", "Senza Filo di Lumen: al livello 2 e con terre del clan continue fino alla capitale (o ponte), la città rende +1 ✦.", "ルーメンの糸なし：レベル2で、首都まで部族の土地（または橋）が続けば+1 ✦。", "无流明之线：等级 2 且部族土地（或桥）连续通往首都时，城市 +1 ✦。"], "Sem limite de turnos. Encerre pelo Menu quando quiser.": ["No turn limit. End it from the Menu whenever you like.", "Sin límite de turnos. Termina desde el Menú cuando quieras.", "Sans limite de tours. Terminez depuis le Menu quand vous voulez.", "Kein Rundenlimit. Beende sie im Menü, wann du willst.", "Senza limite di turni. Termina dal Menu quando vuoi.", "ターン制限なし。好きなときにメニューから終了。", "没有回合限制。可随时从菜单结束。"], "Seu exército está perto das cidades deles": ["Your army is near their cities", "Tu ejército está cerca de sus ciudades", "Votre armée est près de leurs villes", "Deine Armee steht nahe ihren Städten", "Il tuo esercito è vicino alle loro città", "あなたの軍が彼らの都市の近くにいる", "你的军队靠近他们的城市"], "Seu exército impõe respeito": ["Your army commands respect", "Tu ejército impone respeto", "Votre armée impose le respect", "Deine Armee verschafft Respekt", "Il tuo esercito impone rispetto", "あなたの軍は一目置かれている", "你的军队令人敬畏"], "Sombra": ["Shade", "Sombra", "Ombre", "Schatten", "Ombra", "影", "暗影"], "Sua Sombra sabotou {city}.": ["Your Shade sabotaged {city}.", "Tu Sombra saboteó {city}.", "Votre Ombre a saboté {city}.", "Dein Schatten hat {city} sabotiert.", "La tua Ombra ha sabotato {city}.", "あなたの影が{city}を妨害した。", "你的暗影破坏了{city}。"], "Suas fronteiras se tocam": ["Your borders touch", "Sus fronteras se tocan", "Vos frontières se touchent", "Eure Grenzen berühren sich", "I vostri confini si toccano", "国境が接している", "你们的边界相接"], "Tecnologia custa 3 + 2 × nível, mais metade de (nível + 1) por cidade além da primeira. Crescer rápido encarece a pesquisa.": ["Technology costs 3 + 2 × tier, plus half of (tier + 1) per city beyond the first. Growing fast makes research pricier.", "La tecnología cuesta 3 + 2 × nivel, más la mitad de (nivel + 1) por ciudad además de la primera. Crecer rápido encarece la investigación.", "Une technologie coûte 3 + 2 × niveau, plus la moitié de (niveau + 1) par ville au-delà de la première. Grandir vite renchérit la recherche.", "Technologie kostet 3 + 2 × Stufe, plus die Hälfte von (Stufe + 1) pro Stadt über die erste hinaus. Schnelles Wachstum verteuert die Forschung.", "La tecnologia costa 3 + 2 × livello, più metà di (livello + 1) per ogni città oltre la prima. Crescere in fretta rende la ricerca più cara.", "技術の費用は3＋2×段階、さらに2都市目から1都市ごとに（段階＋1）の半分。急成長すると研究が高くなる。", "科技花费 = 3 + 2 × 层级，首城之外每座城市再加 (层级 + 1) 的一半。扩张越快研究越贵。"], "Trégua de {n} turnos. Clãs atrás de você no placar quase sempre recusam, e o humor deles pesa na resposta. O tributo sobe a cada proposta.": ["Truce for {n} turns. Clans behind you on the scoreboard almost always refuse, and their mood weighs on the answer. The tribute rises with each offer.", "Tregua de {n} turnos. Los clanes por detrás de ti en el marcador casi siempre la rechazan, y su humor pesa en la respuesta. El tributo sube con cada propuesta.", "Trêve de {n} tours. Les clans derrière vous au classement refusent presque toujours, et leur humeur pèse dans la réponse. Le tribut augmente à chaque proposition.", "Waffenruhe für {n} Runden. Clans hinter dir in der Wertung lehnen fast immer ab, und ihre Stimmung zählt bei der Antwort. Der Tribut steigt mit jedem Angebot.", "Tregua di {n} turni. I clan dietro di te in classifica rifiutano quasi sempre, e il loro umore pesa sulla risposta. Il tributo sale a ogni proposta.", "{n}ターンの休戦。点数で後ろにいる部族はほぼ断り、相手の気分も返事に影響する。貢ぎ物は提案のたびに上がる。", "休战 {n} 回合。排名在你之后的部族几乎总会拒绝，他们的情绪也会影响答复。每次提议贡品都会上涨。"], "Tréguas duram 10 turnos, o tributo cai pela metade e você pode treinar o Cantor de Lumen (converte inimigos feridos).": ["Truces last 10 turns, the tribute is halved and you can train the Lumen Singer (converts wounded enemies).", "Las treguas duran 10 turnos, el tributo baja a la mitad y puedes entrenar el Cantor de Lumen (convierte enemigos heridos).", "Les trêves durent 10 tours, le tribut est divisé par deux et vous pouvez entraîner le Chanteur de Lumen (convertit les ennemis blessés).", "Waffenruhen dauern 10 Runden, der Tribut halbiert sich und du kannst den Lumensänger ausbilden (bekehrt verwundete Feinde).", "Le tregue durano 10 turni, il tributo si dimezza e puoi addestrare il Cantore di Lumen (converte i nemici feriti).", "休戦は10ターン続き、貢ぎ物は半分になり、ルーメンの歌い手（負傷した敵を改宗）を訓練できる。", "休战持续 10 回合，贡品减半，并可训练流明歌者（转化受伤的敌人）。"], "Uma Sombra de {c} sabotou {city}: 2 turnos de instabilidade.": ["A Shade of {c} sabotaged {city}: 2 turns of unrest.", "Una Sombra de {c} saboteó {city}: 2 turnos de inestabilidad.", "Une Ombre de {c} a saboté {city} : 2 tours d'instabilité.", "Ein Schatten der {c} hat {city} sabotiert: 2 Runden Unruhe.", "Un'Ombra di {c} ha sabotato {city}: 2 turni di instabilità.", "{c}の影が{city}を妨害：2ターン不安定。", "{c}的暗影破坏了{city}：动荡 2 回合。"], "Uma Sombra sabotou {city}!": ["A Shade sabotaged {city}!", "¡Una Sombra saboteó {city}!", "Une Ombre a saboté {city} !", "Ein Schatten hat {city} sabotiert!", "Un'Ombra ha sabotato {city}!", "影が{city}を妨害した！", "暗影破坏了{city}！"], "Vence quem chegar primeiro a {n} pontos.": ["First to reach {n} points wins.", "Gana quien llegue primero a {n} puntos.", "Le premier à {n} points gagne.", "Wer zuerst {n} Punkte erreicht, gewinnt.", "Vince chi arriva per primo a {n} punti.", "先に{n}ポイントに達した者の勝ち。", "最先达到 {n} 分者获胜。"], "Veterano: depois de 2 vitórias a unidade se cura e ganha +1 de ataque. Unidades podem ser dispensadas e devolvem metade do custo.": ["Veteran: after 2 wins a unit heals and gains +1 attack. Units can be dismissed and refund half their cost.", "Veterano: tras 2 victorias la unidad se cura y gana +1 de ataque. Las unidades se pueden despedir y devuelven la mitad del costo.", "Vétéran : après 2 victoires, l'unité se soigne et gagne +1 attaque. Les unités peuvent être renvoyées et rendent la moitié de leur coût.", "Veteran: Nach 2 Siegen heilt sich die Einheit und erhält +1 Angriff. Einheiten können entlassen werden und erstatten die Hälfte der Kosten.", "Veterano: dopo 2 vittorie l'unità si cura e ottiene +1 attacco. Le unità si possono congedare e rendono metà del costo.", "ベテラン：2勝すると回復し攻撃+1。ユニットは解散でき、費用の半分が戻る。", "老兵：获胜 2 次后单位痊愈并攻击 +1。单位可以解散，返还一半花费。"], "Vitória na Corrida": ["Race victory", "Victoria en la Carrera", "Victoire à la Course", "Sieg im Wettlauf", "Vittoria nella Corsa", "レースの勝利", "竞速胜利"], "Vitória por Corrida: vence quem chegar primeiro à meta de pontos. No modo Livre não há limite de turnos.": ["Race victory: the first to reach the points goal wins. In Free mode there is no turn limit.", "Victoria por Carrera: gana quien llegue primero a la meta de puntos. En el modo Libre no hay límite de turnos.", "Victoire à la Course : le premier à atteindre l'objectif de points gagne. En mode Libre, pas de limite de tours.", "Wettlaufsieg: Wer zuerst das Punkteziel erreicht, gewinnt. Im freien Modus gibt es kein Rundenlimit.", "Vittoria nella Corsa: vince chi raggiunge per primo l'obiettivo di punti. Nella modalità Libera non c'è limite di turni.", "レース勝利：先に目標点に届いた者の勝ち。フリーではターン制限なし。", "竞速胜利：最先达到目标分数者获胜。自由模式没有回合限制。"], "Você atacou unidades deles há pouco": ["You attacked their units recently", "Atacaste sus unidades hace poco", "Vous avez attaqué leurs unités récemment", "Du hast kürzlich ihre Einheiten angegriffen", "Hai attaccato le loro unità da poco", "最近、彼らのユニットを攻撃した", "你最近攻击了他们的单位"], "Você chegou a {n} pontos primeiro.": ["You reached {n} points first.", "Llegaste primero a {n} puntos.", "Vous avez atteint {n} points en premier.", "Du hast als Erster {n} Punkte erreicht.", "Sei arrivato per primo a {n} punti.", "あなたが最初に{n}ポイントに達した。", "你率先达到了 {n} 分。"], "Você está muito à frente no placar": ["You are far ahead on the scoreboard", "Vas muy por delante en el marcador", "Vous êtes loin devant au classement", "Du liegst in der Wertung weit vorn", "Sei molto avanti in classifica", "点数で大きくリードしている", "你在排行榜上遥遥领先"], "Você nunca atacou este clã": ["You have never attacked this clan", "Nunca atacaste a este clan", "Vous n'avez jamais attaqué ce clan", "Du hast diesen Clan nie angegriffen", "Non hai mai attaccato questo clan", "この部族を一度も攻撃していない", "你从未攻击过这个部族"], "Vocês estão em trégua": ["You are in a truce", "Están en tregua", "Vous êtes en trêve", "Ihr habt eine Waffenruhe", "Siete in tregua", "休戦中", "你们正在休战"], "Vocês têm um inimigo em comum": ["You share a common enemy", "Tienen un enemigo en común", "Vous avez un ennemi commun", "Ihr habt einen gemeinsamen Feind", "Avete un nemico comune", "共通の敵がいる", "你们有共同的敌人"], "convertido!": ["converted!", "¡convertido!", "converti !", "bekehrt!", "convertito!", "改宗！", "已转化！"], "ligada à capital": ["linked to the capital", "unida a la capital", "reliée à la capitale", "mit der Hauptstadt verbunden", "collegata alla capitale", "首都とつながる", "与首都相连"], "sementes para {city} (+2 pop)": ["seeds for {city} (+2 pop)", "semillas para {city} (+2 pob)", "des graines pour {city} (+2 pop)", "Saatgut für {city} (+2 Bev.)", "semi per {city} (+2 pop)", "{city}への種（人口+2）", "给{city}的种子（人口 +2）"], "turno": ["turn", "turno", "tour", "Runde", "turno", "ターン", "回合"], "um {u} veterano que se juntou ao clã": ["a veteran {u} who joined the clan", "un {u} veterano que se unió al clan", "un {u} vétéran qui a rejoint le clan", "einen {u}-Veteranen, der sich dem Clan anschloss", "un {u} veterano che si è unito al clan", "部族に加わったベテランの{u}", "一名加入部族的老兵{u}"], "vence quem tiver mais pontos": ["most points wins", "gana quien tenga más puntos", "le plus de points gagne", "die meisten Punkte gewinnen", "vince chi ha più punti", "点数が最も多い者の勝ち", "分数最高者获胜"], "{a} ({ac}) converteu {d} de {dc}.": ["{a} ({ac}) converted {d} from {dc}.", "{a} ({ac}) convirtió a {d} de {dc}.", "{a} ({ac}) a converti {d} de {dc}.", "{a} ({ac}) hat {d} der {dc} bekehrt.", "{a} ({ac}) ha convertito {d} di {dc}.", "{a}（{ac}）が{dc}の{d}を改宗させた。", "{a}（{ac}）转化了{dc}的{d}。"], "{c} chegou a {n} pontos primeiro. Você ficou em {o} lugar.": ["{c} reached {n} points first. You finished {o}.", "{c} llegó primero a {n} puntos. Quedaste en {o} lugar.", "{c} a atteint {n} points en premier. Vous êtes {o}.", "{c} hat zuerst {n} Punkte erreicht. Du wurdest {o}.", "{c} è arrivato per primo a {n} punti. Sei arrivato {o}.", "{c}が先に{n}ポイントに達した。あなたは{o}。", "{c}率先达到 {n} 分。你获得{o}。"], "{u} de {c} virou {s}.": ["{u} of {c} became a {s}.", "{u} de {c} se volvió {s}.", "{u} de {c} est devenu {s}.", "{u} der {c} wurde zum {s}.", "{u} di {c} è diventato {s}.", "{c}の{u}が{s}になった。", "{c}的{u}变成了{s}。"], "{u} foi dispensado (+{n} ✦).": ["{u} was dismissed (+{n} ✦).", "{u} fue despedido (+{n} ✦).", "{u} a été renvoyé (+{n} ✦).", "{u} wurde entlassen (+{n} ✦).", "{u} è stato congedato (+{n} ✦).", "{u}を解散した（+{n} ✦）。", "{u}已解散（+{n} ✦）。"], "{u} ganhou +1 de ataque": ["{u} gained +1 attack", "{u} ganó +1 de ataque", "{u} gagne +1 attaque", "{u} erhält +1 Angriff", "{u} ottiene +1 attacco", "{u}の攻撃+1", "{u}攻击 +1"], "❄️ Congelado": ["❄️ Frozen", "❄️ Congelado", "❄️ Gelé", "❄️ Eingefroren", "❄️ Congelato", "❄️ 凍結", "❄️ 已冰冻"], "🌿 Enraizado": ["🌿 Rooted", "🌿 Enraizado", "🌿 Enraciné", "🌿 Verwurzelt", "🌿 Radicato", "🌿 根縛り", "🌿 被缠根"], "🔥 Em chamas": ["🔥 On fire", "🔥 En llamas", "🔥 En feu", "🔥 Brennt", "🔥 In fiamme", "🔥 炎上", "🔥 燃烧中"]};
+window.MOSAICA_L10N_Z={"Baleias": ["Whales", "Ballenas", "Baleines", "Wale", "Balene", "クジラ", "鲸鱼"], "Caçar baleia-de-luz": ["Hunt a light whale", "Cazar ballena de luz", "Chasser une baleine de lumière", "Lichtwal jagen", "Cacciare una balena di luce", "光クジラを狩る", "捕猎光鲸"], "Navegar no oceano e caçar baleias. Suas unidades na água ganham +1 de ataque.": ["Sail the ocean and hunt whales. Your units on water gain +1 attack.", "Navegar por el océano y cazar ballenas. Tus unidades en el agua ganan +1 de ataque.", "Naviguer sur l'océan et chasser les baleines. Vos unités sur l'eau gagnent +1 en attaque.", "Den Ozean befahren und Wale jagen. Deine Einheiten auf dem Wasser erhalten +1 Angriff.", "Navigare nell'oceano e cacciare balene. Le tue unità in acqua ottengono +1 di attacco.", "外洋を航海しクジラを狩る。水上のユニットは攻撃+1。", "可航行于海洋并捕猎鲸鱼。你在水上的单位攻击 +1。"], "Baleia-de-luz": ["Light whale", "Ballena de luz", "Baleine de lumière", "Lichtwal", "Balena di luce", "光クジラ", "光鲸"], "Recurso · oceano": ["Resource · ocean", "Recurso · océano", "Ressource · océan", "Ressource · Ozean", "Risorsa · oceano", "資源 · 外洋", "资源 · 海洋"], "Gigante luminosa do mar aberto. Cace com Mar Aberto (+2 pop).": ["Glowing giant of the open sea. Hunt it with Open Sea (+2 pop).", "Gigante luminosa del mar abierto. Cázala con Mar Abierto (+2 pob.).", "Géante lumineuse du large. Chassez-la avec Haute Mer (+2 pop).", "Leuchtender Riese der offenen See. Mit Hochsee jagen (+2 Bev.).", "Gigante luminosa del mare aperto. Cacciala con Mare Aperto (+2 pop).", "外洋に光る巨体。外洋で狩れる（人口+2）。", "开阔海域中发光的巨兽。研究远洋后可捕猎（人口 +2）。"], "Mapa": ["Map", "Mapa", "Carte", "Karte", "Mappa", "マップ", "地图"], "Continente": ["Continent", "Continente", "Continent", "Kontinent", "Continente", "大陸", "大陆"], "Arquipélago": ["Archipelago", "Archipiélago", "Archipel", "Archipel", "Arcipelago", "群島", "群岛"], "Ilhas separadas pelo mar: pesquise Navegação cedo.": ["Islands split by the sea: research Sailing early.", "Islas separadas por el mar: investiga Navegación pronto.", "Des îles séparées par la mer : recherchez la Navigation tôt.", "Inseln, getrennt durch das Meer: Erforsche früh die Seefahrt.", "Isole separate dal mare: ricerca presto la Navigazione.", "海で隔てられた島々：早めに航海を研究しよう。", "被海隔开的岛屿：尽早研究航海。"], "Uma grande terra no centro.": ["One large landmass in the center.", "Una gran tierra en el centro.", "Une grande terre au centre.", "Eine große Landmasse in der Mitte.", "Una grande terra al centro.", "中央に大きな大陸。", "中央有一大片陆地。"], "Coalizão: os outros clãs se unem contra {c} (+1 de ataque contra ele).": ["Coalition: the other clans unite against {c} (+1 attack against them).", "Coalición: los demás clanes se unen contra {c} (+1 de ataque contra él).", "Coalition : les autres clans s'unissent contre {c} (+1 en attaque contre lui).", "Koalition: Die anderen Clans verbünden sich gegen {c} (+1 Angriff gegen ihn).", "Coalizione: gli altri clan si alleano contro {c} (+1 di attacco contro di lui).", "連合：他の氏族が{c}に対抗して団結（{c}への攻撃+1）。", "联盟：其他氏族联合对抗 {c}（对其攻击 +1）。"], "Os outros clãs se uniram contra você: eles têm +1 de ataque contra o seu clã.": ["The other clans have united against you: they have +1 attack against your clan.", "Los demás clanes se unieron contra ti: tienen +1 de ataque contra tu clan.", "Les autres clans se sont unis contre vous : ils ont +1 en attaque contre votre clan.", "Die anderen Clans haben sich gegen dich verbündet: Sie haben +1 Angriff gegen deinen Clan.", "Gli altri clan si sono alleati contro di te: hanno +1 di attacco contro il tuo clan.", "他の氏族があなたに対抗して団結した：あなたの氏族への攻撃+1。", "其他氏族已联合对抗你：他们对你的氏族攻击 +1。"], "A coalizão contra {c} acabou.": ["The coalition against {c} has ended.", "La coalición contra {c} terminó.", "La coalition contre {c} est terminée.", "Die Koalition gegen {c} ist beendet.", "La coalizione contro {c} è finita.", "{c}への連合は解散した。", "针对 {c} 的联盟已解散。"], "Você perdeu {n} unidade.": ["You lost {n} unit.", "Perdiste {n} unidad.", "Vous avez perdu {n} unité.", "Du hast {n} Einheit verloren.", "Hai perso {n} unità.", "ユニットを{n}体失った。", "你损失了 {n} 个单位。"], "Você perdeu {n} unidades.": ["You lost {n} units.", "Perdiste {n} unidades.", "Vous avez perdu {n} unités.", "Du hast {n} Einheiten verloren.", "Hai perso {n} unità.", "ユニットを{n}体失った。", "你损失了 {n} 个单位。"], "Conquista desbloqueada: {t}": ["Achievement unlocked: {t}", "Logro desbloqueado: {t}", "Succès débloqué : {t}", "Erfolg freigeschaltet: {t}", "Obiettivo sbloccato: {t}", "実績解除：{t}", "成就解锁：{t}"], "Conquistas": ["Achievements", "Logros", "Succès", "Erfolge", "Obiettivi", "実績", "成就"], "Primeiro ladrilho": ["First tile", "Primera baldosa", "Première tuile", "Erste Kachel", "Prima tessera", "最初のタイル", "第一块瓦片"], "Termine uma partida.": ["Finish a match.", "Termina una partida.", "Terminez une partie.", "Beende eine Partie.", "Termina una partita.", "1試合を終える。", "完成一局游戏。"], "Veterano do mosaico": ["Mosaic veteran", "Veterano del mosaico", "Vétéran de la mosaïque", "Mosaik-Veteran", "Veterano del mosaico", "モザイクの古参", "马赛克老兵"], "Termine 10 partidas.": ["Finish 10 matches.", "Termina 10 partidas.", "Terminez 10 parties.", "Beende 10 Partien.", "Termina 10 partite.", "10試合を終える。", "完成 10 局游戏。"], "Primeira vitória": ["First victory", "Primera victoria", "Première victoire", "Erster Sieg", "Prima vittoria", "初勝利", "首次胜利"], "Vença uma partida.": ["Win a match.", "Gana una partida.", "Gagnez une partie.", "Gewinne eine Partie.", "Vinci una partita.", "1試合に勝つ。", "赢得一局游戏。"], "Termine os turnos com a maior pontuação.": ["Finish the turns with the highest score.", "Termina los turnos con la mayor puntuación.", "Terminez les tours avec le meilleur score.", "Beende die Runden mit der höchsten Punktzahl.", "Finisci i turni con il punteggio più alto.", "最終ターンで最高得点を取る。", "在回合结束时取得最高分。"], "Mosaico unido": ["Mosaic united", "Mosaico unido", "Mosaïque unie", "Vereintes Mosaik", "Mosaico unito", "ひとつになったモザイク", "统一的马赛克"], "Vença por dominação, sendo o último clã de pé.": ["Win by domination, as the last clan standing.", "Gana por dominación, como el último clan en pie.", "Gagnez par domination, en étant le dernier clan debout.", "Gewinne durch Vorherrschaft als letzter verbliebener Clan.", "Vinci per dominio, come ultimo clan in piedi.", "最後に残った氏族として制覇勝利する。", "以最后幸存的氏族取得统治胜利。"], "Senhor das capitais": ["Lord of capitals", "Señor de las capitales", "Seigneur des capitales", "Herr der Hauptstädte", "Signore delle capitali", "首都の覇者", "首都之主"], "Vença no modo Conquista.": ["Win in Conquest mode.", "Gana en el modo Conquista.", "Gagnez en mode Conquête.", "Gewinne im Eroberungsmodus.", "Vinci in modalità Conquista.", "征服モードで勝つ。", "在征服模式中获胜。"], "Contra a maré": ["Against the tide", "Contra la marea", "À contre-courant", "Gegen den Strom", "Controcorrente", "逆境に抗う", "逆流而上"], "Vença uma partida no Difícil.": ["Win a match on Hard.", "Gana una partida en Difícil.", "Gagnez une partie en Difficile.", "Gewinne eine Partie auf Schwer.", "Vinci una partita a Difficile.", "難しいで1試合に勝つ。", "在困难难度赢得一局。"], "Senhor das estações": ["Lord of the seasons", "Señor de las estaciones", "Seigneur des saisons", "Herr der Jahreszeiten", "Signore delle stagioni", "季節の覇者", "四季之主"], "Vença uma partida no modo Estações.": ["Win a match in Seasons mode.", "Gana una partida en el modo Estaciones.", "Gagnez une partie en mode Saisons.", "Gewinne eine Partie im Jahreszeiten-Modus.", "Vinci una partita in modalità Stagioni.", "季節モードで1試合に勝つ。", "在四季模式赢得一局。"], "Desafio aceito": ["Challenge accepted", "Desafío aceptado", "Défi relevé", "Herausforderung angenommen", "Sfida accettata", "挑戦受諾", "接受挑战"], "Termine um Desafio do dia.": ["Finish a Daily challenge.", "Termina un Desafío del día.", "Terminez un Défi du jour.", "Beende eine Tagesherausforderung.", "Termina una Sfida del giorno.", "デイリーチャレンジを1回終える。", "完成一次每日挑战。"], "Desafio vencido": ["Challenge won", "Desafío ganado", "Défi gagné", "Herausforderung gewonnen", "Sfida vinta", "チャレンジ制覇", "挑战胜利"], "Vença um Desafio do dia.": ["Win a Daily challenge.", "Gana un Desafío del día.", "Gagnez un Défi du jour.", "Gewinne eine Tagesherausforderung.", "Vinci una Sfida del giorno.", "デイリーチャレンジに勝つ。", "赢得一次每日挑战。"], "Todos os clãs": ["Every clan", "Todos los clanes", "Tous les clans", "Alle Clans", "Tutti i clan", "すべての氏族", "所有氏族"], "Vença com cada um dos clãs.": ["Win with each of the clans.", "Gana con cada uno de los clanes.", "Gagnez avec chacun des clans.", "Gewinne mit jedem der Clans.", "Vinci con ciascuno dei clan.", "すべての氏族で勝つ。", "用每个氏族各赢一次。"], "Coalizão: quem passar de 1,5 vez os pontos do 2º colocado enfrenta +1 de ataque de todos os outros clãs.": ["Coalition: whoever passes 1.5 times the points of second place faces +1 attack from every other clan.", "Coalición: quien supere 1,5 veces los puntos del 2.º enfrenta +1 de ataque de todos los demás clanes.", "Coalition : celui qui dépasse 1,5 fois les points du 2e subit +1 en attaque de tous les autres clans.", "Koalition: Wer mehr als das 1,5-Fache der Punkte des Zweiten hat, bekommt +1 Angriff von allen anderen Clans zu spüren.", "Coalizione: chi supera 1,5 volte i punti del 2º subisce +1 di attacco da tutti gli altri clan.", "連合：2位の1.5倍を超える得点の氏族は、他のすべての氏族から攻撃+1を受ける。", "联盟：分数超过第二名 1.5 倍的氏族，会受到其他所有氏族攻击 +1。"], "No oceano há baleias e naufrágios: pesquise Mar Aberto. Com ela, suas unidades na água ganham +1 de ataque.": ["The ocean has whales and shipwrecks: research Open Sea. With it, your units on water gain +1 attack.", "En el océano hay ballenas y naufragios: investiga Mar Abierto. Con ella, tus unidades en el agua ganan +1 de ataque.", "L'océan abrite des baleines et des épaves : recherchez Haute Mer. Avec elle, vos unités sur l'eau gagnent +1 en attaque.", "Im Ozean gibt es Wale und Wracks: Erforsche Hochsee. Damit erhalten deine Einheiten auf dem Wasser +1 Angriff.", "Nell'oceano ci sono balene e relitti: ricerca Mare Aperto. Con essa, le tue unità in acqua ottengono +1 di attacco.", "外洋にはクジラと難破船がある：外洋を研究しよう。水上のユニットは攻撃+1。", "海洋中有鲸鱼和沉船：研究远洋。研究后你在水上的单位攻击 +1。"]};
+window.MOSAICA_L10N_Y={"Pontes viram terra firme (a lava solidifica), Aríetes custam 5 ✦ e minas custam 3 ✦.": ["Bridges become solid ground (the lava hardens), Rams cost 5 ✦ and mines cost 3 ✦.", "Los puentes se vuelven tierra firme (la lava se solidifica), los Arietes cuestan 5 ✦ y las minas 3 ✦.", "Les ponts deviennent terre ferme (la lave se solidifie), les Béliers coûtent 5 ✦ et les mines 3 ✦.", "Brücken werden zu festem Boden (die Lava erstarrt), Rammböcke kosten 5 ✦ und Minen 3 ✦.", "I ponti diventano terraferma (la lava si solidifica), gli Arieti costano 5 ✦ e le miniere 3 ✦.", "橋は固い大地になり（溶岩が固まる）、破城槌は5 ✦、鉱山は3 ✦。", "桥梁会变成坚实的土地（熔岩凝固），攻城锤只需 5 ✦，矿场只需 3 ✦。"], "Balista": ["Ballista", "Balista", "Baliste", "Balliste", "Balista", "バリスタ", "弩车"], "Arma de cerco que dispara a 3 casas. Frágil de perto.": ["Siege weapon that fires 3 tiles away. Fragile up close.", "Arma de asedio que dispara a 3 casillas. Frágil de cerca.", "Arme de siège qui tire à 3 cases. Fragile au corps à corps.", "Belagerungswaffe, die 3 Felder weit schießt. Im Nahkampf zerbrechlich.", "Arma d'assedio che colpisce a 3 caselle. Fragile da vicino.", "3マス先まで撃てる攻城兵器。接近戦には弱い。", "可攻击 3 格外的攻城武器，近战很脆弱。"], "Todas as suas unidades ganham +1 de ataque e você pode treinar a Balista (alcance 3).": ["All your units gain +1 attack and you can train the Ballista (range 3).", "Todas tus unidades ganan +1 de ataque y puedes entrenar la Balista (alcance 3).", "Toutes vos unités gagnent +1 en attaque et vous pouvez entraîner la Baliste (portée 3).", "Alle deine Einheiten erhalten +1 Angriff und du kannst die Balliste ausbilden (Reichweite 3).", "Tutte le tue unità ottengono +1 di attacco e puoi addestrare la Balista (gittata 3).", "全ユニットの攻撃+1。バリスタ（射程3）を訓練できる。", "所有单位攻击 +1，并可训练弩车（射程 3）。"], "O recurso volta em {n} turno.": ["The resource returns in {n} turn.", "El recurso vuelve en {n} turno.", "La ressource revient dans {n} tour.", "Die Ressource kehrt in {n} Runde zurück.", "La risorsa torna tra {n} turno.", "資源は{n}ターン後に戻ります。", "资源将在 {n} 回合后恢复。"], "O recurso volta em {n} turnos.": ["The resource returns in {n} turns.", "El recurso vuelve en {n} turnos.", "La ressource revient dans {n} tours.", "Die Ressource kehrt in {n} Runden zurück.", "La risorsa torna tra {n} turni.", "資源は{n}ターン後に戻ります。", "资源将在 {n} 回合后恢复。"], "{c} fez uma Feira em {city}.": ["{c} held a Fair in {city}.", "{c} celebró una Feria en {city}.", "{c} a tenu une Foire à {city}.", "{c} hat in {city} einen Markttag gefeiert.", "{c} ha tenuto una Fiera a {city}.", "{c}が{city}で市を開いた。", "{c} 在 {city} 举办了集市。"], "Erguer uma Praça em cada cidade (8 ✦: +3 pop, +40 pontos). Cidade com Praça pode fazer uma Feira por turno (+2 pop).": ["Build a Plaza in each city (8 ✦: +3 pop, +40 points). A city with a Plaza can hold one Fair per turn (+2 pop).", "Construye una Plaza en cada ciudad (8 ✦: +3 pob., +40 puntos). Una ciudad con Plaza puede celebrar una Feria por turno (+2 pob.).", "Construire une Place dans chaque ville (8 ✦ : +3 pop, +40 points). Une ville avec une Place peut tenir une Foire par tour (+2 pop).", "Errichte in jeder Stadt einen Platz (8 ✦: +3 Bev., +40 Punkte). Eine Stadt mit Platz kann einen Markttag pro Runde abhalten (+2 Bev.).", "Costruisci una Piazza in ogni città (8 ✦: +3 pop, +40 punti). Una città con Piazza può tenere una Fiera per turno (+2 pop).", "各都市に広場を建てる（8 ✦：人口+3、+40点）。広場のある都市は毎ターン1回、市を開ける（人口+2）。", "在每座城市建造广场（8 ✦：人口 +3，+40 分）。有广场的城市每回合可举办一次集市（人口 +2）。"], "Feira · +2 pop": ["Fair · +2 pop", "Feria · +2 pob.", "Foire · +2 pop", "Markttag · +2 Bev.", "Fiera · +2 pop", "市 · 人口+2", "集市 · 人口 +2"], "Vitória por conquista": ["Victory by conquest", "Victoria por conquista", "Victoire par conquête", "Sieg durch Eroberung", "Vittoria per conquista", "征服勝利", "征服胜利"], "Vitória": ["Victory", "Victoria", "Victoire", "Sieg", "Vittoria", "勝利条件", "胜利"], "Pontos": ["Points", "Puntos", "Points", "Punkte", "Punti", "ポイント", "分数"], "Conquista": ["Conquest", "Conquista", "Conquête", "Eroberung", "Conquista", "征服", "征服"], "Mais pontos no turno {n}.": ["Most points on turn {n}.", "Más puntos en el turno {n}.", "Le plus de points au tour {n}.", "Die meisten Punkte in Runde {n}.", "Più punti al turno {n}.", "{n}ターン目に最も多くのポイント。", "第 {n} 回合时分数最高者获胜。"], "Frutas, caça e peixes colhidos voltam {r} turnos depois. Com Praça, a cidade pode fazer uma Feira por turno (+2 pop).": ["Harvested fruit, game and fish return {r} turns later. With a Plaza, a city can hold one Fair per turn (+2 pop).", "Las frutas, la caza y los peces recolectados vuelven {r} turnos después. Con Plaza, la ciudad puede celebrar una Feria por turno (+2 pob.).", "Les fruits, le gibier et les poissons récoltés reviennent {r} tours plus tard. Avec une Place, la ville peut tenir une Foire par tour (+2 pop).", "Geerntete Früchte, Wild und Fische kehren {r} Runden später zurück. Mit Platz kann die Stadt einen Markttag pro Runde abhalten (+2 Bev.).", "Frutti, selvaggina e pesci raccolti tornano dopo {r} turni. Con la Piazza, la città può tenere una Fiera per turno (+2 pop).", "収穫した果実・獲物・魚は{r}ターン後に戻る。広場のある都市は毎ターン1回、市を開ける（人口+2）。", "采集过的果实、猎物和鱼会在 {r} 回合后恢复。有广场的城市每回合可举办一次集市（人口 +2）。"], "Atravessa água rasa sem barco (gelo) e a capital já nasce com Muralha.": ["Crosses shallow water without boats (ice) and the capital starts with a Wall.", "Cruza agua poco profunda sin barco (hielo) y la capital empieza con Muralla.", "Traverse l'eau peu profonde sans bateau (glace) et la capitale commence avec une Muraille.", "Überquert seichtes Wasser ohne Boot (Eis), und die Hauptstadt beginnt mit einer Mauer.", "Attraversa l'acqua bassa senza barca (ghiaccio) e la capitale parte con le Mura.", "船なしで浅瀬を渡れる（氷）。首都は最初から城壁つき。", "无需船只即可穿越浅水（结冰），首都开局即有城墙。"], "Você domina {n} das {m} capitais.": ["You hold {n} of the {m} capitals.", "Dominas {n} de las {m} capitales.", "Vous tenez {n} des {m} capitales.", "Du hältst {n} der {m} Hauptstädte.", "Controlli {n} delle {m} capitali.", "{m}の首都のうち{n}つを支配した。", "你占领了 {m} 座首都中的 {n} 座。"], "{c} domina {n} das {m} capitais. Você ficou em {o} lugar.": ["{c} holds {n} of the {m} capitals. You finished {o}.", "{c} domina {n} de las {m} capitales. Quedaste en {o} lugar.", "{c} tient {n} des {m} capitales. Vous finissez {o}.", "{c} hält {n} der {m} Hauptstädte. Du wurdest {o}.", "{c} controlla {n} delle {m} capitali. Sei arrivato {o}.", "{c}が{m}の首都のうち{n}つを支配した。あなたは{o}位。", "{c} 占领了 {m} 座首都中的 {n} 座。你排名第 {o}。"], "Sem limite de turnos: vence quem tiver {n} das {m} capitais.": ["No turn limit: whoever holds {n} of the {m} capitals wins.", "Sin límite de turnos: gana quien tenga {n} de las {m} capitales.", "Sans limite de tours : celui qui tient {n} des {m} capitales gagne.", "Ohne Rundenlimit: Wer {n} der {m} Hauptstädte hält, gewinnt.", "Senza limite di turni: vince chi controlla {n} delle {m} capitali.", "ターン制限なし：{m}の首都のうち{n}つを持てば勝利。", "没有回合限制：占领 {m} 座首都中的 {n} 座即获胜。"], "Cada capital rival que você tiver vale +150 pontos. No modo Conquista não há limite de turnos: vence quem tiver dois terços das capitais (👑 no placar).": ["Each rival capital you hold is worth +150 points. In Conquest mode there is no turn limit: whoever holds two thirds of the capitals wins (👑 on the scoreboard).", "Cada capital rival que tengas vale +150 puntos. En el modo Conquista no hay límite de turnos: gana quien tenga dos tercios de las capitales (👑 en el marcador).", "Chaque capitale rivale que vous tenez vaut +150 points. En mode Conquête, pas de limite de tours : celui qui tient les deux tiers des capitales gagne (👑 au tableau).", "Jede gegnerische Hauptstadt in deinem Besitz bringt +150 Punkte. Im Eroberungsmodus gibt es kein Rundenlimit: Wer zwei Drittel der Hauptstädte hält, gewinnt (👑 in der Anzeige).", "Ogni capitale rivale che possiedi vale +150 punti. In modalità Conquista non c'è limite di turni: vince chi controlla due terzi delle capitali (👑 nel punteggio).", "保持しているライバルの首都1つにつき+150点。征服モードはターン制限なし：首都の3分の2を持てば勝利（スコアの👑）。", "你占有的每座敌方首都 +150 分。征服模式没有回合限制：占领三分之二的首都即获胜（计分板上的 👑）。"]};
+(()=>{const X=Object.assign({},window.MOSAICA_L10N_X||{},window.MOSAICA_L10N_Y||{},window.MOSAICA_L10N_Z||{},window.MOSAICA_L10N_V||{});['en','es','fr','de','it','ja','zh'].forEach((l,i)=>{L10N[l]=L10N[l]||{};for(const k in X)if(L10N[l][k]==null&&X[k][i]!=null)L10N[l][k]=X[k][i];});})();
 let TRLAST='';
 function tr(s,v){TRLAST=s;let o=s;if(LANG!=='pt'){const d=L10N[LANG];if(d&&d[s]!=null)o=d[s];}
   if(v)o=o.replace(/\{(\w+)\}/g,(m,k)=>v[k]!=null?v[k]:m);return o;}
@@ -363,10 +366,10 @@ function openLang(){openModal(`<h2>${tr('Idioma')}</h2><div class="mlist">${Obje
 // ======================= DADOS DO JOGO =======================
 let N = 14, MAX_TURNS = 30; const K = 4, SEASON_LEN = 8;
 const CLANS = {
-  brasa:{n:'Brasa', color:'#ef7f5e', env:'vulcões e cinza', tech:'forja', trait:'Pontes viram terra firme (a lava solidifica) e Aríetes custam 5 ✦.', fav:'montanha'},
+  brasa:{n:'Brasa', color:'#ef7f5e', env:'vulcões e cinza', tech:'forja', trait:'Pontes viram terra firme (a lava solidifica), Aríetes custam 5 ✦ e minas custam 3 ✦.', fav:'montanha'},
   mare:{n:'Maré', color:'#45c2d1', env:'recifes', tech:'navegacao', trait:'Porto: unidades na água têm +1 de movimento e pescar custa 1 ✦.', fav:'agua'},
   raiz:{n:'Raiz', color:'#7fcf68', env:'floresta densa', tech:'coleta', trait:'Unidades na floresta têm +1 de defesa.', fav:'floresta'},
-  geada:{n:'Geada', color:'#a7b4ff', env:'tundra', tech:'escalada', trait:'Atravessa água rasa sem barco (gelo).', fav:'montanha'},
+  geada:{n:'Geada', color:'#a7b4ff', env:'tundra', tech:'escalada', trait:'Atravessa água rasa sem barco (gelo) e a capital já nasce com Muralha.', fav:'montanha'},
   duna:{n:'Duna', color:'#f0c04f', env:'deserto', tech:'comercio', trait:'Oásis: o mercado custa 3 ✦ e as Caravanas trazem Lumens.', fav:'campo'},
   vento:{n:'Vento', color:'#e08ad0', env:'planaltos', tech:'montaria', trait:'Cavaleiros têm +1 de movimento e custam 3 ✦.', fav:'campo'},
   fera:{n:'Fera', color:'#b5703f', env:'savanas e matas', tech:'caca', trait:'Matilha: caçar custa só 1 ✦.', fav:'floresta'},
@@ -381,7 +384,11 @@ const CAPITAL={'brasa': 'Forja-Vulcão', 'mare': 'Farol de Coral', 'raiz': 'Casa
 for(const k in CLANS){CLANS[k].lore=LORE[k];CLANS[k].cap=CAPITAL[k];}
 const BASE_CLANS=Object.keys(CLANS).filter(k=>!CLANS[k].special);
 // Tamanhos de mapa: lado, turnos e máximo de clãs na partida.
-const SIZES={padrao:{n:14,t:30,max:4,nm:'Padrão'},grande:{n:18,t:40,max:6,nm:'Grande'},enorme:{n:22,t:50,max:8,nm:'Enorme'}};
+const turnCap=()=>!S?MAX_TURNS:S.win==='conquista'?MAX_TURNS*3:S.win==='corrida'?MAX_TURNS*2:S.win==='livre'?9999:MAX_TURNS;
+const raceGoal=()=>({padrao:4000,grande:6000,enorme:8000}[S&&S.size]||4000);
+const capsNeed=n=>n<=2?n:Math.ceil(n*2/3); // Conquista: dois terços das capitais iniciais
+const isCap0=c=>c.id<S.players.length; // as capitais iniciais são as primeiras cidades (id = jogador)
+const SIZES={padrao:{n:15,t:32,max:4,nm:'Padrão'},grande:{n:18,t:40,max:6,nm:'Grande'},enorme:{n:22,t:50,max:8,nm:'Enorme'}};
 function setSize(k){const z=SIZES[k]||SIZES.padrao;N=z.n;MAX_TURNS=z.t;return z;}
 // Loja: só existe no app (window.MosaicaLoja injetado pelo app). Na web tudo fica liberado.
 const SHOP=()=>{const L=window.MosaicaLoja;return L&&L.nativo?L:null;};
@@ -390,6 +397,9 @@ const FREE_CLANS=['brasa','mare','raiz','geada','duna','vento'];
 const clanLocked=k=>!FREE_CLANS.includes(k)&&!owns('clas_extras');
 const sizeLocked=k=>k!=='padrao'&&!owns('mapas_grandes');
 const countLocked=n=>n>4&&!owns('mais_clas');
+// Loja oculta (app sem compras por enquanto): o que seria pago simplesmente não aparece.
+const HID=()=>{const L=SHOP();return !!(L&&L.oculta);};
+const clanShown=k=>!(HID()&&clanLocked(k));
 // Economia própria: clãs que não caçam nem plantam aproveitam os mesmos recursos de outro jeito.
 // h = ação sobre o recurso, b = ação de construir, tech = nome da tecnologia para esse clã.
 const ECO={
@@ -413,7 +423,7 @@ function ecoAfter(){const X=ECO_CUR?ECO[ECO_CUR]:null;if(!X)return;const g=(a,n)
 const TECHS = {
   coleta:{n:'Coleta',tier:1,req:null,d:'Colher frutas no campo (+1 pop).'},
   caca:{n:'Caça',tier:1,req:null,d:'Caçar animais na floresta (+1 pop).'},
-  navegacao:{n:'Navegação',tier:1,req:null,d:'Entrar em água rasa e pescar (+1 pop).'},
+  navegacao:{n:'Navegação',tier:1,req:null,d:'Entrar em água rasa, pescar (+1 pop) e construir Porto de Lumen.'},
   escalada:{n:'Escalada',tier:1,req:null,d:'Subir montanhas (defesa ×1,5).'},
   forja:{n:'Forja',tier:1,req:null,d:'Treinar Lanceiro (defesa 3).'},
   montaria:{n:'Montaria',tier:1,req:null,d:'Treinar Cavaleiro (move 2, ataca e recua).'},
@@ -421,19 +431,19 @@ const TECHS = {
   lumenaria:{n:'Lumenaria',tier:1,req:null,d:'Erguer Pontes de Lumen sobre água rasa (duram 8 turnos).'},
   lavoura:{n:'Lavoura',tier:2,req:'coleta',d:'Construir Fazenda no campo (+2 pop).'},
   arqueria:{n:'Arqueria',tier:2,req:'caca',d:'Treinar Fundeiro (alcance 2).'},
-  maraberto:{n:'Mar Aberto',tier:2,req:'navegacao',d:'Navegar no oceano.'},
-  mineracao:{n:'Mineração',tier:2,req:'escalada',d:'Construir Mina no minério (+2 pop).'},
+  maraberto:{n:'Mar Aberto',tier:2,req:'navegacao',d:'Navegar no oceano e caçar baleias. Suas unidades na água ganham +1 de ataque.'},
+  mineracao:{n:'Mineração',tier:2,req:'escalada',d:'Construir Mina no minério (+2 pop) e Ateliê de Cristal ao lado das minas (+1 ✦ por mina vizinha).'},
   cerco:{n:'Cerco',tier:2,req:'forja',d:'Treinar Aríete (ataque 4).'},
-  diplomacia:{n:'Diplomacia',tier:2,req:'comercio',d:'Propor pactos de trégua.'},
+  diplomacia:{n:'Diplomacia',tier:2,req:'comercio',d:'Propor pactos de trégua e treinar a Sombra (invisível, sabota cidades rivais).'},
   desbravamento:{n:'Desbravamento',tier:2,req:'montaria',d:'Ampliar o território de qualquer cidade para raio 2 (6 ✦), sem esperar o nível 4.'},
   engenharia:{n:'Engenharia',tier:2,req:'lumenaria',d:'Erguer a Grande Obra do seu clã na capital (30 ✦, uma por partida).'},
-  urbanismo:{n:'Urbanismo',tier:3,req:'lavoura',d:'Erguer uma Praça em cada cidade (8 ✦: +3 pop, +40 pontos).'},
+  urbanismo:{n:'Urbanismo',tier:3,req:'lavoura',d:'Erguer uma Praça em cada cidade (8 ✦: +3 pop, +40 pontos). Cidade com Praça pode fazer uma Feira por turno (+2 pop).'},
   cartografia:{n:'Cartografia',tier:3,req:'maraberto',d:'Revela o mapa inteiro na hora.'},
-  taticas:{n:'Táticas',tier:3,req:'cerco',d:'Todas as suas unidades ganham +1 de ataque.'},
-  fortificacao:{n:'Fortificação',tier:3,req:'mineracao',d:'Comprar Muralha em qualquer cidade (6 ✦).'},
+  taticas:{n:'Táticas',tier:3,req:'cerco',d:'Todas as suas unidades ganham +1 de ataque e você pode treinar a Balista (alcance 3).'},
+  fortificacao:{n:'Fortificação',tier:3,req:'mineracao',d:'Comprar Muralha em qualquer cidade (6 ✦) e treinar a Guarda de Cristal (14 de vida, ataque 3, defesa 3).'},
   silvicultura:{n:'Silvicultura',tier:3,req:'arqueria',d:'Construir Serraria na floresta (+2 pop) e caçar rende +1 pop a mais.'},
   arquitetura:{n:'Arquitetura',tier:3,req:'engenharia',d:'Fazendas, minas e serrarias dão +1 pop (as já construídas também), cada mercado rende +1 ✦ e as pontes ficam permanentes.'},
-  alianca:{n:'Aliança',tier:3,req:'diplomacia',d:'Tréguas duram 10 turnos e o tributo cai pela metade.'},
+  alianca:{n:'Aliança',tier:3,req:'diplomacia',d:'Tréguas duram 10 turnos, o tributo cai pela metade e você pode treinar o Cantor de Lumen (converte inimigos feridos).'},
 };
 const GREAT = {
   brasa:{n:'Forja Eterna',d:'Todas as suas unidades ganham +1 de ataque.'},
@@ -451,39 +461,43 @@ const GREAT = {
 };
 const GREAT_COST=30, PLAZA_COST=8, WALL_COST=6;
 const UNITS = {
-  batedor:{n:'Batedor',hp:10,atk:2,def:2,mov:1,rng:1,cost:2,tech:null},
+  batedor:{n:'Batedor',hp:12,atk:2,def:1,mov:1,rng:1,cost:2,tech:null},
   lanceiro:{n:'Lanceiro',hp:10,atk:2,def:3,mov:1,rng:1,cost:4,tech:'forja'},
-  fundeiro:{n:'Fundeiro',hp:10,atk:2,def:1,mov:1,rng:2,cost:3,tech:'arqueria'},
-  cavaleiro:{n:'Cavaleiro',hp:10,atk:2,def:1,mov:2,rng:1,cost:4,tech:'montaria',escape:true},
+  fundeiro:{n:'Fundeiro',hp:8,atk:3,def:1,mov:1,rng:2,cost:4,tech:'arqueria'},
+  cavaleiro:{n:'Cavaleiro',hp:12,atk:2,def:1,mov:2,rng:1,cost:4,tech:'montaria',escape:'campo'},
   ariete:{n:'Aríete',hp:12,atk:4,def:2,mov:1,rng:1,cost:7,tech:'cerco'},
+  balista:{n:'Balista',hp:10,atk:4,def:1,mov:1,rng:3,cost:8,tech:'taticas',splash:true,note:'Arma de cerco que dispara a 3 casas. Frágil de perto. Estilhaço: atinge também os inimigos ao lado do alvo.'},
+  guarda:{n:'Guarda de Cristal',hp:14,atk:3,def:3,mov:1,rng:1,cost:7,tech:'fortificacao',homeDef:1,note:'Infantaria pesada: +1 de defesa no território do clã.'},
+  sombra:{n:'Sombra',hp:6,atk:1,def:1,mov:2,rng:1,cost:6,tech:'diplomacia',mist:true,sab:true,note:'Bruma: invisível para quem não estiver ao lado. Ao entrar numa cidade rival, deixa a cidade instável por 2 turnos e some.'},
+  cantor:{n:'Cantor de Lumen',hp:8,atk:0,def:1,mov:1,rng:1,cost:6,tech:'alianca',convert:true,note:'Canta para um inimigo com metade da vida ou menos e o traz para o seu clã.'},
   guardiao:{n:'Guardião',hp:30,atk:4,def:3,mov:1,rng:1,cost:12,tech:null,minLevel:4},
   // unidades exclusivas: uma por clã (campo clan)
-  piromante:{n:'Piromante',hp:10,atk:3,def:1,mov:1,rng:2,cost:5,tech:'forja',clan:'brasa',note:'Lança fogo a 2 casas com ataque 3.'},
+  piromante:{n:'Piromante',hp:10,atk:3,def:2,mov:1,rng:2,cost:5,tech:'forja',clan:'brasa',burn:true,note:'Lança fogo a 2 casas com ataque 3 e deixa o alvo queimando (1 de dano por 2 turnos).'},
   arpoador:{n:'Arpoador',hp:10,atk:3,def:2,mov:1,rng:1,cost:4,tech:'navegacao',clan:'mare',note:'Ataque 3 e defesa 2: o lanceiro dos recifes.'},
-  druida:{n:'Druida',hp:10,atk:2,def:2,mov:1,rng:1,cost:4,tech:'coleta',clan:'raiz',heal:3,note:'No começo do turno, cura 3 de vida dos aliados vizinhos.'},
-  urso:{n:'Cavaleiro de Urso',hp:16,atk:3,def:2,mov:1,rng:1,cost:5,tech:'escalada',clan:'geada',note:'Montaria pesada: 16 de vida e ataque 3.'},
-  caravana:{n:'Caravana',hp:10,atk:1,def:1,mov:2,rng:1,cost:7,tech:'comercio',clan:'duna',income:1,note:'Anda 2 casas e rende +1 ✦ por turno enquanto viver (contam até 2 caravanas).'},
-  falcoeiro:{n:'Falcoeiro',hp:10,atk:2,def:1,mov:1,rng:3,cost:5,tech:'montaria',clan:'vento',note:'O falcão ataca a 3 casas de distância.'},
-  lobo:{n:'Lobo de Matilha',hp:8,atk:2,def:1,mov:2,rng:1,cost:3,tech:'caca',clan:'fera',escape:true,note:'Barato e veloz: anda 2 casas, ataca e recua.'},
-  sentinela:{n:'Sentinela de Cristal',hp:12,atk:1,def:4,mov:1,rng:1,cost:4,tech:'lumenaria',clan:'lume',note:'Escudo de cristal: defesa 4.'},
-  mecha:{n:'Mecha',hp:20,atk:4,def:3,mov:1,rng:1,cost:10,tech:'forja',clan:'automato',minLevel:3,note:'Robô gigante com 20 de vida e ataque 4. Exige cidade nível 3.'},
+  druida:{n:'Druida',hp:10,atk:2,def:2,mov:1,rng:1,cost:4,tech:'coleta',clan:'raiz',heal:3,root:true,note:'No começo do turno, cura 3 de vida dos aliados vizinhos. Seu golpe enraíza: o alvo não anda no turno seguinte.'},
+  urso:{n:'Cavaleiro de Urso',hp:16,atk:3,def:2,mov:2,rng:1,cost:4,tech:'escalada',clan:'geada',frost:true,note:'Montaria pesada: 16 de vida e ataque 3. O golpe congela: o alvo perde o próximo ataque.'},
+  caravana:{n:'Caravana',hp:10,atk:1,def:1,mov:2,rng:1,cost:6,tech:'comercio',clan:'duna',income:1,note:'Anda 2 casas e rende +1 ✦ por turno enquanto viver (contam até 2 caravanas).'},
+  falcoeiro:{n:'Falcoeiro',hp:10,atk:2,def:1,mov:1,rng:3,cost:4,tech:'montaria',clan:'vento',note:'O falcão ataca a 3 casas de distância.'},
+  lobo:{n:'Lobo de Matilha',hp:8,atk:2,def:1,mov:2,rng:1,cost:3,tech:'caca',clan:'fera',escape:true,charge:true,note:'Barato e veloz: anda 2 casas, ataca e recua. Investida: ao derrotar um inimigo, pode atacar de novo.'},
+  sentinela:{n:'Sentinela de Cristal',hp:12,atk:1,def:4,mov:1,rng:1,cost:3,tech:'lumenaria',clan:'lume',note:'Escudo de cristal: defesa 4.'},
+  mecha:{n:'Mecha',hp:20,atk:4,def:3,mov:1,rng:1,cost:9,tech:'forja',clan:'automato',minLevel:3,note:'Robô gigante com 20 de vida e ataque 4. Exige cidade nível 3.'},
   disco:{n:'Disco Voador',hp:10,atk:2,def:2,mov:2,rng:1,cost:5,tech:'escalada',clan:'astro',fly:true,note:'Voa sobre água, floresta e montanha, 2 casas por turno.'},
-  assombracao:{n:'Assombração',hp:8,atk:3,def:1,mov:2,rng:1,cost:5,tech:'coleta',clan:'espectro',nocounter:true,note:'Ataca sem sofrer contra-ataque.'},
+  assombracao:{n:'Assombração',hp:8,atk:3,def:1,mov:2,rng:1,cost:5,tech:'coleta',clan:'espectro',nocounter:true,mist:true,note:'Ataca sem sofrer contra-ataque. Bruma: invisível para quem não estiver ao lado.'},
   serafim:{n:'Serafim de Pedra',hp:12,atk:3,def:2,mov:2,rng:1,cost:7,tech:'escalada',clan:'colosso',glide:true,note:'Asas de pedra: cruza floresta e montanha sem parar.'},
 };
 const CLAN_UNIT={};for(const k in UNITS)if(UNITS[k].clan)CLAN_UNIT[UNITS[k].clan]=k;
 const showcase=k=>['batedor','lanceiro',CLAN_UNIT[k]||'cavaleiro'];
 const TERR = {campo:'Campo',floresta:'Floresta',montanha:'Montanha',raso:'Água rasa',oceano:'Oceano'};
-const RES = {frutas:'Frutas',caca:'Caça',peixe:'Peixes',minerio:'Minério'};
+const RES = {frutas:'Frutas',caca:'Caça',peixe:'Peixes',minerio:'Minério',baleia:'Baleias'};
 const REWARDS = {
   oficina:{n:'Oficina',d:'+1 ✦ por turno nesta cidade'},
   batedor:{n:'Explorador',d:'Uma expedição revela o mapa ao redor e um Batedor fica pronto para agir'},
   muralha:{n:'Muralha',d:'Defesa ×3 para quem guarda a cidade'},
-  tesouro:{n:'Tesouro',d:'+5 ✦ agora'},
+  escola:{n:'Escola de Lumen',d:'As próximas 2 tecnologias custam metade'},
   fronteira:{n:'Fronteira',d:'O território cresce para raio 2'},
-  festa:{n:'Festival',d:'+3 de população'},
+  quartel:{n:'Quartel',d:'+2 vagas de unidade nesta cidade'},
   guardiao:{n:'Guardião',d:'Super-unidade grátis'},
-  jardim:{n:'Jardim de Lumen',d:'+150 pontos'},
+  coro:{n:'Coro de Cristal',d:'+100 pontos e +1 de população nas suas outras cidades'},
   prospera:{n:'Rota de comércio',d:'+2 ✦ por turno nesta cidade'},
 };
 const MONUMENTS = {
@@ -491,13 +505,17 @@ const MONUMENTS = {
   metropole:{n:'Metrópole',d:'Ter uma cidade nível 5'},
   imperio:{n:'Império',d:'Ter 5 cidades'},
   veterano:{n:'Arena dos Veteranos',d:'Vencer 10 combates'},
+  calma:{n:'Altar da Calma',d:'Passar 8 turnos seguidos sem atacar (a partir do turno 12)'},
+  cofre:{n:'Cofre de Lumen',d:'Juntar 60 ✦ de uma vez'},
+  biblioteca:{n:'Biblioteca de Cristal',d:'Pesquisar todas as tecnologias'},
+  mosaico:{n:'Mosaico Completo',d:'Juntar 3 Fragmentos do Mosaico nas ruínas'},
 };
 const PERSONAS = {
-  expansionista:{expand:1.3,aggr:.4,eco:.5,pick:{2:'batedor',3:'tesouro',4:'fronteira',5:'guardiao'}},
-  militar:{expand:.9,aggr:.9,eco:.3,pick:{2:'batedor',3:'muralha',4:'festa',5:'guardiao'}},
-  economica:{expand:1.1,aggr:.3,eco:1,pick:{2:'oficina',3:'tesouro',4:'festa',5:'jardim'}},
+  expansionista:{expand:1.3,aggr:.4,eco:.5,pick:{2:'batedor',3:'escola',4:'fronteira',5:'guardiao'}},
+  militar:{expand:.9,aggr:.9,eco:.3,pick:{2:'batedor',3:'muralha',4:'quartel',5:'guardiao'}},
+  economica:{expand:1.1,aggr:.3,eco:1,pick:{2:'oficina',3:'escola',4:'fronteira',5:'coro'}},
 };
-const DIFF = {facil:{n:'Fácil',inc:0,start:0},normal:{n:'Normal',inc:1,start:1},dificil:{n:'Difícil',inc:2,start:3}};
+const DIFF = {facil:{n:'Fácil',inc:0,start:0},normal:{n:'Normal',inc:1,start:1},dificil:{n:'Difícil',inc:2,start:3},lendario:{n:'Lendária',inc:3,start:5}};
 const SYL1 = ['Lu','Ma','Ri','Oa','Te','Ve','Ka','So','Ira','Pe','No','Ul','Za','Bi','Quo','Ys'];
 const SYL2 = ['ra','na','mo','quel','tar','dua','li','vé','sa','ri','lon','meia','tu','pó'];
 
@@ -545,14 +563,14 @@ function valueNoise(rand,cells){
 function newGame(opts){
   const sz=setSize(opts.size),nP=Math.max(2,Math.min(sz.max,opts.nclans||4));
   const rand = mulberry(opts.seed);
-  const others = Object.keys(CLANS).filter(c=>c!==opts.clan);
+  const others = Object.keys(CLANS).filter(c=>c!==opts.clan&&clanShown(c));
   for(let i=others.length-1;i>0;i--){const j=Math.floor(rand()*(i+1));[others[i],others[j]]=[others[j],others[i]];}
   const clans=[opts.clan,...others.slice(0,nP-1)];
-  const n1=valueNoise(rand,3),n2=valueNoise(rand,6),m1=valueNoise(rand,4);
+  const n1=valueNoise(rand,3),n2=valueNoise(rand,6),m1=valueNoise(rand,4),arch=opts.map==='arquipelago',n3=arch?valueNoise(rand,9):null;
   const elev=[],c=(N-1)/2;
-  for(let y=0;y<N;y++)for(let x=0;x<N;x++){const dx=(x-c)/c,dy=(y-c)/c;elev.push(n1(x,y)*.65+n2(x,y)*.35-(dx*dx+dy*dy)*.32);}
+  for(let y=0;y<N;y++)for(let x=0;x<N;x++){const dx=(x-c)/c,dy=(y-c)/c;elev.push(arch?n2(x,y)*.45+n3(x,y)*.55-(dx*dx+dy*dy)*.12:n1(x,y)*.65+n2(x,y)*.35-(dx*dx+dy*dy)*.32);}
   const sorted=[...elev].sort((a,b)=>a-b);
-  const seaLvl=sorted[Math.floor(N*N*.38)], mtnLvl=sorted[Math.floor(N*N*.9)];
+  const seaLvl=sorted[Math.floor(N*N*(arch?.6:.38))], mtnLvl=sorted[Math.floor(N*N*(arch?.93:.9))];
   const tiles=[];
   for(let y=0;y<N;y++)for(let x=0;x<N;x++){
     const e=elev[I(x,y)];let t;
@@ -562,7 +580,7 @@ function newGame(opts){
   const land=(x,y)=>inb(x,y)&&tiles[I(x,y)].t!=='agua';
   for(let y=0;y<N;y++)for(let x=0;x<N;x++){const t=tiles[I(x,y)];if(t.t!=='agua')continue;
     t.t=DIRS.some(([dx,dy])=>land(x+dx,y+dy))?'raso':'oceano';}
-  const resFor=t=>t==='campo'?'frutas':t==='floresta'?'caca':t==='raso'?'peixe':t==='montanha'?'minerio':null;
+  const resFor=t=>t==='campo'?'frutas':t==='floresta'?'caca':t==='raso'?'peixe':t==='montanha'?'minerio':t==='oceano'?'baleia':null;
   const resP={campo:.2,floresta:.32,raso:.22,montanha:.4,oceano:0};
   tiles.forEach(t=>{if(rand()<resP[t.t])t.res=resFor(t.t);});
   // capitais: maximiza a menor distância entre elas
@@ -585,7 +603,7 @@ function newGame(opts){
     for(const [dx,dy] of DIRS.concat([[-2,0],[2,0],[0,-2],[0,2]])){const nx=x+dx,ny=y+dy;if(!inb(nx,ny))continue;const t=tiles[I(nx,ny)];if(t.res&&t.res!==resFor(t.t))t.res=resFor(t.t);}
     if(fav==='agua'&&!DIRS.some(([dx,dy])=>inb(x+dx,y+dy)&&tiles[I(x+dx,y+dy)].t==='raso')){const t=tiles[I(x+1,y+1)];t.t='raso';t.res='peixe';}
     const t=tiles[I(x,y)];t.t='campo';t.res=null;t.city=cities.length;
-    cities.push({id:cities.length,x,y,owner:pid,level:1,pop:0,capital:true,wall:false,radius:1,bonus:0,market:false,name:mkName()});
+    cities.push({id:cities.length,x,y,owner:pid,level:1,pop:0,capital:true,wall:clan==='geada',radius:1,bonus:0,market:false,name:mkName()});
   });
   // aldeias neutras
   const shuffled=[];for(let y=1;y<N-1;y++)for(let x=1;x<N-1;x++)shuffled.push([x,y]);
@@ -596,11 +614,13 @@ function newGame(opts){
   let ruins=0;
   for(const [x,y] of shuffled){if(ruins>=Math.round(5*N*N/196))break;const t=tiles[I(x,y)];if(t.t==='oceano'||t.city!=null)continue;
     if(cities.some(c=>cheb(c.x,c.y,x,y)<2))continue;if(tiles.some((o,i)=>o.ruin&&cheb(i%N,Math.floor(i/N),x,y)<3))continue;t.ruin=true;t.res=null;ruins++;}
+  // mar aberto: baleias e naufrágios no oceano e na borda do mapa (sorteio próprio para não mudar o resto do mapa)
+  {const r2=mulberry(opts.seed*7+3);let wr=0;tiles.forEach((t,i)=>{const x=i%N,y=Math.floor(i/N);if(!(t.t==='oceano'||(t.t==='raso'&&Math.min(x,y,N-1-x,N-1-y)<=1))||t.res||t.city!=null||t.ruin)return;if(cities.some(c=>cheb(c.x,c.y,x,y)<2))return;if(r2()<.15)t.res='baleia';else if(wr<Math.round(2*N*N/196)&&r2()<.1&&!tiles.some((o,j)=>o.ruin&&cheb(j%N,Math.floor(j/N),x,y)<3)){t.ruin=true;wr++;}});}
   const personas=Object.keys(PERSONAS);
   const players=clans.map((clan,i)=>({id:i,clan,human:i===0,gold:5+(i>0?DIFF[opts.diff].start:0),techs:[CLANS[clan].tech],
     explored:new Array(N*N).fill(0),alive:true,kills:0,monuments:[],bonusScore:0,penalty:0,score:0,
     persona:i===0?null:personas[Math.floor(rand()*personas.length)]}));
-  S={seed:opts.seed,size:SIZES[opts.size]?opts.size:'padrao',diff:opts.diff,mode:opts.mode==='estacoes'?'estacoes':'classico',turn:1,current:0,tiles,cities,units:[],players,truces:{},log:[],nextId:1,over:false,pendingLv:[],offers:[],feed:[],hits:0,winner:null};
+  S={seed:opts.seed,size:SIZES[opts.size]?opts.size:'padrao',diff:opts.diff,mode:opts.mode==='estacoes'?'estacoes':'classico',win:['conquista','corrida','livre'].includes(opts.win)?opts.win:'pontos',map:arch?'arquipelago':'continente',turn:1,current:0,tiles,cities,units:[],players,truces:{},log:[],nextId:1,over:false,pendingLv:[],offers:[],feed:[],hits:0,winner:null};
   cities.forEach(c=>{if(c.owner!=null)claim(c);});
   players.forEach((p,i)=>{const c=cities[i];spawn('batedor',i,c.x,c.y,c.id,true);reveal(i,c.x,c.y,2);});
   addLog(tr('Partida criada (semente {s}). Você lidera o clã {c}.',{s:opts.seed,c:CLANS[opts.clan].n}));
@@ -612,13 +632,19 @@ function newGame(opts){
 function addLog(msg){const fk=TRLAST+' '+msg;TRLAST='';if(S.current!==0&&!S.fast&&/conquistou|tomou|eliminado|Grande Obra|trégua|monumento|murou/.test(fk)){if(!S.feed)S.feed=[];S.feed.push(msg);}S.log.push(`T${S.turn} · ${msg}`);if(S.log.length>200)S.log.shift();if(ui.logOpen)renderLog();}
 function claim(c){for(let dy=-c.radius;dy<=c.radius;dy++)for(let dx=-c.radius;dx<=c.radius;dx++){const x=c.x+dx,y=c.y+dy;if(!inb(x,y))continue;const t=T(x,y);if(t.cityOf==null||t.cityOf===c.id)t.cityOf=c.id;}}
 function reveal(pid,x,y,r){const p=P(pid);for(let dy=-r;dy<=r;dy++)for(let dx=-r;dx<=r;dx++)if(inb(x+dx,y+dy))p.explored[I(x+dx,y+dy)]=1;}
-function visionR(u){return (T(u.x,u.y).t==='montanha'?2:1)+(u.type==='batedor'?1:0)+(P(u.owner).clan==='astro'?1:0);}
+function visionR(u){return (T(u.x,u.y).t==='montanha'?2:1)+(u.ship==='farol'&&onWater(u)?2:0)+(u.type==='batedor'?1:0)+(P(u.owner).clan==='astro'?1:0);}
 function canEnter(pid,t){const p=P(pid);
   switch(t.t){case 'campo':case 'floresta':return true;case 'montanha':return has(p,'escalada')||p.clan==='espectro';
     case 'raso':return t.bridge>0||isWinter()||p.clan==='geada'||has(p,'navegacao');case 'oceano':return has(p,'maraberto');}return false;}
 function canEnterU(u,t){return !!UNITS[u.type].fly||canEnter(u.owner,t);}
 function isWaterFor(pid,t){if(t.t==='oceano')return true;if(t.t==='raso')return !(t.bridge>0||isWinter()||P(pid).clan==='geada');return false;}
-function unitMov(u){let m=UNITS[u.type].mov;const p=P(u.owner);if(u.type==='cavaleiro'&&p.clan==='vento')m++;if(p.clan==='mare'&&!UNITS[u.type].fly&&isWaterFor(u.owner,T(u.x,u.y)))m++;return m;}
+function onWater(u){return !UNITS[u.type].fly&&isWaterFor(u.owner,T(u.x,u.y));}
+function unitRng(u,fx=u.x,fy=u.y){const r=UNITS[u.type].rng;return u.ship==='guerra'&&!UNITS[u.type].fly&&isWaterFor(u.owner,T(fx,fy))?Math.max(2,r):r;}
+function nearPort(u){return [[0,0],...DIRS].some(([dx,dy])=>inb(u.x+dx,u.y+dy)&&T(u.x+dx,u.y+dy).imp==='porto'&&ownerOf(T(u.x+dx,u.y+dy))===u.owner);}
+const SHIPS={guerra:{n:'Barco de Guerra',cost:5,tech:'maraberto',d:'Na água: alcance 2.'},farol:{n:'Navio-Farol',cost:3,tech:'navegacao',d:'Na água: +1 de movimento e +2 de visão.'}};
+function canShip(u,k){const p=P(u.owner);return !u.ship&&onWater(u)&&nearPort(u)&&has(p,SHIPS[k].tech);}
+function doShip(u,k){const p=P(u.owner);if(!canShip(u,k)||p.gold<SHIPS[k].cost)return false;p.gold-=SHIPS[k].cost;u.ship=k;addLog(tr('{u} de {c} virou {s}.',{u:UNITS[u.type].n,c:CLANS[p.clan].n,s:SHIPS[k].n}));return true;}
+function unitMov(u){let m=UNITS[u.type].mov+(u.ship==='farol'&&onWater(u)?1:0);const p=P(u.owner);if(u.type==='cavaleiro'&&p.clan==='vento')m++;if(p.clan==='mare'&&!UNITS[u.type].fly&&isWaterFor(u.owner,T(u.x,u.y)))m++;return m;}
 function enemyAdj(pid,x,y){return S.units.some(e=>e.owner!==pid&&cheb(e.x,e.y,x,y)===1);}
 function reachable(u){
   const out=new Map(),best={},start=u.x+','+u.y;best[start]=unitMov(u);
@@ -633,16 +659,17 @@ function reachable(u){
   return [...out.values()];
 }
 function defBonus(d,a){const c=cityAt(d.x,d.y);if(c&&c.owner===d.owner){if(a&&a.type==='ariete')return 1;const b=c.wall?3:1.5;return d.type==='guardiao'?Math.min(b,1.5):b;}const t=T(d.x,d.y).t;return (t==='floresta'||t==='montanha')?1.5:1;}
-function atkVal(u){const p=P(u.owner);let v=UNITS[u.type].atk;if(seasonFav(u.owner))v+=SEASON_BONUS;if(has(p,'taticas'))v++;if(p.great&&p.clan==='brasa')v++;return v;}
-function defVal(d){let v=UNITS[d.type].def;if(P(d.owner).clan==='raiz'&&T(d.x,d.y).t==='floresta')v+=1;if(P(d.owner).clan==='espectro'&&T(d.x,d.y).t==='montanha')v+=1;if(P(d.owner).great&&P(d.owner).clan==='colosso')v+=1;return v;}
+function atkVal(u){const p=P(u.owner);let v=UNITS[u.type].atk;if(u.vet)v++;if(has(p,'maraberto')&&!UNITS[u.type].fly&&isWaterFor(u.owner,T(u.x,u.y)))v++;if(seasonFav(u.owner))v+=SEASON_BONUS;if(has(p,'taticas'))v++;if(p.great&&p.clan==='brasa')v++;return v;}
+function defVal(d){let v=UNITS[d.type].def;if(UNITS[d.type].homeDef&&ownerOf(T(d.x,d.y))===d.owner)v+=UNITS[d.type].homeDef;if(P(d.owner).clan==='raiz'&&T(d.x,d.y).t==='floresta')v+=1;if(P(d.owner).clan==='espectro'&&T(d.x,d.y).t==='montanha')v+=1;if(P(d.owner).great&&P(d.owner).clan==='colosso')v+=1;return v;}
 function preview(a,d,fx=a.x,fy=a.y){
-  const aF=atkVal(a)*(a.hp/a.maxHp),dv=defVal(d),dF=dv*(d.hp/d.maxHp)*defBonus(d,a),tot=aF+dF;
-  let dmg=Math.round(aF/tot*atkVal(a)*K);if(P(d.owner).clan==='colosso')dmg=Math.max(1,dmg-1);const survive=d.hp-dmg>0;let counter=0;
-  if(survive&&!UNITS[a.type].nocounter&&cheb(fx,fy,d.x,d.y)<=UNITS[d.type].rng){counter=Math.round(dF/tot*dv*K);if(counter>0&&P(a.owner).clan==='colosso')counter=Math.max(1,counter-1);}
+  const AV=atkVal(a)+(S.coal!=null&&d.owner===S.coal&&a.owner!==S.coal?1:0);
+  const aF=AV*(a.hp/a.maxHp),dv=defVal(d),dF=dv*(d.hp/d.maxHp)*defBonus(d,a),tot=aF+dF;
+  let dmg=Math.round(aF/tot*AV*K);if(P(d.owner).clan==='colosso')dmg=Math.max(1,dmg-1);const survive=d.hp-dmg>0;let counter=0;
+  if(survive&&!UNITS[a.type].nocounter&&cheb(fx,fy,d.x,d.y)<=unitRng(d)){counter=Math.round(dF/tot*dv*K);if(counter>0&&P(a.owner).clan==='colosso')counter=Math.max(1,counter-1);}
   return {dmg,counter,kill:!survive,die:counter>=a.hp};
 }
-function attackTargets(u,fx=u.x,fy=u.y,visibleOnly=true){const r=UNITS[u.type].rng,p=P(u.owner);
-  return S.units.filter(e=>e.owner!==u.owner&&!inTruce(u.owner,e.owner)&&cheb(fx,fy,e.x,e.y)<=r&&(!visibleOnly||p.explored[I(e.x,e.y)]));}
+function attackTargets(u,fx=u.x,fy=u.y,visibleOnly=true){const r=unitRng(u,fx,fy),p=P(u.owner);
+  return S.units.filter(e=>e.owner!==u.owner&&!inTruce(u.owner,e.owner)&&cheb(fx,fy,e.x,e.y)<=r&&!hiddenFrom(e,u.owner)&&(!UNITS[u.type].convert||canConvert(e))&&(!visibleOnly||p.explored[I(e.x,e.y)]));}
 function spawn(type,owner,x,y,home,fresh){
   const spots=[[x,y],...DIRS.map(([dx,dy])=>[x+dx,y+dy])];
   for(const [sx,sy] of spots){if(!inb(sx,sy)||unitAt(sx,sy)||!canEnter(owner,T(sx,sy)))continue;
@@ -651,38 +678,53 @@ function spawn(type,owner,x,y,home,fresh){
   return null;
 }
 function doMove(u,x,y){const sdx=(x-y)-(u.x-u.y);if(sdx)u.face=sdx>0?1:-1;u.x=x;u.y=y;u.moved=true;reveal(u.owner,x,y,visionR(u));
+  {const sc=cityAt(x,y);if(UNITS[u.type].sab&&sc&&sc.owner!=null&&sc.owner!==u.owner&&!inTruce(u.owner,sc.owner)){sc.unrest=Math.max(sc.unrest||0,2);addLog(tr('Uma Sombra de {c} sabotou {city}: 2 turnos de instabilidade.',{c:CLANS[P(u.owner).clan].n,city:sc.name}));if(sc.owner===0)toast(tr('Uma Sombra sabotou {city}!',{city:sc.name}));else if(u.owner===0)toast(tr('Sua Sombra sabotou {city}.',{city:sc.name}));killUnit(u);return;}}
   const t=T(x,y);if(t.ruin){t.ruin=false;ruinReward(u);}checkMonuments(u.owner);}
-function ruinReward(u){const p=P(u.owner),r=Math.random();let msg;
-  if(r<.4){p.gold+=6;msg='+6 ✦';}
-  else if(r<.65){const av=Object.keys(TECHS).filter(k=>TECHS[k].tier===1&&!has(p,k));if(av.length){const k=pick(av);p.techs.push(k);msg=tr('a tecnologia {t}',{t:TECHS[k].n});}else{p.gold+=6;msg='+6 ✦';}}
-  else if(r<.85){const nu=spawn('batedor',u.owner,u.x,u.y,null,false);msg=nu?tr('um Batedor que se juntou ao clã'):'+4 ✦';if(!nu)p.gold+=4;}
+function ruinReward(u){const p=P(u.owner),r=Math.random();let msg;p.frags=(p.frags||0)+1;
+  if(r<.28){p.gold+=6;msg='+6 ✦';}
+  else if(r<.46){const av=Object.keys(TECHS).filter(k=>TECHS[k].tier<=2&&canResearch(p,k));if(av.length){const k=pick(av);p.techs.push(k);if(k==='cartografia')revealAll(p.id);msg=tr('a tecnologia {t}',{t:TECHS[k].n});}else{p.gold+=6;msg='+6 ✦';}}
+  else if(r<.6){const c=capitalOf(u.owner)||playerCities(u.owner)[0];if(c){addPop(c,2);msg=tr('sementes para {city} (+2 pop)',{city:c.name});}else{p.gold+=6;msg='+6 ✦';}}
+  else if(r<.72){const tp=has(p,'forja')?'lanceiro':'batedor',nu=spawn(tp,u.owner,u.x,u.y,null,false);if(nu){nu.vet=true;msg=tr('um {u} veterano que se juntou ao clã',{u:UNITS[tp].n});}else{p.gold+=4;msg='+4 ✦';}}
+  else if(r<.86){const nu=spawn('batedor',u.owner,u.x,u.y,null,false);msg=nu?tr('um Batedor que se juntou ao clã'):'+4 ✦';if(!nu)p.gold+=4;}
   else{reveal(u.owner,u.x,u.y,4);msg=tr('um mapa da região');}
+  msg+=tr(' e um Fragmento do Mosaico ({n}/3)',{n:Math.min(3,p.frags)});
   addLog(tr('{c} explorou ruínas e achou {m}.',{c:CLANS[p.clan].n,m:msg}));
   if(p.human){toast(tr('Ruínas: você encontrou {m}!',{m:msg}));floatText(u.x,u.y,tr('ruínas!'),'#ffd36b');}
 }
-function doAttack(a,d){
+function doAttack(a,d){P(a.owner).lastAtk=S.turn;{const dp=P(d.owner);dp.hitBy=dp.hitBy||{};dp.hitBy[a.owner]=S.turn;}
+  if(UNITS[a.type].convert){if(!canConvert(d))return;const from=d.owner;d.owner=a.owner;d.home=null;d.moved=d.attacked=true;d.root=d.frost=d.burn=0;a.attacked=a.moved=true;addLog(tr('{a} ({ac}) converteu {d} de {dc}.',{a:UNITS[a.type].n,ac:CLANS[P(a.owner).clan].n,d:UNITS[d.type].n,dc:CLANS[P(from).clan].n}));if(from===0)S.lost=(S.lost||0)+1;if(ui.unit===d){ui.unit=null;ui.moves=[];ui.attacks=[];}floatText(d.x,d.y,tr('convertido!'),'#ffd36b');checkMonuments(a.owner);return;}
   if(d.owner===0&&a.owner!==0)S.hits=(S.hits||0)+1;
   const r=preview(a,d);{const sx=(d.x-d.y)-(a.x-a.y),sy=(d.x+d.y)-(a.x+a.y),L=Math.hypot(sx,sy)||1,now=performance.now();if(sx)a.face=sx>0?1:-1;a.lunge={t0:now,dx:sx/L*(UNITS[a.type].rng>1?.3:1),dy:sy/L*(UNITS[a.type].rng>1?.3:1)};d.hitT=now+120;}d.hp-=r.dmg;floatText(d.x,d.y,'−'+r.dmg,'#ff8a7a');
   const an=CLANS[P(a.owner).clan].n,dn=CLANS[P(d.owner).clan].n;
   let msg=tr('{a} ({ac}) atacou {d} ({dc}): {n} de dano',{a:UNITS[a.type].n,ac:an,d:UNITS[d.type].n,dc:dn,n:r.dmg});
-  if(d.hp<=0){killUnit(d);a.kills++;P(a.owner).kills++;msg+=tr(', derrotado');
-    if(!a.vet&&a.kills>=3){a.vet=true;a.maxHp+=5;a.hp=a.maxHp;msg+=tr('; {u} virou veterano',{u:UNITS[a.type].n});}}
+  if(d.hp<=0){if(d.owner===0&&a.owner!==0)S.lost=(S.lost||0)+1;killUnit(d);a.kills++;P(a.owner).kills++;msg+=tr(', derrotado');
+    if(!a.vet&&a.kills>=2){a.vet=true;a.hp=a.maxHp;msg+=tr('; {u} virou veterano',{u:UNITS[a.type].n});}}
   else if(r.counter>0){a.hp-=r.counter;floatText(a.x,a.y,'−'+r.counter,'#ff8a7a');msg+=tr(', contra-ataque de {n}',{n:r.counter});
     if(a.hp<=0){killUnit(a);d.kills++;P(d.owner).kills++;msg+=tr(', atacante caiu');}}
+  const AU=UNITS[a.type];
+  if(S.units.includes(d)&&S.units.includes(a)){if(AU.root){d.root=1;msg+=tr(', alvo enraizado');}if(AU.frost){d.frost=1;msg+=tr(', alvo congelado');}if(AU.burn){d.burn=2;msg+=tr(', alvo em chamas');}}
+  if(AU.splash){for(const e of S.units.slice()){if(e===d||e.owner===a.owner||inTruce(a.owner,e.owner)||cheb(e.x,e.y,d.x,d.y)!==1)continue;const sd=Math.max(1,Math.round(r.dmg/2));e.hp-=sd;floatText(e.x,e.y,'−'+sd,'#ff8a7a');if(e.hp<=0){if(e.owner===0&&a.owner!==0)S.lost=(S.lost||0)+1;killUnit(e);a.kills++;P(a.owner).kills++;}}msg+=tr(', estilhaços nos vizinhos');}
   addLog(msg+'.');
-  a.attacked=true;if(!UNITS[a.type].escape)a.moved=true;
+  a.attacked=true;if(!canEscape(a))a.moved=true;
+  if(AU.charge&&!a.chg&&!S.units.includes(d)&&S.units.includes(a)){a.chg=true;a.attacked=false;}
   checkMonuments(a.owner);if(d.owner!=null)checkMonuments(d.owner);
 }
+function canEscape(u){const e=UNITS[u.type].escape;return e===true||(e==='campo'&&T(u.x,u.y).t==='campo');}
 function killUnit(u){S.units=S.units.filter(o=>o!==u);if(ui.unit===u){ui.unit=null;ui.moves=[];ui.attacks=[];}}
 function rest(u){const own=ownerOf(T(u.x,u.y))===u.owner;const h=own?4:2;const before=u.hp;u.hp=Math.min(u.maxHp,u.hp+h);u.moved=u.attacked=true;if(u.hp>before)floatText(u.x,u.y,'+'+(u.hp-before),'#9ee6a8');}
 function playerCities(pid){return S.cities.filter(c=>c.owner===pid);}
 function coastal(c){return DIRS.some(([dx,dy])=>inb(c.x+dx,c.y+dy)&&(T(c.x+dx,c.y+dy).t==='raso'||T(c.x+dx,c.y+dy).t==='oceano'));}
-function cityIncome(c){const p=P(c.owner);if(c.unrest>0)return 0;return c.level+1+c.bonus+(c.capital?1:0)+(p.great&&(p.clan==='duna'||(p.clan==='mare'&&coastal(c)))?1:0);}
+function linkedSet(pid){const key=S.turn+'|'+S.current+'|'+S.units.length+'|'+S.units.reduce((a,u)=>a+u.x*31+u.y*7+u.owner,0)+'|'+S.cities.reduce((a,c)=>a+(c.owner===pid?c.id+1:0)+c.radius,0);S.lnk=S.lnk||{};const L=S.lnk[pid];if(L&&L.key===key)return L.set;
+  const cap=S.cities.find(c=>c.owner===pid&&c.capital);const set=new Set();if(cap){const seen=new Uint8Array(N*N),q=[[cap.x,cap.y]];seen[I(cap.x,cap.y)]=1;
+    while(q.length){const [x,y]=q.pop();const ci=cityAt(x,y);if(ci&&ci.owner===pid)set.add(ci.id);for(const [dx,dy] of DIRS){const nx=x+dx,ny=y+dy;if(!inb(nx,ny)||seen[I(nx,ny)])continue;const t=T(nx,ny);if(ownerOf(t)!==pid||((t.t==='raso'||t.t==='oceano')&&!(t.bridge>0)))continue;const e=unitAt(nx,ny);if(e&&e.owner!==pid&&!inTruce(pid,e.owner))continue;seen[I(nx,ny)]=1;q.push([nx,ny]);}}}
+  S.lnk[pid]={key,set};return set;}
+function linked(c){return c.owner!=null&&!c.capital&&c.level>=2&&linkedSet(c.owner).has(c.id);}
+function cityIncome(c){const p=P(c.owner);if(c.unrest>0)return 0;return c.level+1+c.bonus+(c.capital?1:0)+(linked(c)?1:0)+(p.great&&(p.clan==='duna'||(p.clan==='mare'&&coastal(c)))?1:0);}
 function upkeep(p){return Math.max(0,playerCities(p.id).length-5);}
 function incomeOf(p){let g=playerCities(p.id).reduce((s,c)=>s+cityIncome(c),0)-upkeep(p)+Math.min(2,S.units.reduce((s,u)=>s+(u.owner===p.id?(UNITS[u.type].income||0):0),0));if(!p.human)g+=DIFF[S.diff].inc;return g;}
-function techCost(p,k){return 4+TECHS[k].tier*Math.max(1,playerCities(p.id).length);}
+function techCost(p,k){const t=TECHS[k].tier,n=Math.max(1,playerCities(p.id).length);let c=3+2*t+Math.ceil((n-1)*(t+1)/2);if(p.school)c=Math.ceil(c/2);return c;}
 function canResearch(p,k){const t=TECHS[k];return !has(p,k)&&(!t.req||has(p,t.req));}
-function research(p,k){const c=techCost(p,k);if(p.gold<c||!canResearch(p,k))return false;p.gold-=c;p.techs.push(k);addLog(tr('{c} pesquisou {t}.',{c:CLANS[p.clan].n,t:TECHS[k].n}));
+function research(p,k){const c=techCost(p,k);if(p.gold<c||!canResearch(p,k))return false;p.gold-=c;p.techs.push(k);if(p.school)p.school--;addLog(tr('{c} pesquisou {t}.',{c:CLANS[p.clan].n,t:TECHS[k].n}));
   if(k==='arquitetura'){S.tiles.forEach((t,i)=>{if(ownerOf(t)!==p.id)return;if(t.bridge>0)t.bridge=999;if(t.imp==='fazenda'||t.imp==='mina'||t.imp==='serraria')addPop(S.cities[t.cityOf],1);});playerCities(p.id).forEach(c=>{if(c.market)c.bonus+=1;});if(p.human)toast(tr('Arquitetura: construções melhoradas e pontes permanentes.'));}
   if(k==='cartografia'){revealAll(p.id);if(p.human)toast(tr('Cartografia: o mapa inteiro foi revelado.'));}return true;}
 function revealAll(pid){P(pid).explored.fill(1);checkMonuments(pid);}
@@ -704,6 +746,9 @@ function doGreat(pid){const p=P(pid),cap=capitalOf(pid);if(!canGreat(pid)||p.gol
   addLog(tr('{c} ergueu a Grande Obra {g} em {city}.',{c:CLANS[p.clan].n,g:G.n,city:cap.name}));
   if(p.human)toast(tr('Grande Obra: {g} (+300 pontos).',{g:G.n}));else if(human().explored[I(cap.x,cap.y)])toast(tr('{c} ergueu a Grande Obra {g}.',{c:CLANS[p.clan].n,g:G.n}));
   return true;}
+const fairCost=c=>4+2*c.level;
+function canFair(c){return c.owner!=null&&c.plaza&&c.fair!==S.turn&&!(c.unrest>0);}
+function doFair(c){const p=P(c.owner),fc=fairCost(c);if(!canFair(c)||p.gold<fc)return false;p.gold-=fc;c.fair=S.turn;addLog(tr('{c} fez uma Feira em {city}.',{c:CLANS[p.clan].n,city:c.name}));floatText(c.x,c.y,'+2 '+tr('pop'),'#9ee6a8');addPop(c,2);return true;}
 function canPlaza(c){return c.owner!=null&&has(P(c.owner),'urbanismo')&&!c.plaza;}
 function doPlaza(c){const p=P(c.owner);if(!canPlaza(c)||p.gold<PLAZA_COST)return false;p.gold-=PLAZA_COST;c.plaza=true;p.bonusScore+=40;addLog(tr('{c} ergueu uma Praça em {city}.',{c:CLANS[p.clan].n,city:c.name}));floatText(c.x,c.y,'+3 '+tr('pop'),'#9ee6a8');addPop(c,3);return true;}
 const EXPAND_COST=6;
@@ -713,29 +758,38 @@ function canBuyWall(c){return c.owner!=null&&has(P(c.owner),'fortificacao')&&!c.
 function doBuyWall(c){const p=P(c.owner);if(!canBuyWall(c)||p.gold<WALL_COST)return false;p.gold-=WALL_COST;c.wall=true;addLog(tr('{c} murou {city}.',{c:CLANS[p.clan].n,city:c.name}));return true;}
 function truceCost(){const c=5+3*(human().truces||0);return has(human(),'alianca')?Math.ceil(c/2):c;}
 function unitCost(p,k){let c=UNITS[k].cost;if(p.clan==='brasa'&&k==='ariete')c=5;if(p.clan==='vento'&&k==='cavaleiro')c=3;return c;}
+function unitCap(c){return c.level+1+(c.capital?1:0)+(c.barracks?2:0);}
 function homeCount(c){return S.units.filter(u=>u.home===c.id&&u.owner===c.owner).length;}
 function trainable(c){const p=P(c.owner);return Object.keys(UNITS).filter(k=>{const U=UNITS[k];if(U.clan&&U.clan!==p.clan)return false;if(U.tech&&!has(p,U.tech))return false;if(U.minLevel&&c.level<U.minLevel)return false;if(k==='guardiao'&&hasGuard(c))return false;return true;});}
-function doTrain(c,k){const p=P(c.owner),U=UNITS[k],cost=unitCost(p,k);if(p.gold<cost||unitAt(c.x,c.y)||homeCount(c)>=c.level+1||c.unrest>0)return null;
+function doTrain(c,k){const p=P(c.owner),U=UNITS[k],cost=unitCost(p,k);if(p.gold<cost||unitAt(c.x,c.y)||homeCount(c)>=unitCap(c)||c.unrest>0)return null;
   const u=spawn(k,c.owner,c.x,c.y,c.id,false);if(!u)return null;if(u.x!==c.x||u.y!==c.y){killUnit(u);return null;}p.gold-=cost;return u;}
+function resoN(x,y,kind){let n=0;for(const [dx,dy] of DIRS){const nx=x+dx,ny=y+dy;if(inb(nx,ny)&&T(nx,ny).imp===kind)n++;}return Math.min(2,n);}
+function mineAdj(x,y){let n=0;for(const [dx,dy] of DIRS){const nx=x+dx,ny=y+dy;if(inb(nx,ny)&&T(nx,ny).imp==='mina')n++;}return Math.min(3,n);}
 function harvestOptions(pid,x,y){const t=T(x,y),p=P(pid),out=[],X=ecoX(pid);
   if(ownerOf(t)!==pid||t.city!=null)return out;
   const sb=harvestSeason()&&t.cityOf!=null&&S.cities[t.cityOf].sbSeason!==seasonIdx()?1:0;
   if(t.res==='frutas'&&has(p,'coleta'))out.push({kind:'colher',label:tr(X?X.h.frutas:'Colher bagas-de-luz'),cost:2,sb,pop:1+sb,vis:'frutas'});
   if(t.res==='caca'&&has(p,'caca'))out.push({kind:'colher',label:tr(X?X.h.caca:'Caçar cervo-musgo'),cost:p.clan==='fera'?1:2,sb,pop:1+sb+(has(p,'silvicultura')?1:0),vis:'caca'});
   if(t.res==='peixe'&&has(p,'navegacao'))out.push({kind:'colher',label:tr(X?X.h.peixe:'Pescar peixe-lanterna'),cost:p.clan==='mare'?1:2,sb,pop:1+sb,vis:'peixe'});
-  if(t.res==='minerio'&&has(p,'mineracao'))out.push({kind:'mina',label:tr('Construir mina de cristal'),cost:5,pop:2+(has(p,'arquitetura')?1:0),vis:'mina'});
-  if(t.t==='floresta'&&!t.res&&!t.imp&&!t.ruin&&has(p,'silvicultura'))out.push({kind:'serraria',label:tr(X?X.b.serraria:'Construir serraria'),cost:5,pop:2+(has(p,'arquitetura')?1:0),vis:vk('serraria',pid)});
+  if(t.res==='baleia'&&has(p,'maraberto'))out.push({kind:'colher',label:tr('Caçar baleia-de-luz'),cost:p.clan==='mare'?2:4,sb,pop:2+sb,vis:'baleia'});
+  if(t.t==='raso'&&!t.res&&!t.imp&&!t.ruin&&!(t.bridge>0)&&has(p,'navegacao')&&!S.cities[t.cityOf].port)out.push({kind:'porto',label:tr('Construir porto de Lumen'),cost:5,pop:1,vis:'porto'});
+  if(t.res==='minerio'&&has(p,'mineracao'))out.push({kind:'mina',label:tr('Construir mina de cristal'),cost:p.clan==='brasa'?3:5,pop:2+(has(p,'arquitetura')?1:0)+resoN(x,y,'mina'),vis:'mina'});
+  if(t.t==='floresta'&&!t.res&&!t.imp&&!t.ruin&&has(p,'silvicultura'))out.push({kind:'serraria',label:tr(X?X.b.serraria:'Construir serraria'),cost:5,pop:2+(has(p,'arquitetura')?1:0)+resoN(x,y,'serraria'),vis:vk('serraria',pid)});
   if((t.t==='campo'||t.t==='floresta')&&!t.res&&!t.imp&&!t.ruin){const sc=8+4*(p.shrines||0);out.push({kind:'santuario',label:tr('Erguer santuário de Lumen'),cost:sc,pop:2,vis:'santuario'});}
+  if(t.t==='floresta'&&!t.res&&!t.imp&&!t.ruin){if(has(p,'lavoura'))out.push({kind:'clareira',label:tr('Abrir clareira (vira campo)'),cost:2,pop:0,vis:'fazenda'});if(p.clan==='brasa')out.push({kind:'queimada',label:tr('Queimada fértil (campo com bagas)'),cost:3,pop:1,vis:'frutas'});}
+  if(t.t==='campo'&&!t.res&&!t.imp&&!t.ruin&&p.clan==='raiz')out.push({kind:'plantio',label:tr('Plantar bosque (floresta com caça)'),cost:3,pop:1,vis:'caca'});
   if(t.t==='campo'&&!t.res&&!t.imp&&!t.ruin){
-    if(has(p,'lavoura'))out.push({kind:'fazenda',label:tr(X?X.b.fazenda:'Construir fazenda'),cost:5,pop:2+(has(p,'arquitetura')?1:0),vis:vk('fazenda',pid)});
+    if(has(p,'lavoura'))out.push({kind:'fazenda',label:tr(X?X.b.fazenda:'Construir fazenda'),cost:5,pop:2+(has(p,'arquitetura')?1:0)+resoN(x,y,'fazenda'),vis:vk('fazenda',pid)});
+    if(has(p,'mineracao')&&mineAdj(x,y)>0)out.push({kind:'atelie',label:tr('Construir ateliê de cristal'),cost:6,pop:1,gold:mineAdj(x,y),vis:'atelie'});
     if(has(p,'comercio')&&!S.cities[t.cityOf].market)out.push({kind:'mercado',label:tr('Construir mercado'),cost:p.clan==='duna'?3:4,pop:1,vis:'mercado'});}
   return out;}
+const REGROW=8;
 function doHarvest(pid,x,y,kind){const o=harvestOptions(pid,x,y).find(o=>o.kind===kind);const p=P(pid);if(!o||p.gold<o.cost)return false;
   const t=T(x,y),c=S.cities[t.cityOf];p.gold-=o.cost;
-  if(kind==='colher'){t.res=null;if(o.sb)c.sbSeason=seasonIdx();}else if(kind==='mina'){t.res=null;t.imp='mina';}else if(kind==='fazenda')t.imp='fazenda';else if(kind==='serraria')t.imp='serraria';else if(kind==='mercado'){t.imp='mercado';c.market=true;c.bonus+=has(p,'arquitetura')?2:1;}else if(kind==='santuario'){t.imp='santuario';p.shrines=(p.shrines||0)+1;p.bonusScore+=60;}
-  if(human().explored[I(x,y)]){if(kind==='colher')ui.fx.push({kind:o.vis,x,y,tx:c.x,ty:c.y,t0:performance.now()});else t.builtT=performance.now();ui.fx.push({burst:true,x,y,col:ITEMS[kind==='colher'?o.vis:kind].col,t0:performance.now()});}
-  floatText(x,y,'+'+o.pop+' '+tr('pop'),'#9ee6a8');addPop(c,o.pop);return true;}
-function canBridge(pid,x,y){const t=T(x,y),p=P(pid);if(!has(p,'lumenaria')||t.t!=='raso'||t.bridge>0||unitAt(x,y))return false;
+  if(kind==='colher'){t.rres=t.res;t.regrow=S.turn+REGROW;t.res=null;if(o.sb)c.sbSeason=seasonIdx();}else if(kind==='mina'){t.res=null;t.imp='mina';for(const [dx,dy] of DIRS){const nx=x+dx,ny=y+dy;if(!inb(nx,ny))continue;const a=T(nx,ny);if(a.imp==='atelie'&&a.cityOf!=null&&(a.atN||0)<3){a.atN=(a.atN||0)+1;S.cities[a.cityOf].bonus+=1;}}}else if(kind==='atelie'){t.imp='atelie';t.atN=o.gold;c.bonus+=o.gold;}else if(kind==='fazenda')t.imp='fazenda';else if(kind==='porto'){t.imp='porto';c.port=true;}else if(kind==='clareira')t.t='campo';else if(kind==='queimada'){t.t='campo';t.res='frutas';}else if(kind==='plantio'){t.t='floresta';t.res='caca';}else if(kind==='serraria')t.imp='serraria';else if(kind==='mercado'){t.imp='mercado';c.market=true;c.bonus+=has(p,'arquitetura')?2:1;}else if(kind==='santuario'){t.imp='santuario';t.shT=S.turn;p.shrines=(p.shrines||0)+1;p.bonusScore+=60;}
+  if(human().explored[I(x,y)]){if(kind==='colher')ui.fx.push({kind:o.vis,x,y,tx:c.x,ty:c.y,t0:performance.now()});else t.builtT=performance.now();ui.fx.push({burst:true,x,y,col:ITEMS[kind==='colher'||!ITEMS[kind]?o.vis:kind].col,t0:performance.now()});}
+  if(o.pop){floatText(x,y,'+'+o.pop+' '+tr('pop'),'#9ee6a8');addPop(c,o.pop);}else checkMonuments(c.owner);return true;}
+function canBridge(pid,x,y){const t=T(x,y),p=P(pid);if(!has(p,'lumenaria')||t.t!=='raso'||t.bridge>0||t.imp||unitAt(x,y))return false;
   return ownerOf(t)===pid||S.units.some(u=>u.owner===pid&&cheb(u.x,u.y,x,y)===1);}
 function bridgeCost(p){return p.clan==='lume'?1:3;}
 function doBridge(pid,x,y){const p=P(pid),bc=bridgeCost(p);if(!canBridge(pid,x,y)||p.gold<bc)return false;p.gold-=bc;const t=T(x,y);
@@ -744,14 +798,14 @@ function popNeed(c){return 2*c.level+1;}
 const seasonIdx=()=>Math.floor((S.turn-1)/(seasonsMode()?SEASON4_LEN:SEASON_LEN));
 function addPop(c,n){c.pop+=n;while(c.pop>=popNeed(c)){c.pop-=popNeed(c);c.level++;levelUp(c);}checkMonuments(c.owner);}
 function hasGuard(c){return S.units.some(u=>u.type==='guardiao'&&u.home===c.id&&u.owner===c.owner);}
-function rewardOptions(lv,c){if(lv===2)return['oficina','batedor'];if(lv===3)return['muralha','tesouro'];if(lv===4)return c&&c.radius>=2?['festa','prospera']:['fronteira','festa'];if(lv===5&&!(c&&hasGuard(c)))return['guardiao','jardim'];return['prospera','jardim'];}
+function rewardOptions(lv,c){if(lv===2)return['oficina','batedor'];if(lv===3)return['muralha','escola'];if(lv===4)return c&&c.radius>=2?['quartel','prospera']:['fronteira','quartel'];if(lv===5&&!(c&&hasGuard(c)))return['guardiao','coro'];return['prospera','coro'];}
 function levelUp(c){const p=P(c.owner);addLog(tr('{city} ({c}) subiu para o nível {n}.',{city:c.name,c:CLANS[p.clan].n,n:c.level}));
   if(p.human){S.pendingLv.push({city:c.id,level:c.level});}
   else{const o=rewardOptions(c.level,c),k=PERSONAS[p.persona].pick[Math.min(5,c.level)];applyReward(c,o.includes(k)?k:o[PERSONAS[p.persona].eco>.6?0:1]);}}
 function applyReward(c,k){const p=P(c.owner);
   switch(k){case 'oficina':c.bonus+=1;break;case 'batedor':explore(c);break;case 'muralha':c.wall=true;break;
-    case 'tesouro':p.gold+=5;break;case 'fronteira':c.radius=2;claim(c);reveal(c.owner,c.x,c.y,3);break;case 'festa':addPop(c,3);break;
-    case 'guardiao':spawn('guardiao',c.owner,c.x,c.y,c.id,false);break;case 'jardim':p.bonusScore+=150;break;case 'prospera':c.bonus+=2;break;}}
+    case 'escola':p.school=(p.school||0)+2;break;case 'quartel':c.barracks=true;break;case 'fronteira':c.radius=2;claim(c);reveal(c.owner,c.x,c.y,3);break;
+    case 'guardiao':spawn('guardiao',c.owner,c.x,c.y,c.id,false);break;case 'coro':p.bonusScore+=100;playerCities(c.owner).forEach(o=>{if(o!==c)addPop(o,1);});break;case 'prospera':c.bonus+=2;break;}}
 function explore(c){const pid=c.owner,p=P(pid),before=p.explored.reduce((a,b)=>a+b,0);
   const ok=(x,y)=>inb(x,y)&&T(x,y).t!=='oceano';const seen=new Set([c.x+','+c.y]);const path=[[c.x,c.y]];let x=c.x,y=c.y;
   for(let i=0;i<16;i++){let best=null,bv=-1;
@@ -776,18 +830,21 @@ function eliminate(pid){const p=P(pid);p.alive=false;S.units=S.units.filter(u=>u
 function exploredPct(p){return p.explored.reduce((a,b)=>a+b,0)/(N*N);}
 function checkMonuments(pid){if(pid==null)return;const p=P(pid);if(!p.alive)return;
   const give=k=>{if(p.monuments.includes(k))return;p.monuments.push(k);addLog(tr('{c} ergueu o monumento {m}.',{c:CLANS[p.clan].n,m:MONUMENTS[k].n}));if(p.human)toast(tr('Monumento: {m} (+250 pontos)',{m:MONUMENTS[k].n}));};
-  if(exploredPct(p)>=.6)give('farol');const cs=playerCities(pid);if(cs.some(c=>c.level>=5))give('metropole');if(cs.length>=5)give('imperio');if(p.kills>=10)give('veterano');}
-function calcScore(p){if(!p.alive)return 0;const cs=playerCities(p.id);let terr=0;S.tiles.forEach(t=>{if(ownerOf(t)===p.id)terr++;});
+  if(exploredPct(p)>=.6)give('farol');const cs=playerCities(pid);if(cs.some(c=>c.level>=5))give('metropole');if(cs.length>=5)give('imperio');if(p.kills>=10)give('veterano');if(S.turn>=12&&S.turn-(p.lastAtk||0)>=8)give('calma');if(p.gold>=60)give('cofre');if(Object.keys(TECHS).every(k=>has(p,k)))give('biblioteca');if((p.frags||0)>=3)give('mosaico');}
+function shrineGrow(t){return t.imp==='santuario'&&t.shT!=null?Math.min(120,Math.floor((S.turn-t.shT)/3)*10):0;}
+function calcScore(p){if(!p.alive)return 0;const cs=playerCities(p.id);let terr=0,shr=0;S.tiles.forEach(t=>{if(ownerOf(t)===p.id){terr++;shr+=shrineGrow(t);}});
   const units=S.units.filter(u=>u.owner===p.id).reduce((s,u)=>s+UNITS[u.type].cost,0);
-  return cs.reduce((s,c)=>s+c.level*60,0)+terr*8+p.techs.length*40+units*3+Math.round(exploredPct(p)*100)+p.monuments.length*250+p.bonusScore-p.penalty;}
+  const caps=cs.filter(c=>isCap0(c)&&c.id!==p.id).length*150;
+  return caps+cs.reduce((s,c)=>s+c.level*70,0)+terr*8+p.techs.length*25+units*3+Math.round(exploredPct(p)*100)+p.monuments.length*250+p.bonusScore+shr-p.penalty;}
 function updateScores(){S.players.forEach(p=>p.score=calcScore(p));}
 
 // ======================= FLUXO DE TURNOS =======================
 function startTurn(pid){
   const p=P(pid);S.current=pid;
-  S.units.forEach(u=>{if(u.owner===pid){u.moved=false;u.attacked=false;}});
+  S.units.forEach(u=>{if(u.owner===pid){u.moved=false;u.attacked=false;u.chg=false;if(u.root){u.moved=true;u.root=0;}if(u.frost){u.attacked=true;u.frost=0;}if(u.burn>0){u.hp=Math.max(1,u.hp-1);u.burn--;if(!S.fast)floatText(u.x,u.y,'−1','#ff8f4a');}}});
   S.units.forEach(hl=>{const hv=UNITS[hl.type].heal;if(hl.owner!==pid||!hv)return;S.units.forEach(o=>{if(o.owner===pid&&o!==hl&&cheb(o.x,o.y,hl.x,hl.y)===1&&o.hp<o.maxHp){const b0=o.hp;o.hp=Math.min(o.maxHp,o.hp+hv);if(!S.fast)floatText(o.x,o.y,'+'+(o.hp-b0),'#9ee6a8');}});});
   if(S.turn>1){const g=incomeOf(p);p.gold+=g;if(p.human&&g)toast(tr('Renda do turno: +{n} ✦',{n:g}));}
+  checkMonuments(pid);
   if(p.human){ui.busy=false;saveGame();updateScores();refresh();showNextLevelUp();}
   else{runAI(pid);if(S.fast)endTurn(pid);else setTimeout(()=>endTurn(pid),aiDelay());}
 }
@@ -797,21 +854,30 @@ function endTurn(pid){
   updateScores();
   if(!human().alive){return gameOver();}
   if(S.players.filter(p=>p.alive).length===1){return gameOver();}
+  if(S.win==='corrida'&&P(pid).alive&&P(pid).score>=raceGoal()){S.winner=pid;return gameOver();}
+  if(S.win==='conquista'){const need=capsNeed(S.players.length);for(const q of S.players)if(q.alive&&S.cities.filter(c=>isCap0(c)&&c.owner===q.id).length>=need){S.winner=q.id;return gameOver();}}
   let next=pid+1;
   while(next<S.players.length&&!P(next).alive)next++;
   if(next>=S.players.length){
-    if(S.turn>=MAX_TURNS)return gameOver();
+    if(S.turn>=turnCap())return gameOver();
     const prevSeason=seasonKey();S.turn++;
-    S.tiles.forEach(t=>{if(t.bridge>0&&t.bridge<900)t.bridge--;});
+    S.tiles.forEach(t=>{if(t.bridge>0&&t.bridge<900)t.bridge--;
+      if(t.regrow&&S.turn>=t.regrow){const rf={campo:'frutas',floresta:'caca',raso:'peixe',oceano:'baleia'};if(t.rres==='baleia'&&(t.t==='raso'||t.t==='oceano'))rf[t.t]='baleia';if(!t.res&&!t.imp&&t.city==null&&!t.ruin&&rf[t.t]===t.rres)t.res=t.rres;delete t.regrow;delete t.rres;}});
     for(const k in S.truces)if(S.truces[k]>0)S.truces[k]--;
     S.cities.forEach(c=>{if(c.unrest>0)c.unrest--;});
     if(prevSeason!==seasonKey())seasonChange();
+    coalCheck();
     next=0;
   }
   ui.unit=null;ui.moves=[];ui.attacks=[];
   refresh();
   startTurn(next);
 }
+function coalCheck(){const al=S.players.filter(p=>p.alive);let c=null;
+  if(S.turn>=8&&al.length>=3){const r=[...al].sort((a,b)=>b.score-a.score);if(r[0].score>r[1].score*1.5)c=r[0].id;else if(S.coal!=null&&r[0].id===S.coal&&r[0].score>r[1].score*1.3)c=S.coal;}
+  if(c===(S.coal??null))return;const old=S.coal;S.coal=c;
+  if(c!=null){addLog(tr('Coalizão: os outros clãs se unem contra {c} (+1 de ataque contra ele).',{c:CLANS[P(c).clan].n}));if(!S.fast)toast(c===0?tr('Os outros clãs se uniram contra você: eles têm +1 de ataque contra o seu clã.'):tr('Coalizão: os outros clãs se unem contra {c} (+1 de ataque contra ele).',{c:CLANS[P(c).clan].n}));}
+  else if(old!=null){addLog(tr('A coalizão contra {c} acabou.',{c:CLANS[P(old).clan].n}));if(!S.fast)toast(tr('A coalizão contra {c} acabou.',{c:CLANS[P(old).clan].n}));}}
 function favNames(se){const a=se.fav.map(k=>CLANS[k].n);return a.length>1?tr('{a} e {b}',{a:a.slice(0,-1).join(tr(', ')),b:a[a.length-1]}):a.join('');}
 function seasonChange(){
   if(seasonsMode()){const se=season4(),inGame=se.fav.filter(k=>S.players.some(p=>p.alive&&p.clan===k));
@@ -832,14 +898,18 @@ function gameOver(){S.over=true;updateScores();const alive=S.players.filter(p=>p
   let title,sub;
   if(!human().alive){title=tr('Seu clã caiu');sub=tr('Todas as suas cidades foram tomadas.');}
   else if(alive.length===1){title=tr('Vitória por dominação');sub=tr('Você uniu o mosaico inteiro.');}
-  else if(rank[0].human){title=tr('Vitória por pontos');sub=tr('Fim dos {n} turnos. O seu clã ficou em primeiro.',{n:MAX_TURNS});}
-  else{title=tr('{c} venceu',{c:CLANS[rank[0].clan].n});sub=tr('Fim dos {n} turnos. Você ficou em {o} lugar.',{n:MAX_TURNS,o:ord(rank.findIndex(p=>p.human)+1)});}
+  else if(S.winner!=null&&S.win==='corrida'){if(S.winner===0){title=tr('Vitória na Corrida');sub=tr('Você chegou a {n} pontos primeiro.',{n:raceGoal().toLocaleString(LOC())});}else{title=tr('{c} venceu',{c:CLANS[P(S.winner).clan].n});sub=tr('{c} chegou a {n} pontos primeiro. Você ficou em {o} lugar.',{c:CLANS[P(S.winner).clan].n,n:raceGoal().toLocaleString(LOC()),o:ord(rank.findIndex(p=>p.human)+1)});}}
+  else if(S.winner!=null&&S.winner===0){title=tr('Vitória por conquista');sub=tr('Você domina {n} das {m} capitais.',{n:S.cities.filter(c=>isCap0(c)&&c.owner===0).length,m:S.players.length});}
+  else if(S.winner!=null){title=tr('{c} venceu',{c:CLANS[P(S.winner).clan].n});sub=tr('{c} domina {n} das {m} capitais. Você ficou em {o} lugar.',{c:CLANS[P(S.winner).clan].n,n:S.cities.filter(c=>isCap0(c)&&c.owner===S.winner).length,m:S.players.length,o:ord(rank.findIndex(p=>p.human)+1)});}
+  else if(S.win==='livre'){title=rank[0].human?tr('Vitória por pontos'):tr('{c} venceu',{c:CLANS[rank[0].clan].n});sub=tr('Partida livre encerrada no turno {n}.',{n:S.turn});}
+  else if(rank[0].human){title=tr('Vitória por pontos');sub=tr('Fim dos {n} turnos. O seu clã ficou em primeiro.',{n:turnCap()});}
+  else{title=tr('{c} venceu',{c:CLANS[rank[0].clan].n});sub=tr('Fim dos {n} turnos. Você ficou em {o} lugar.',{n:turnCap(),o:ord(rank.findIndex(p=>p.human)+1)});}
   addLog(title+'.');clearSave();refresh();closeTech();
-  const hp=human(),pos=rank.findIndex(q=>q.human)+1,won=hp.alive&&(alive.length===1||rank[0].human);
+  const hp=human(),pos=rank.findIndex(q=>q.human)+1,won=hp.alive&&(S.winner!=null?S.winner===0:(alive.length===1||rank[0].human));
   const prevBest=readRecords().reduce((m,r)=>Math.max(m,r.score||0),0);
-  if(!S.recorded&&!S.fast){S.recorded=true;addRecord({score:hp.score,clan:hp.clan,diff:S.diff,mode:S.mode,daily:S.daily||null,res:!hp.alive?'derrota':rank[0].human?'vitória':pos+'º lugar',date:Date.now()});}
-  const newBest=hp.score>0&&hp.score>prevBest;
-  const cities=playerCities(0).length,techs=hp.techs.length,expl=Math.round(exploredPct(hp)*100),turns=Math.min(S.turn,MAX_TURNS),kills=hp.kills||0;
+  if(!S.recorded&&!S.fast){S.recorded=true;setTimeout(()=>{try{achUpdate();}catch(e){}},0);addRecord({score:hp.score,clan:hp.clan,diff:S.diff,mode:S.mode,daily:S.daily||null,res:!hp.alive?'derrota':won?'vitória':pos+'º lugar',date:Date.now()});}
+  const newBest=hp.alive&&hp.score>0&&hp.score>prevBest;
+  const cities=playerCities(0).length,techs=hp.techs.length,expl=Math.round(exploredPct(hp)*100),turns=Math.min(S.turn,turnCap()),kills=hp.kills||0;
   S.result={title,score:Math.round(hp.score),pos,won,cities,kills,techs,expl,turns,clan:hp.clan,rank:rank.map(q=>q.clan),daily:S.daily||null,mode:S.mode,diff:S.diff};
   const best=newBest?`<div class="newbest">${tr('Novo recorde pessoal!')}</div>`:prevBest>0?`<span class="hint">${tr('Seu recorde: {n} pts',{n:Math.round(prevBest).toLocaleString(LOC())})}</span>`:'';
   const chips=`<div class="chips endstats"><span class="chip">${Math.round(hp.score).toLocaleString(LOC())} pts</span><span class="chip">${trp(cities,'{n} cidade','{n} cidades')}</span><span class="chip">${trp(kills,'{n} vitória em combate','{n} vitórias em combate')}</span><span class="chip">${trp(techs,'{n} tecnologia','{n} tecnologias')}</span><span class="chip">${tr('{n}% explorado',{n:expl})}</span><span class="chip">${trp(turns,'{n} turno','{n} turnos')}</span></div>`;
@@ -858,9 +928,11 @@ async function shareResult(r){const text=resultText(r);if(!text)return;const Sh=
   try{await navigator.clipboard.writeText(text);toast(tr('Resultado copiado. É só colar.'));}catch(e){toast(tr('Não foi possível compartilhar agora.'));}}
 
 // ======================= IA POR UTILIDADE =======================
-function enemiesOf(pid){return S.units.filter(u=>u.owner!==pid&&!inTruce(pid,u.owner));}
+function hiddenFrom(u,pid){if(!UNITS[u.type].mist||u.owner===pid)return false;if(S.units.some(o=>o.owner===pid&&cheb(o.x,o.y,u.x,u.y)<=1))return false;const c=cityAt(u.x,u.y);return !(c&&c.owner===pid);}
+function canConvert(e){return e.hp<=e.maxHp/2&&e.type!=='guardiao'&&e.type!=='mecha';}
+function enemiesOf(pid){return S.units.filter(u=>u.owner!==pid&&!inTruce(pid,u.owner)&&!hiddenFrom(u,pid));}
 function runAI(pid){
-  const p=P(pid),W0=PERSONAS[p.persona],W=seasonFav(pid)?Object.assign({},W0,{aggr:Math.min(1,W0.aggr+.3)}):W0;
+  const p=P(pid),W0=PERSONAS[p.persona],W=seasonFav(pid)||S.diff==='lendario'?Object.assign({},W0,{aggr:Math.min(1,W0.aggr+(seasonFav(pid)?.3:0)+(S.diff==='lendario'?.15:0))}):W0;
   const goals=aiGoals(p,W);
   const enemies=()=>enemiesOf(pid);
   const my=S.units.filter(u=>u.owner===pid);
@@ -874,12 +946,12 @@ function aiGoals(p,W){const g=[];const army=S.units.filter(u=>u.owner===p.id&&u.
   const rk=S.players.filter(o=>o.alive).sort((a,b)=>b.score-a.score),leader=rk.length>1&&rk[0].score>rk[1].score*1.3&&rk[0].id!==p.id?rk[0].id:null;
   for(const c of S.cities){if(!p.explored[I(c.x,c.y)])continue;
     if(c.owner==null)g.push({x:c.x,y:c.y,v:6*W.expand});
-    else if(c.owner!==p.id&&!inTruce(p.id,c.owner))g.push({x:c.x,y:c.y,v:3+5*W.aggr+(army>=3?6:0)+(c.capital?2:0)+(S.turn>=12?4:0)+(S.turn>=20?4:0)+(c.owner===leader?5:0)});
+    else if(c.owner!==p.id&&!inTruce(p.id,c.owner))g.push({x:c.x,y:c.y,v:3+5*W.aggr+(army>=3?6:0)+(c.capital?2:0)+(S.win==='conquista'&&isCap0(c)?6:0)+(S.turn>=12?4:0)+(S.turn>=20?4:0)+(c.owner===leader?5:0)+(S.coal!=null&&c.owner===S.coal?6:0)+(c.owner===0?Math.max(0,-moodSum(p))*1.5:0)});
     else if(c.owner===p.id&&enemiesOf(p.id).some(e=>cheb(e.x,e.y,c.x,c.y)<=2))g.push({x:c.x,y:c.y,v:6});}
   S.tiles.forEach((t,i)=>{if(t.ruin&&p.explored[i])g.push({x:i%N,y:Math.floor(i/N),v:4});});
   return g;}
-function bestAttack(u,fx,fy,enemies,W){const R=UNITS[u.type].rng;let best=null;
-  for(const e of enemies){const d=cheb(fx,fy,e.x,e.y);if(d>R||d===0)continue;const r=preview(u,e,fx,fy);
+function bestAttack(u,fx,fy,enemies,W){const R=unitRng(u,fx,fy);let best=null;
+  for(const e of enemies){const d=cheb(fx,fy,e.x,e.y);if(d>R||d===0)continue;if(UNITS[u.type].convert){if(canConvert(e)){const s=10+UNITS[e.type].cost;if(!best||s>best.score)best={target:e,score:s};}continue;}const r=preview(u,e,fx,fy);
     let s=r.dmg*(.6+W.aggr)+(r.kill?8+UNITS[e.type].cost:0)-r.counter*.9;if(r.die)s-=15;const c=cityAt(e.x,e.y);if(c&&c.owner===u.owner)s+=4;
     if(!best||s>best.score)best={target:e,score:s};}return best;}
 function posValue(u,x,y,p,W,goals,enemies){let v=0;const c=cityAt(x,y),t=T(x,y);
@@ -897,11 +969,12 @@ function aiMove(u,p,W,goals,enemies,withAttack){const opts=reachable(u);opts.pus
     v+=Math.random()*.5;if(v>bv){bv=v;best=o;}}
   if(best&&(best.x!==u.x||best.y!==u.y))doMove(u,best.x,best.y);}
 function aiUnit(u,p,W,goals,enemies){
+  if(!u.ship&&canShip(u,'guerra')&&p.gold>=SHIPS.guerra.cost+3)doShip(u,'guerra');
   const onCapture=(()=>{const c=cityAt(u.x,u.y);return c&&c.owner!==p.id;})();
   const near2=enemies.some(e=>cheb(e.x,e.y,u.x,u.y)<=2);
   if(u.hp<u.maxHp*.5&&!near2&&!onCapture){rest(u);return;}
   let a=bestAttack(u,u.x,u.y,enemies,W);
-  if(a&&a.score>3){doAttack(u,a.target);if(S.units.includes(u)&&!u.moved&&UNITS[u.type].escape)aiMove(u,p,W,goals,enemiesOf(p.id),false);return;}
+  if(a&&a.score>3){doAttack(u,a.target);if(S.units.includes(u)&&!u.attacked){const b=bestAttack(u,u.x,u.y,enemiesOf(p.id),W);if(b&&b.score>3)doAttack(u,b.target);}if(S.units.includes(u)&&!u.moved&&canEscape(u))aiMove(u,p,W,goals,enemiesOf(p.id),false);return;}
   if(!u.moved&&!onCapture)aiMove(u,p,W,goals,enemies,true);
   if(!S.units.includes(u)||u.attacked)return;
   a=bestAttack(u,u.x,u.y,enemiesOf(p.id),W);if(a&&a.score>0)doAttack(u,a.target);
@@ -909,17 +982,18 @@ function aiUnit(u,p,W,goals,enemies){
 function aiDiplomacy(p){if(!has(p,'diplomacia'))return;if((p.lastPact||-99)>S.turn-6)return;
   for(const o of S.players){if(o.id===p.id||!o.alive||inTruce(p.id,o.id))continue;
     const near=S.units.some(u=>u.owner===o.id&&playerCities(p.id).some(c=>cheb(u.x,u.y,c.x,c.y)<=3));
-    if(!near||o.score<p.score*1.25)continue;
+    const ally=S.coal!=null&&S.coal!==p.id&&S.coal!==o.id&&!o.human;
+    if(!ally&&(!near||o.score<p.score*1.25))continue;
     if(o.human){if(!S.offers.some(f=>f.from===p.id)){S.offers.push({from:p.id,turns:truceLen(p.id)});p.lastPact=S.turn;addLog(tr('{c} propôs uma trégua a você.',{c:CLANS[p.clan].n}));}return;}
     // outra IA: aceita se não estiver mirando cidades do proponente
-    const W=PERSONAS[o.persona];if(Math.random()<.25+.35*(1-W.aggr)){const n=truceLen(p.id);setTruce(p.id,o.id,n);p.lastPact=S.turn;addLog(tr('{a} e {b} fizeram trégua por {n} turnos.',{a:CLANS[p.clan].n,b:CLANS[o.clan].n,n}));return;}}}
-function aroundCounts(p){const k={frutas:0,caca:0,peixe:0,minerio:0,raso:0,oceano:0,montanha:0,campo:0};
+    const W=PERSONAS[o.persona];if(Math.random()<(ally?.8:.25+.35*(1-W.aggr))){const n=truceLen(p.id);setTruce(p.id,o.id,n);p.lastPact=S.turn;addLog(tr('{a} e {b} fizeram trégua por {n} turnos.',{a:CLANS[p.clan].n,b:CLANS[o.clan].n,n}));return;}}}
+function aroundCounts(p){const k={frutas:0,caca:0,peixe:0,minerio:0,baleia:0,raso:0,oceano:0,montanha:0,campo:0};
   S.tiles.forEach((t,i)=>{const x=i%N,y=Math.floor(i/N);if(!playerCities(p.id).some(c=>cheb(c.x,c.y,x,y)<=2))return;
     if(t.res)k[t.res]++;if(t.t==='raso')k.raso++;if(t.t==='oceano')k.oceano++;if(t.t==='montanha')k.montanha++;if(t.t==='campo'&&!t.res&&!t.imp&&t.city==null)k.campo++;});return k;}
 function enemyNear(p,r){const cs=playerCities(p.id);return S.units.some(u=>u.owner!==p.id&&cs.some(c=>cheb(u.x,u.y,c.x,c.y)<=r))||S.cities.some(o=>o.owner!=null&&o.owner!==p.id&&p.explored[I(o.x,o.y)]&&cs.some(c=>cheb(o.x,o.y,c.x,c.y)<=r+1));}
 function aiResearch(p,W){const k=aroundCounts(p),war=enemyNear(p,4),nc=playerCities(p.id).length,weak=p.score<Math.max(...S.players.filter(o=>o.alive).map(o=>o.score))*.7;
   const val={coleta:k.frutas*2.5,caca:k.caca*2.5+(war?2:0),navegacao:k.peixe*2+k.raso*.4,escalada:k.montanha*.8+k.minerio,forja:1+3*W.aggr+(war?2:0),montaria:1+3*W.aggr,
-    comercio:1+3*W.eco,lumenaria:k.raso*.3+1.5,lavoura:k.campo*.8,arqueria:2.5*W.aggr+(war?4:0),maraberto:k.oceano*.15,mineracao:k.minerio*2.5,cerco:3*W.aggr+(war?3:0),diplomacia:(weak?3:0)+2*W.eco,
+    comercio:1+3*W.eco,lumenaria:k.raso*.3+1.5,lavoura:k.campo*.8,arqueria:2.5*W.aggr+(war?4:0),maraberto:k.oceano*.35+(k.baleia||0)*2.5+(k.raso>8?1.5:0),mineracao:k.minerio*2.5,cerco:3*W.aggr+(war?3:0),diplomacia:(weak?3:0)+2*W.eco,
     engenharia:3+3*W.eco,urbanismo:2+nc,cartografia:1.5+(1-exploredPct(p))*4,taticas:2+5*W.aggr+(war?3:0),fortificacao:(war?4:1)+nc*.5,desbravamento:1+2*W.expand+nc*.6,silvicultura:2+k.caca*.8,arquitetura:2+2*W.eco+nc*.6,alianca:has(p,'diplomacia')?2+2*W.eco:0};
   let best=null,bv=0;for(const t in TECHS){if(!canResearch(p,t))continue;const v=val[t]/techCost(p,t)*5;if(v>bv){bv=v;best=t;}}
   if(best&&val[best]>=2&&p.gold>=techCost(p,best)+1)research(p,best);
@@ -928,7 +1002,7 @@ function aiResearch2(p,val){let best=null,bv=0;for(const t in TECHS){if(!canRese
 function aiEconomy(p,W){const threatened=playerCities(p.id).some(c=>enemiesOf(p.id).some(e=>cheb(e.x,e.y,c.x,c.y)<=3));const reserve=threatened?5:2;
   for(let g=0;g<20;g++){let best=null,bv=0;
     S.tiles.forEach((t,i)=>{if(ownerOf(t)!==p.id)return;const x=i%N,y=Math.floor(i/N),c=S.cities[t.cityOf];
-      for(const o of harvestOptions(p.id,x,y)){if(o.kind==='santuario'&&p.gold<o.cost+12)continue;const v=o.pop/o.cost*10+(c.pop+o.pop>=popNeed(c)?3:0)+(o.kind==='mercado'?4*W.eco:0);
+      for(const o of harvestOptions(p.id,x,y)){if(o.kind==='santuario'&&p.gold<o.cost+12)continue;const v=o.pop/o.cost*10+(c.pop+o.pop>=popNeed(c)?3:0)+(o.kind==='mercado'?4*W.eco:0)+(o.kind==='atelie'?o.gold*(2+3*W.eco):0);
         if(p.gold-o.cost>=reserve&&v>bv){bv=v;best={x,y,k:o.kind};}}});
     if(!best)break;doHarvest(p.id,best.x,best.y,best.k);}
   const res=threatened?8:3;
@@ -936,16 +1010,17 @@ function aiEconomy(p,W){const threatened=playerCities(p.id).some(c=>enemiesOf(p.
   for(const c of playerCities(p.id)){
     if(canBuyWall(c)&&p.gold>=WALL_COST+res&&(c.capital||enemiesOf(p.id).some(e=>cheb(e.x,e.y,c.x,c.y)<=3)))doBuyWall(c);
     if(canPlaza(c)&&p.gold>=PLAZA_COST+res)doPlaza(c);
-    if(canExpand(c)&&p.gold>=EXPAND_COST+res&&(c.capital||c.level>=2))doExpand(c);}}
+    if(canExpand(c)&&p.gold>=EXPAND_COST+res&&(c.capital||c.level>=2))doExpand(c);}
+  for(const c of playerCities(p.id).sort((a,b)=>a.level-b.level))if(canFair(c)&&p.gold>=fairCost(c)+res+6)doFair(c);}
 function aiTrain(p,W,goals){const cs=playerCities(p.id);const neutral=goals.some(g=>{const c=cityAt(g.x,g.y);return c&&c.owner==null;});
   const myUnits=S.units.filter(u=>u.owner===p.id).length;
-  for(const c of cs){if(unitAt(c.x,c.y)||homeCount(c)>=c.level+1)continue;
+  for(const c of cs){if(unitAt(c.x,c.y)||homeCount(c)>=unitCap(c))continue;
     const threat=enemiesOf(p.id).some(e=>cheb(e.x,e.y,c.x,c.y)<=3);const av=trainable(c);
-    const X=CLAN_UNIT[p.clan];let order;if(threat)order=['guardiao','lanceiro',X,'fundeiro','ariete','cavaleiro','batedor'];
+    const X=CLAN_UNIT[p.clan];let order;if(threat)order=['guardiao','guarda','lanceiro',X,'fundeiro','ariete','cavaleiro','batedor'];
     else if(neutral&&myUnits<cs.length*2)order=UNITS[X].mov>=2&&!UNITS[X].income?[X,'cavaleiro','batedor']:['cavaleiro','batedor'];
     else{const cnt=t=>S.units.filter(u=>u.owner===p.id&&u.type===t).length;
       const hard=S.cities.some(o=>o.owner!=null&&o.owner!==p.id&&!inTruce(p.id,o.owner)&&p.explored[I(o.x,o.y)]&&(o.wall||hasGuard(o)||o.level>=4));
-      const want={ariete:hard?1.5:.5,fundeiro:1.2,cavaleiro:1,lanceiro:.8};want[X]=UNITS[X].income?.5:1.1;
+      const want={ariete:hard?1.5:.5,balista:hard?1:.5,fundeiro:1.2,cavaleiro:1,lanceiro:.8,guarda:1,sombra:.3,cantor:.3};want[X]=UNITS[X].income?.8:1.6;
       order=Object.keys(want).sort((a,b)=>cnt(a)/want[a]-cnt(b)/want[b]);}
     const keep=threat?0:(W.eco>.6?3:1);
     for(const k of order){if(!av.includes(k))continue;if(p.gold-unitCost(p,k)<keep)continue;if(doTrain(c,k))break;}}}
@@ -986,6 +1061,7 @@ function drawTerrainDetail(t,g,winter){
 const ITEMS={
   frutas:{n:'Bagas-de-luz',tag:'Recurso · frutas',col:'#f27fa0',d:'Arbusto de bagas que brilham ao entardecer. Colha com Coleta.'},
   caca:{n:'Cervo-musgo',tag:'Recurso · caça',col:'#c79a6b',d:'Cervo manso com galhos de musgo. Cace com a tecnologia Caça.'},
+  baleia:{n:'Baleia-de-luz',tag:'Recurso · oceano',col:'#8fd7ff',d:'Gigante luminosa do mar aberto. Cace com Mar Aberto (+2 pop).'},
   peixe:{n:'Peixe-lanterna',tag:'Recurso · peixes',col:'#ffb36b',d:'Peixe que acende uma luz na água rasa. Pesque com Navegação.'},
   minerio:{n:'Cristal-vivo',tag:'Recurso · minério',col:'#7fe0d2',d:'Cristais que crescem dentro da rocha. Construa uma Mina com Mineração.'},
   fazenda:{n:'Fazenda',tag:'Construção · +2 pop',col:'#e8c14e',d:'Canteiros de trigo dourado. Exige Lavoura.'},
@@ -993,7 +1069,7 @@ const ITEMS={
   mercado:{n:'Mercado',tag:'Construção · +1 ✦/turno',col:'#f0a050',d:'Barraca de trocas da cidade. Um por cidade. Exige Comércio.'},
   serraria:{n:'Serraria',tag:'Construção · +2 pop',col:'#b07c4c',d:'Toras empilhadas e uma serra movida a Lumen. Exige Silvicultura.'},
   ruina:{n:'Ruínas antigas',tag:'Exploração',col:'#d8d2c4',d:'Arco de um mundo anterior ao mosaico. A primeira unidade a chegar ganha um prêmio.'},
-  santuario:{n:'Santuário de Lumen',tag:'Construção · +2 pop · +60 pts',col:'#b9a7ff',d:'Altar de pedra com um cristal de Lumen. Pode ser erguido em campo ou floresta livres; cada novo santuário custa 4 ✦ a mais.'},
+  santuario:{n:'Santuário de Lumen',tag:'Construção · +2 pop · +60 pts',col:'#b9a7ff',d:'Altar de pedra com um cristal de Lumen. Pode ser erguido em campo ou floresta livres; cada novo santuário custa 4 ✦ a mais. Vale +10 pontos a cada 3 turnos, até +120.'},
   fazenda_maquina:{n:'Usina solar',tag:'Construção · +2 pop',col:'#7fb7ff',d:'Painéis que bebem a luz do campo. Robôs não comem: recarregam.'},
   serraria_maquina:{n:'Usina de biomassa',tag:'Construção · +2 pop',col:'#8cff96',d:'Caldeira que transforma madeira e folhas em energia.'},
   fazenda_alien:{n:'Biodomo',tag:'Construção · +2 pop',col:'#b6f24a',d:'Cúpula de vidro onde crescem plantas de outro mundo.'},
@@ -1002,6 +1078,8 @@ const ITEMS={
   serraria_sombra:{n:'Bosque assombrado',tag:'Construção · +2 pop',col:'#aa8cff',d:'Árvores secas onde as sombras se reúnem e ganham força.'},
   fazenda_pedra:{n:'Jardim de pedras',tag:'Construção · +2 pop',col:'#e0a0b4',d:'Pedras arrumadas em silêncio. Aqui os gigantes lembram do céu.'},
   serraria_pedra:{n:'Círculo de menires',tag:'Construção · +2 pop',col:'#e0a0b4',d:'Pedras de pé entre as árvores, onde os povos deixam oferendas.'},
+  porto:{n:'Porto de Lumen',tag:'Construção · +1 pop',col:'#45c2d1',d:'Cais de madeira com uma lanterna de Lumen, na água rasa. Um por cidade. Uma unidade na água ao lado do porto pode virar Barco de Guerra (alcance 2) ou Navio-Farol (+1 de movimento e +2 de visão). Exige Navegação.'},
+  atelie:{n:'Ateliê de Cristal',tag:'Construção · +1 pop · +1 ✦ por mina vizinha',col:'#7fe0d2',d:'Oficina que lapida os cristais das minas ao redor. Rende +1 ✦ por turno para cada mina vizinha (até 3). Exige Mineração e uma mina ao lado.'},
   ponte:{n:'Ponte de Lumen',tag:'Travessia',col:'#ffd36b',d:'Luz solidificada sobre a água rasa. Qualquer clã pode atravessar enquanto ela durar.'},
 };
 function drawItem(c,kind,x,y,t,seed=0,accent='#f0a050'){
@@ -1028,6 +1106,15 @@ function drawItem(c,kind,x,y,t,seed=0,accent='#f0a050'){
       c.strokeStyle='#5fae58';c.lineWidth=1.2;c.lineCap='round';c.beginPath();
       c.moveTo(7.5,-15.5+graze);c.lineTo(6,-20+graze);c.moveTo(6.6,-18+graze);c.lineTo(4,-19.5+graze);c.moveTo(8.5,-15.5+graze);c.lineTo(10,-20.5+graze);c.moveTo(9.5,-18.5+graze);c.lineTo(12,-19.5+graze);c.stroke();
       c.fillStyle='#7fcf68';[[6,-20],[10,-20.5],[4,-19.5],[12,-19.5]].forEach(([lx,ly])=>{c.beginPath();c.arc(lx,ly+graze,1.1,0,7);c.fill();});
+      break;}
+    case 'baleia':{
+      const b=Math.sin(t*.002+seed)*1.5,sp=((t*.0009+seed)%2+2)%2;
+      c.strokeStyle='rgba(255,255,255,.4)';c.lineWidth=1;c.beginPath();c.ellipse(0,2,13,4,0,0,7);c.stroke();
+      c.fillStyle='#4f7fb8';c.beginPath();c.moveTo(-12,2+b);c.quadraticCurveTo(-6,-9+b,6,-6+b);c.quadraticCurveTo(12,-4+b,12,2+b);c.closePath();c.fill();
+      c.fillStyle='#8fd7ff';c.beginPath();c.ellipse(0,-3+b,4,1.6,0,0,7);c.fill();
+      c.fillStyle='#4f7fb8';c.beginPath();c.moveTo(-12,2+b);c.lineTo(-17,-4+b);c.lineTo(-15,2+b);c.lineTo(-18,6+b);c.closePath();c.fill();
+      c.fillStyle='#fff';c.beginPath();c.arc(7,-3+b,.9,0,7);c.fill();
+      if(sp<1){c.fillStyle='rgba(200,240,255,.8)';for(let i=0;i<3;i++){c.beginPath();c.arc(4+(i-1)*2.5*sp,-9+b-sp*6-(i===1?2:0),1.3,0,7);c.fill();}}
       break;}
     case 'peixe':{
       const p=((t*.0011+seed)%3+3)%3;
@@ -1143,6 +1230,21 @@ function drawItem(c,kind,x,y,t,seed=0,accent='#f0a050'){
       c.fillStyle='#b9a7ff';c.beginPath();c.moveTo(0,fy-6);c.lineTo(3.4,fy);c.lineTo(0,fy+6);c.lineTo(-3.4,fy);c.closePath();c.fill();
       c.fillStyle='#e6deff';c.beginPath();c.moveTo(0,fy-6);c.lineTo(3.4,fy);c.lineTo(0,fy);c.closePath();c.fill();
       break;}
+    case 'porto':{
+      for(let i=-2;i<=2;i++){c.fillStyle=i%2?'#a77a4c':'#8a6440';c.save();c.translate(i*4.6,-i*2.3);c.beginPath();c.moveTo(-5,-1.5);c.lineTo(3,2.5);c.lineTo(5.5,1.2);c.lineTo(-2.5,-2.8);c.closePath();c.fill();c.restore();}
+      line(c,-10,6,-10,-4,2,'#6b4a30');line(c,10,-4,10,-14,2,'#6b4a30');line(c,10,-14,10,-22,1.4,'#6b4a30');
+      const gl=.5+.3*Math.sin(t*.005+seed);c.fillStyle=`rgba(255,211,107,${gl*.5})`;c.beginPath();c.arc(10,-24,5,0,7);c.fill();c.fillStyle='#ffd36b';rr(c,8,-27,4,5,1);c.fill();
+      c.strokeStyle='rgba(255,255,255,.45)';c.lineWidth=1;c.beginPath();c.ellipse(-4,8,8,2.2,0,0,7);c.stroke();
+      break;}
+    case 'atelie':{
+      c.fillStyle='rgba(10,10,40,.22)';c.beginPath();c.ellipse(0,2,13,4,0,0,7);c.fill();
+      c.fillStyle='#7a6a8e';rr(c,-10,-12,20,13,2);c.fill();c.fillStyle='#968aaa';c.fillRect(-10,-12,20,2);
+      c.fillStyle='#5b4f6e';c.beginPath();c.moveTo(-12,-12);c.lineTo(0,-20);c.lineTo(12,-12);c.closePath();c.fill();
+      c.fillStyle='#4a4058';c.fillRect(5,-23,4,8);c.fillStyle='#2a2238';rr(c,-3,-7,6,8,1);c.fill();
+      const gl=.45+.3*Math.sin(t*.005+seed);c.fillStyle=`rgba(127,224,210,${gl})`;c.beginPath();c.arc(0,-3,4,0,7);c.fill();
+      [[-7,-7],[7,-6]].forEach(([cx,cy],i)=>{c.fillStyle=i?'#b8f3e9':'#7fe0d2';c.beginPath();c.moveTo(cx,cy-3.5);c.lineTo(cx+2,cy);c.lineTo(cx,cy+2.5);c.lineTo(cx-2,cy);c.closePath();c.fill();});
+      for(let i=0;i<3;i++){const k=((t*.0005+i*.33+seed)%1);c.fillStyle=`rgba(200,200,220,${.5*(1-k)})`;c.beginPath();c.arc(7+k*3,-25-k*10,1.6+k*2,0,7);c.fill();}
+      break;}
     case 'ponte':{
       const gl=.5+.25*Math.sin(t*.004+seed);
       c.fillStyle=`rgba(255,211,107,${gl*.35})`;c.beginPath();c.ellipse(0,0,24,8,0,0,7);c.fill();
@@ -1158,7 +1260,7 @@ function itemIcon(kind,accent){const k=kind+(accent||'');if(iconCache[k])return 
   const cnv=document.createElement('canvas');cnv.width=cnv.height=96;const c=cnv.getContext('2d');
   const col=ITEMS[kind].col;const g=c.createRadialGradient(48,52,6,48,52,46);g.addColorStop(0,rgba(col,.35));g.addColorStop(1,rgba(col,.05));
   c.fillStyle=g;c.beginPath();c.arc(48,48,46,0,7);c.fill();
-  c.scale(2,2);const [tx,ty,sc,tt]={frutas:[24,35,1.7,1000],caca:[21,36,1.5,0],peixe:[24,38,1.6,455],minerio:[24,37,1.7,1000],fazenda:[28,30,1.15,0],mina:[25,28,1.35,1000],serraria:[22,34,1.35,1000],mercado:[24,39,1.15,0],ruina:[23,41,1.05,1000],santuario:[24,40,1.25,0],ponte:[24,27,.85,0]}[kind.split('_')[0]];
+  c.scale(2,2);const [tx,ty,sc,tt]={frutas:[24,35,1.7,1000],caca:[21,36,1.5,0],peixe:[24,38,1.6,455],baleia:[24,38,1.25,455],minerio:[24,37,1.7,1000],fazenda:[28,30,1.15,0],mina:[25,28,1.35,1000],serraria:[22,34,1.35,1000],mercado:[24,39,1.15,0],ruina:[23,41,1.05,1000],santuario:[24,40,1.25,0],porto:[24,36,1.15,0],atelie:[24,38,1.2,0],ponte:[24,27,.85,0]}[kind.split('_')[0]];
   c.translate(tx,ty);c.scale(sc,sc);drawItem(c,kind,0,0,tt,0,accent||'#f0a050');
   return iconCache[k]=cnv.toDataURL();}
 function itemCard(kind,extra,accent){const it=ITEMS[kind];return `<div class="item"><img src="${itemIcon(kind,accent)}" alt=""><div><b>${it.n}</b><span class="tag" style="color:${it.col}">${it.tag}${extra||''}</span><span class="d">${it.d}</span></div></div>`;}
@@ -1361,7 +1463,7 @@ function drawRes(t,g,x,y){const now=performance.now();const pop=t.builtT&&now>=t
   if(t.bridge>0)drawItem(ctx,'ponte',g.cx,g.cy,time,sd);
   if(t.imp){const acc=(t.imp==='mercado'||t.imp==='santuario')&&t.cityOf!=null&&S.cities[t.cityOf].owner!=null?clanOf(S.cities[t.cityOf].owner).color:'#f0a050';
     ctx.save();ctx.translate(g.cx,g.cy+3);ctx.scale(pop,pop);drawItem(ctx,vk(t.imp,t.cityOf!=null?S.cities[t.cityOf].owner:null),0,0,time,sd,acc);ctx.restore();}
-  if(t.res)drawItem(ctx,t.res,g.cx+(t.res==='peixe'?6:14),g.cy+(t.res==='peixe'?2:5),time,sd);
+  if(t.res)drawItem(ctx,t.res,g.cx+(t.res==='peixe'||t.res==='baleia'?4:14),g.cy+(t.res==='peixe'||t.res==='baleia'?2:5),time,sd);
   if(t.ruin)drawItem(ctx,'ruina',g.cx,g.cy+3,time,sd);
 }
 function house(x,y,roof,w1='#fbf6ec',w2='#e2dacb'){ctx.fillStyle=w1;ctx.beginPath();ctx.moveTo(x-6,y-3);ctx.lineTo(x,y);ctx.lineTo(x,y+6);ctx.lineTo(x-6,y+3);ctx.closePath();ctx.fill();
@@ -1441,7 +1543,7 @@ function drawCity(c,g){const roof=c.owner==null?'#b9ad98':clanOf(c.owner).color;
   if(c.capital){const y=g.cy-(c.owner==null?24:44)+Math.sin(time*.003)*2;ctx.fillStyle='#ffd36b';ctx.beginPath();ctx.moveTo(g.cx,y-7);ctx.lineTo(g.cx+5,y);ctx.lineTo(g.cx,y+7);ctx.lineTo(g.cx-5,y);ctx.closePath();ctx.fill();
     ctx.fillStyle='rgba(255,211,107,.25)';ctx.beginPath();ctx.arc(g.cx,y,10,0,7);ctx.fill();}
   if(cam.z>.6)labels.push({c,x:g.cx,y:g.cy});}
-function drawLabel({c,x,y}){ctx.font='700 11px "MosaicaNum","Atkinson Hyperlegible",sans-serif';ctx.textAlign='center';const label=c.owner==null?c.name:`${c.name} · ${c.level}`;
+function drawLabel({c,x,y}){ctx.font='700 11px "MosaicaNum","Atkinson Hyperlegible",sans-serif';ctx.textAlign='center';const label=c.owner==null?c.name:`${linked(c)?'⟡ ':''}${c.name} · ${c.level}`;
   const w=ctx.measureText(label).width+10;ctx.fillStyle='rgba(16,18,50,.8)';ctx.fillRect(x-w/2,y+12,w,15);
   ctx.fillStyle=c.owner==null?'#e8e2d4':clanOf(c.owner).color;ctx.fillText(label,x,y+23);}
 let labels=[];
@@ -1573,6 +1675,26 @@ function drawChar(c,type,clan,col,x,y,face,t,seed,moving,scale=1){
       c.fillStyle=col;rr(c,-4.5,-24+bob,9,9,3.2);c.fill();c.fillStyle='rgba(255,255,255,.18)';rr(c,-3.6,-23+bob,2.6,6,1.2);c.fill();
       line(c,3,-21+bob,5.5,-19+bob,2.2,skin);
       drawHead(c,0,-28.5+bob,clan,col,blink);break;}
+    case 'guarda':
+      line(c,8,-12+bob,12.5,-29+bob,1.7,'#e3e9f3');line(c,5.5,-13.5+bob,10.5,-11+bob,1.5,'#ffd36b');
+      humanoid(c,col,clan,bob,stride,()=>{line(c,3.5,-13+bob,7.5,-13+bob,2.4,skin);});
+      drawHead(c,0,-20.5+bob,clan,col,blink);
+      c.fillStyle='rgba(127,224,210,.88)';c.beginPath();c.moveTo(-4,-19+bob);c.lineTo(2,-15+bob);c.lineTo(1,-5+bob);c.lineTo(-4,-1+bob);c.lineTo(-9,-5+bob);c.lineTo(-10,-15+bob);c.closePath();c.fill();c.strokeStyle='#e6fffb';c.lineWidth=1;c.stroke();
+      c.fillStyle='rgba(255,255,255,.55)';c.beginPath();c.moveTo(-4,-17+bob);c.lineTo(-2,-13+bob);c.lineTo(-4,-6+bob);c.lineTo(-6.5,-13+bob);c.closePath();c.fill();break;
+    case 'cantor':{
+      humanoid(c,col,clan,bob,stride,()=>{line(c,3.5,-14+bob,7.5,-21+bob,2.4,skin);});
+      drawHead(c,0,-20.5+bob,clan,col,blink);
+      const gl=.5+.3*Math.sin(t*.006+seed);c.fillStyle=`rgba(255,211,107,${gl*.55})`;c.beginPath();c.arc(9,-25+bob,5.5,0,7);c.fill();c.fillStyle='#ffe9a8';c.beginPath();c.arc(9,-25+bob,2.6,0,7);c.fill();
+      for(let i=0;i<3;i++){const k=((t*.0006+i*.33+seed)%1);const nx=-8-k*4+i*2,ny=-22-k*12+bob;c.fillStyle=`rgba(255,240,190,${1-k})`;c.beginPath();c.ellipse(nx,ny,1.5,1.1,-.4,0,7);c.fill();line(c,nx+1.3,ny,nx+1.3,ny-4,.7,`rgba(255,240,190,${1-k})`);}
+      c.fillStyle=shade(col,.7);rr(c,-5.5,-7.2+bob,11,6.5,2);c.fill();break;}
+    case 'sombra':{
+      c.fillStyle='rgba(28,22,50,.92)';c.beginPath();c.moveTo(0,-31+bob);c.quadraticCurveTo(10,-22+bob,8,0);c.lineTo(-8,0);c.quadraticCurveTo(-10,-22+bob,0,-31+bob);c.closePath();c.fill();
+      c.strokeStyle=col;c.lineWidth=1.2;c.stroke();
+      c.fillStyle='rgba(185,167,255,.25)';c.beginPath();c.ellipse(0,-20+bob,5,5.5,0,0,7);c.fill();
+      c.fillStyle=blink?'rgba(185,167,255,.3)':'#cfc4ff';c.beginPath();c.arc(-2,-21+bob,1.1,0,7);c.arc(2,-21+bob,1.1,0,7);c.fill();
+      line(c,6,-9+bob,11.5,-15+bob,1.3,'#d8d2e8');
+      for(let i=0;i<3;i++){const k=((t*.0005+i*.33+seed)%1);c.fillStyle=`rgba(120,100,180,${.35*(1-k)})`;c.beginPath();c.arc(-7+i*7,-2-k*8,2+k*2,0,7);c.fill();}
+      break;}
     case 'piromante':
       humanoid(c,col,clan,bob,stride,()=>{line(c,3.5,-13+bob,7,-12+bob,2.4,skin);line(c,7.5,0,7.5,-24+bob,1.6,'#5a3a2a');
         const fl=Math.sin(t*.012+seed)*1.3;c.fillStyle='rgba(255,140,60,.35)';c.beginPath();c.arc(7.5,-28+bob,6,0,7);c.fill();
@@ -1633,6 +1755,15 @@ function drawChar(c,type,clan,col,x,y,face,t,seed,moving,scale=1){
         c.strokeStyle='rgba(60,50,90,.4)';c.lineWidth=.7;c.beginPath();c.moveTo(s*5,-13+bob);c.lineTo(s*14,-19+bob);c.moveTo(s*5,-11+bob);c.lineTo(s*12,-11+bob);c.stroke();});
       humanoid(c,col,clan,bob,stride,()=>{line(c,3.5,-13+bob,7,-12+bob,2.4,skin);line(c,7,-10+bob,10.5,-27+bob,2,'#e8eef6');line(c,5,-13.5+bob,9.5,-11.5+bob,1.6,'#ffd36b');});
       drawHead(c,0,-20.5+bob,clan,col,blink);break;}
+    case 'balista':
+      c.fillStyle=col;rr(c,-17.5,-15+bob,6.5,9,2.6);c.fill();line(c,-11.5,-12+bob,-8,-14,2,skin);
+      drawHead(c,-14.5,-19.5+bob,clan,col,blink);
+      c.fillStyle='#8a5a36';rr(c,-9,-9,20,3.2,1);c.fill();line(c,-6,-8,-3,-19,2.2,'#6b4a30');line(c,8,-8,5,-19,2.2,'#6b4a30');
+      c.strokeStyle='#a77a4c';c.lineWidth=2.4;c.beginPath();c.moveTo(-8,-25);c.quadraticCurveTo(1,-15,12,-25);c.stroke();
+      line(c,-8,-25,12,-25,.8,'rgba(240,235,220,.9)');line(c,-6,-19,14,-19,2.4,'#c9a77c');c.fillStyle='#8f88a3';c.beginPath();c.moveTo(18,-19);c.lineTo(13,-21.6);c.lineTo(13,-16.4);c.closePath();c.fill();
+      c.fillStyle=col;c.fillRect(-7,-20.5,4,3);
+      [[-5],[8]].forEach(([wx])=>{c.fillStyle='#6b4a30';c.beginPath();c.arc(wx,-4,3.6,0,7);c.fill();c.fillStyle='#c9a77c';c.beginPath();c.arc(wx,-4,1.1,0,7);c.fill();});
+      break;
     case 'ariete':
       c.fillStyle=col;rr(c,-17.5,-15+bob,6.5,9,2.6);c.fill();line(c,-11.5,-12+bob,-9,-11,2,skin);
       drawHead(c,-14.5,-19.5+bob,clan,col,blink);
@@ -1672,12 +1803,14 @@ function drawUnit(u){const t=T(u.x,u.y);const g=tileGeom(u.rx,u.ry,true,t);const
   let x=g.cx,y=g.cy+3;
   if(u.lunge&&now>=u.lunge.t0&&now-u.lunge.t0<340){const a=Math.sin((now-u.lunge.t0)/340*Math.PI);x+=u.lunge.dx*a*11;y+=u.lunge.dy*a*6;}
   if(u.hitT&&now>=u.hitT&&now-u.hitT<320){x+=Math.sin((now-u.hitT)*.12)*2.4*(1-(now-u.hitT)/320);}
-  ctx.globalAlpha=done?.6:1;
+  ctx.globalAlpha=(done?.6:1)*(UNITS[u.type].mist&&u.owner===0&&!S.units.some(o=>o.owner!==0&&cheb(o.x,o.y,u.x,u.y)<=1)?.6:1);
   ctx.fillStyle='rgba(10,10,40,.32)';ctx.beginPath();ctx.ellipse(x,y,14,6,0,0,7);ctx.fill();
   ctx.strokeStyle=col;ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(x,y,12.5,5.2,0,0,7);ctx.stroke();
   if(water){ctx.fillStyle='#8a6440';ctx.beginPath();ctx.moveTo(x-17,y-5);ctx.lineTo(x+17,y-5);ctx.lineTo(x+11,y+3);ctx.lineTo(x-11,y+3);ctx.closePath();ctx.fill();
     ctx.fillStyle='#a77a4c';ctx.fillRect(x-15,y-6,30,2);line(ctx,x-9,y-5,x-9,y-34,1.4,'#6b4a30');
-    ctx.fillStyle=rgba(col,.9);ctx.beginPath();ctx.moveTo(x-9,y-33);ctx.quadraticCurveTo(x-1,y-26,x-9,y-15);ctx.closePath();ctx.fill();}
+    ctx.fillStyle=rgba(col,.9);ctx.beginPath();ctx.moveTo(x-9,y-33);ctx.quadraticCurveTo(x-1,y-26,x-9,y-15);ctx.closePath();ctx.fill();
+    if(u.ship==='guerra'){line(ctx,x+9,y-5,x+9,y-28,1.4,'#6b4a30');ctx.fillStyle=rgba(col,.9);ctx.beginPath();ctx.moveTo(x+9,y-27);ctx.quadraticCurveTo(x+16,y-21,x+9,y-12);ctx.closePath();ctx.fill();ctx.fillStyle='#3b3350';ctx.fillRect(x+12,y-6,7,2.4);}
+    if(u.ship==='farol'){const gl=.5+.3*Math.sin(time*.006+u.id);ctx.fillStyle=`rgba(255,211,107,${gl*.5})`;ctx.beginPath();ctx.arc(x-9,y-37,6,0,7);ctx.fill();ctx.fillStyle='#ffd36b';ctx.beginPath();ctx.arc(x-9,y-37,2.4,0,7);ctx.fill();}}
   const moving=Math.abs(u.x-u.rx)+Math.abs(u.y-u.ry)>.03;
   drawChar(ctx,u.type,P(u.owner).clan,col,x,y-(water?4:0),u.face||1,time,u.id,moving,u.type==='guardiao'?1.15:u.type==='mecha'?1.05:1);
   if(u.hitT&&now>=u.hitT&&now-u.hitT<140){ctx.fillStyle='rgba(255,255,255,.35)';ctx.beginPath();ctx.ellipse(x,y-16,11,16,0,0,7);ctx.fill();}
@@ -1689,8 +1822,8 @@ const portraitCache={};
 function portrait(type,clan){const k=type+'|'+clan;if(portraitCache[k])return portraitCache[k];
   const cnv=document.createElement('canvas');cnv.width=cnv.height=128;const c=cnv.getContext('2d');c.scale(2,2);
   c.fillStyle='rgba(10,10,40,.3)';c.beginPath();c.ellipse(32,56,16,5,0,0,7);c.fill();
-  const sc=type==='guardiao'?1.05:type==='mecha'?1.1:['cavaleiro','ariete','urso','caravana','serafim','arpoador','piromante'].includes(type)?1.25:type==='lobo'||type==='disco'?1.5:1.5;
-  drawChar(c,type,clan,CLANS[clan].color,type==='ariete'?35:32,56,1,0,1,false,sc);
+  const sc=type==='guardiao'?1.05:type==='mecha'?1.1:['cavaleiro','ariete','balista','urso','caravana','serafim','arpoador','piromante'].includes(type)?1.25:type==='lobo'||type==='disco'?1.5:1.5;
+  drawChar(c,type,clan,CLANS[clan].color,type==='ariete'||type==='balista'?35:32,56,1,0,1,false,sc);
   return portraitCache[k]=cnv.toDataURL();}
 function floatText(x,y,text,color){if(S&&!S.over&&!human().explored[I(x,y)])return;ui.floats.push({x,y,text,color,t0:performance.now()});}
 function render(ts){time=ts||0;
@@ -1714,7 +1847,7 @@ function render(ts){time=ts||0;
     if(ui.sel&&ui.sel.x===x&&ui.sel.y===y){ctx.strokeStyle='#ffffff';ctx.lineWidth=2.5;diamond(g.cx,g.cy,TW-6,TH-3);ctx.stroke();}
     if(moveSet.has(x+','+y)){ctx.fillStyle='rgba(255,255,255,.85)';ctx.beginPath();ctx.ellipse(g.cx,g.cy,6,3.5,0,0,7);ctx.fill();ctx.fillStyle='rgba(255,255,255,.12)';diamond(g.cx,g.cy,TW-8,TH-4);ctx.fill();}
     if(t.city!=null)drawCity(S.cities[t.city],g);
-    for(const u of S.units)if(Math.round(u.rx)===x&&Math.round(u.ry)===y)drawUnit(u);
+    for(const u of S.units)if(Math.round(u.rx)===x&&Math.round(u.ry)===y&&!hiddenFrom(u,0))drawUnit(u);
     if(atkSet.has(x+','+y)){ctx.strokeStyle='#ff8a7a';ctx.lineWidth=2.5;ctx.beginPath();ctx.ellipse(g.cx,g.cy,22,11,0,0,7);ctx.stroke();
       const e=unitAt(x,y);if(e&&ui.unit){const r=preview(ui.unit,e);const txt=r.kill?tr('−{n} derrota',{n:r.dmg}):`−${r.dmg}  ↩${r.counter}`;ctx.font='700 12px "MosaicaNum","Atkinson Hyperlegible",sans-serif';ctx.textAlign='center';
         const w=ctx.measureText(txt).width+12;ctx.fillStyle='rgba(60,14,20,.85)';ctx.fillRect(g.cx-w/2,g.cy-52,w,17);ctx.fillStyle='#ffd0c8';ctx.fillText(txt,g.cx,g.cy-39);}}
@@ -1765,11 +1898,11 @@ function selectUnit(u){ui.unit=u;ui.moves=[];ui.attacks=[];
 function onTileClick(x,y){if(!S||S.over)return;
   if(myTurn()&&ui.unit&&ui.unit.owner===0){
     if(ui.moves.some(m=>m.x===x&&m.y===y)){const u=ui.unit;const before=human().explored.reduce((a,b)=>a+b,0),wasRuin=T(x,y).ruin,from={u,x:u.x,y:u.y,face:u.face};doMove(u,x,y);
-      ui.undo=wasRuin?null:from;ui.sel={x,y};selectUnit(u);refresh();return;}
+      ui.undo=wasRuin||!S.units.includes(u)?null:from;ui.sel={x,y};selectUnit(S.units.includes(u)?u:null);refresh();return;}
     const tgt=ui.attacks.find(e=>e.x===x&&e.y===y);
     if(tgt){const u=ui.unit;ui.undo=null;doAttack(u,tgt);if(S.units.includes(u)){ui.sel={x:u.x,y:u.y};selectUnit(u);}else{ui.sel=null;selectUnit(null);}updateScores();refresh();return;}
   }
-  ui.sel={x,y};const u=human().explored[I(x,y)]?unitAt(x,y):null;selectUnit(u);refresh();
+  ui.sel={x,y};let u=human().explored[I(x,y)]?unitAt(x,y):null;if(u&&hiddenFrom(u,0))u=null;selectUnit(u);refresh();
   if(W_<720)document.getElementById('panel').classList.remove('min');
 }
 function nextUnit(){if(!myTurn())return;const list=S.units.filter(u=>u.owner===0&&(!u.moved||(!u.attacked&&attackTargets(u).length)));
@@ -1777,13 +1910,14 @@ function nextUnit(){if(!myTurn())return;const list=S.units.filter(u=>u.owner===0
   const i=ui.unit?list.indexOf(ui.unit):-1;const u=list[(i+1)%list.length];ui.sel={x:u.x,y:u.y};selectUnit(u);panTo(u.x,u.y);refresh();}
 function canUndo(){const d=ui.undo;return !!(d&&myTurn()&&S.units.includes(d.u)&&!d.u.attacked);}
 function undoMove(){if(!canUndo())return;const d=ui.undo,u=d.u;u.x=d.x;u.y=d.y;u.face=d.face;u.moved=false;ui.undo=null;ui.sel={x:u.x,y:u.y};selectUnit(u);refresh();}
-function humanEndTurn(){if(!myTurn())return;if(S.pendingLv.length){showNextLevelUp();return;}ui.undo=null;S.feed=[];S.hits=0;ui.busy=true;ui.sel=null;selectUnit(null);refresh();endTurn(0);}
+function humanEndTurn(){if(!myTurn())return;if(S.pendingLv.length){showNextLevelUp();return;}ui.undo=null;S.feed=[];S.hits=0;S.lost=0;ui.busy=true;ui.sel=null;selectUnit(null);refresh();endTurn(0);}
 
 // ======================= INTERFACE =======================
 const $=id=>document.getElementById(id);
-function toast(msg){const d=document.createElement('div');d.className='toast';d.textContent=msg;$('toasts').appendChild(d);setTimeout(()=>d.remove(),3200);while($('toasts').children.length>3)$('toasts').firstChild.remove();}
+function toast(msg){const same=[...$('toasts').children].find(e=>e.dataset.m===msg);if(same){const n=(+same.dataset.n||1)+1;same.dataset.n=n;same.textContent=msg+' ×'+n;return;}
+  const d=document.createElement('div');d.className='toast';d.dataset.m=msg;d.textContent=msg;$('toasts').appendChild(d);setTimeout(()=>d.remove(),3200);while($('toasts').children.length>3)$('toasts').firstChild.remove();}
 function refresh(){if(!S)return;const p=human();
-  $('sTurn').innerHTML=`${S.turn}<small>/${MAX_TURNS}</small>`;
+  $('sTurn').innerHTML=S.win==='corrida'?`${S.turn}<small> · 🏁${Math.round(p.score).toLocaleString(LOC())}/${raceGoal().toLocaleString(LOC())}</small>`:S.win==='livre'?`${S.turn}<small> · ∞</small>`:S.win==='conquista'?`${S.turn}<small> · 👑${S.cities.filter(c=>isCap0(c)&&c.owner===0).length}/${capsNeed(S.players.length)}</small>`:`${S.turn}<small>/${MAX_TURNS}</small>`;
   if(seasonsMode()){const se=season4(),left=SEASON4_LEN-((S.turn-1)%SEASON4_LEN),nx=season4(S.turn+left);
     $('sSeason').innerHTML=`${se.ic} ${se.n} ${se.fav.map(k=>`<span class="sw" style="background:${CLANS[k].color};margin:0 0 0 4px"></span>`).join('')}<small>${tr('muda em {n}',{n:left})}</small>`;
     $('sSeason').title=trp(left,'{s}: {f} com +{b} de ataque. Em {n} turno chega {nx} ({fx}).','{s}: {f} com +{b} de ataque. Em {n} turnos chega {nx} ({fx}).',{s:se.n,f:favNames(se),b:SEASON_BONUS,nx:nx.n,fx:favNames(nx)});$('sSeason').style.cursor='pointer';$('sSeason').onclick=()=>toast($('sSeason').title);}
@@ -1799,7 +1933,7 @@ function refresh(){if(!S)return;const p=human();
 function scoreTable(players){return `<table class="score">${players.map(p=>`<tr><td><span class="sw" style="background:${CLANS[p.clan].color}"></span>${CLANS[p.clan].n}${p.human?tr(' (você)'):''}${p.alive?'':tr(' · eliminado')}</td><td class="muted">${tr('{n} cid.',{n:playerCities(p.id).length})}</td><td>${p.score} pts</td></tr>`).join('')}</table>`;}
 function renderPanel(){const el=$('panel'),p=human();let h='';
   const sel=ui.sel;
-  if(sel&&p.explored[I(sel.x,sel.y)]){const t=T(sel.x,sel.y),c=cityAt(sel.x,sel.y),u=unitAt(sel.x,sel.y),own=ownerOf(t);
+  if(sel&&p.explored[I(sel.x,sel.y)]){const t=T(sel.x,sel.y),c=cityAt(sel.x,sel.y),u0=unitAt(sel.x,sel.y),u=u0&&!hiddenFrom(u0,0)?u0:null,own=ownerOf(t);
     const terr=isWinter()&&t.t==='raso'?tr('Gelo (água congelada)'):TERR[t.t];
     const clanChip=id=>`<span class="ctag"><span class="sw" style="background:${clanOf(id).color}"></span>${clanOf(id).n}</span>`;
     let det='',acts=[],ic='',sw=null,title='',tag='',line='';
@@ -1808,32 +1942,36 @@ function renderPanel(){const el=$('panel'),p=human();let h='';
     if(u){const U=UNITS[u.type],mine=u.owner===0;
       ic=portrait(u.type,P(u.owner).clan);title=u.vet?tr('{u} veterano',{u:U.n}):U.n;tag=clanChip(u.owner);
       det+=`<div class="sec"><div class="row"><span class="lbl">${tr('Vida {a}/{b}',{a:u.hp,b:u.maxHp})}</span><span class="muted">${trp(u.kills,'{n} vitória','{n} vitórias')}</span></div><div class="bar"><i style="width:${u.hp/u.maxHp*100}%"></i></div>
-      <div class="chips"><span class="chip"${seasonFav(u.owner)?` title="${tr('+{b} da {s}',{b:SEASON_BONUS,s:season4().n})}"`:''}>${tr('Atq {n}',{n:atkVal(u)})}${seasonFav(u.owner)?' '+season4().ic:''}</span><span class="chip">${tr('Def {n}',{n:defVal(u)})}</span><span class="chip">${tr('Mov {n}',{n:unitMov(u)})}</span><span class="chip">${tr('Alc {n}',{n:U.rng})}</span>${U.escape?`<span class="chip">${tr('Ataca e recua')}</span>`:''}</div>${U.clan?`<span class="hint">${tr('Exclusivo dos {c}.',{c:CLANS[U.clan].n})} ${U.note}</span>`:''}</div>`;
+      <div class="chips"><span class="chip"${seasonFav(u.owner)?` title="${tr('+{b} da {s}',{b:SEASON_BONUS,s:season4().n})}"`:''}>${tr('Atq {n}',{n:atkVal(u)})}${seasonFav(u.owner)?' '+season4().ic:''}</span><span class="chip">${tr('Def {n}',{n:defVal(u)})}</span><span class="chip">${tr('Mov {n}',{n:unitMov(u)})}</span><span class="chip">${tr('Alc {n}',{n:unitRng(u)})}</span>${u.ship?`<span class="chip">⛵ ${tr(SHIPS[u.ship].n)}</span>`:''}${U.escape?`<span class="chip">${tr(U.escape==='campo'?'Ataca e recua no campo':'Ataca e recua')}</span>`:''}${[[U.charge,'Investida'],[U.splash,'Estilhaço'],[U.mist,'Bruma'],[U.convert,'Converte feridos'],[U.root,'Enraíza'],[U.frost,'Congela'],[U.burn,'Queima'],[U.sab,'Sabota'],[u.root,'🌿 Enraizado'],[u.frost,'❄️ Congelado'],[u.burn>0,'🔥 Em chamas']].filter(x=>x[0]).map(x=>`<span class="chip">${tr(x[1])}</span>`).join('')}${!U.clan&&U.note?`<span class="hint">${U.note}</span>`:''}</div>${U.clan?`<span class="hint">${tr('Exclusivo dos {c}.',{c:CLANS[U.clan].n})} ${U.note}</span>`:''}</div>`;
       if(mine&&myTurn()){
         line=tr(u.moved&&u.attacked?'Já agiu neste turno.':ui.attacks.length&&!u.attacked?(u.moved?'Ataque um alvo em vermelho.':'Ataque um alvo em vermelho ou toque num ponto branco para andar.'):!u.moved?'Toque num ponto branco para andar.':'Ainda pode atacar, mas não há alvos ao alcance.');
         const cc=cityAt(u.x,u.y);if(cc&&cc.owner!==0)line=tr(cc.owner==null?'Encerre o turno aqui para ocupar a aldeia.':'Encerre o turno aqui para conquistar a cidade.');
+        for(const k in SHIPS)if(canShip(u,k))acts.push(pa('ship',k,p.gold<SHIPS[k].cost,itemIcon('porto'),tr(SHIPS[k].n),SHIPS[k].cost,` <span class="muted">${tr(SHIPS[k].d)}</span>`));
+        if(u.type!=='guardiao')acts.push(pa('disband',null,false,null,tr('Dispensar'),null,` <span class="muted">+${Math.floor(UNITS[u.type].cost/2)} ✦</span>`));
         if(!u.moved&&!u.attacked&&u.hp<u.maxHp)acts.push(pa('rest',null,false,null,tr('Descansar'),null,` <span class="muted">${tr('+{n} vida',{n:ownerOf(T(u.x,u.y))===0?4:2})}</span>`));}
       else line=[tr('Vida {a}/{b}',{a:u.hp,b:u.maxHp}),tr('Atq {n}',{n:atkVal(u)}),tr('Def {n}',{n:defVal(u)}),tr('Mov {n}',{n:unitMov(u)})].join(' · ');}
     if(c){const need=popNeed(c);
       if(c.owner==null){if(!u){title=c.name;sw='#d8d2c4';tag=`<span class="ctag">${tr('Aldeia neutra')}</span>`;line=tr('Leve uma unidade até aqui e encerre o turno para ocupar.');}}
       else{const cl=`${tr('Nível {n}',{n:c.level})} · ${tr('pop')} ${c.pop}/${need} · +${cityIncome(c)} ✦`;
         if(!u){title=c.name;sw=clanOf(c.owner).color;tag=clanChip(c.owner);line=c.unrest>0?trp(c.unrest,'Instável por {n} turno: sem renda e sem treinar.','Instável por {n} turnos: sem renda e sem treinar.'):cl+(c.owner===0&&myTurn()?tr(' · treine abaixo'):'');}
-        det+=`<div class="sec"><div class="row"><span class="lbl">${tr('Nível {n}',{n:c.level})}${c.capital?' · '+CLANS[P(c.owner).clan].cap:''}${c.wall?tr(' · muralha'):''}${c.plaza?tr(' · praça'):''}${c.unrest>0?tr(' · instável ({n})',{n:c.unrest}):''}${c.great?' · '+GREAT[P(c.owner).clan].n:''}</span><span class="c" style="color:var(--lumen)">+${cityIncome(c)} ✦</span></div>
-          <div class="row"><span class="muted">${tr('População {a}/{b}',{a:c.pop,b:need})}</span><span class="muted">${tr('Unidades {a}/{b}',{a:homeCount(c),b:c.level+1})}</span></div><div class="bar"><i style="width:${c.pop/need*100}%"></i></div>`;
-        if(c.owner===0&&myTurn()){const occ=!!unitAt(c.x,c.y),full=homeCount(c)>=c.level+1;
+        det+=`<div class="sec"><div class="row"><span class="lbl">${tr('Nível {n}',{n:c.level})}${c.capital?' · '+CLANS[P(c.owner).clan].cap:''}${c.wall?tr(' · muralha'):''}${c.plaza?tr(' · praça'):''}${c.unrest>0?tr(' · instável ({n})',{n:c.unrest}):''}${linked(c)?' · ⟡ '+tr('ligada à capital'):''}${c.great?' · '+GREAT[P(c.owner).clan].n:''}</span><span class="c" style="color:var(--lumen)">+${cityIncome(c)} ✦</span></div>
+          ${!c.capital?`<span class="hint">${linked(c)?tr('Fio de Lumen: ligada à capital por terra do clã (+1 ✦).'):tr('Sem Fio de Lumen: com nível 2 e terra do clã contínua até a capital (ou ponte), a cidade rende +1 ✦.')}</span>`:''}
+          <div class="row"><span class="muted">${tr('População {a}/{b}',{a:c.pop,b:need})}</span><span class="muted">${tr('Unidades {a}/{b}',{a:homeCount(c),b:unitCap(c)})}</span></div><div class="bar"><i style="width:${c.pop/need*100}%"></i></div>`;
+        if(c.owner===0&&myTurn()){const occ=!!unitAt(c.x,c.y),full=homeCount(c)>=unitCap(c);
           if(!occ)for(const k of trainable(c)){const U=UNITS[k];acts.push(pa('train',k,p.gold<unitCost(p,k)||occ||full||c.unrest>0,portrait(k,p.clan),U.n+(U.clan?' ★':''),unitCost(p,k)));}
           if(occ)det+=`<span class="hint">${tr('Libere a casa da cidade para treinar.')}</span>`;else if(full)det+=`<span class="hint">${tr('Limite de unidades desta cidade atingido. Suba o nível para treinar mais.')}</span>`;
           if(!u&&(occ||full))line=tr(occ?'Libere a casa da cidade para treinar.':'Limite de unidades atingido. Suba o nível para treinar mais.');
           if(c.capital&&canGreat(0)){acts.push(pa('great',null,p.gold<GREAT_COST,techIcon('engenharia'),GREAT[p.clan].n,GREAT_COST));det+=`<span class="hint">${tr('Grande Obra do clã (+300 pts): {d}',{d:GREAT[p.clan].d})}</span>`;}
           if(canPlaza(c))acts.push(pa('plaza',null,p.gold<PLAZA_COST,techIcon('urbanismo'),tr('Praça'),PLAZA_COST));
+          if(canFair(c))acts.push(pa('feira',null,p.gold<fairCost(c),techIcon('urbanismo'),tr('Feira · +2 pop'),fairCost(c)));
           if(canExpand(c))acts.unshift(pa('expand',null,p.gold<EXPAND_COST,techIcon('desbravamento'),tr('Ampliar território'),EXPAND_COST));
           if(canBuyWall(c))acts.push(pa('buywall',null,p.gold<WALL_COST,techIcon('fortificacao'),tr('Muralha'),WALL_COST));}
         det+='</div>';}}
     if(!u&&!c){title=terr;if(own!=null)tag=clanChip(own);
       const k=t.res||t.imp||(t.ruin?'ruina':null);if(k)ic=itemIcon(k,(k==='mercado'||k==='santuario')&&own!=null?clanOf(own).color:undefined);else sw='rgba(255,255,255,.12)';
-      line=k?ITEMS[k].n:own!=null?tr('Território de {c}.',{c:clanOf(own).n}):tr('Sem dono.');if(t.ruin)line+=tr(': leve uma unidade até aqui para explorar.');}
+      line=k?ITEMS[k].n:own!=null?tr('Território de {c}.',{c:clanOf(own).n}):tr('Sem dono.');if(!k&&t.regrow&&t.regrow>S.turn)line+=' '+trp(t.regrow-S.turn,'O recurso volta em {n} turno.','O recurso volta em {n} turnos.');if(t.ruin)line+=tr(': leve uma unidade até aqui para explorar.');if(t.imp==='santuario'&&t.shT!=null)line+=' · '+tr('+{n} pontos acumulados (até +120)',{n:shrineGrow(t)});}
     if(own===0&&myTurn()){const opts=harvestOptions(0,sel.x,sel.y);
-      for(const o of opts)acts.push(pa('harvest',o.kind,p.gold<o.cost,itemIcon(o.vis,o.vis==='mercado'||o.vis==='santuario'?CLANS[p.clan].color:undefined),o.label,o.cost,` <span class="muted">+${o.pop} ${tr('pop')}</span>`));
+      for(const o of opts)acts.push(pa('harvest',o.kind,p.gold<o.cost,itemIcon(o.vis,o.vis==='mercado'||o.vis==='santuario'?CLANS[p.clan].color:undefined),o.label,o.cost,` <span class="muted">${o.pop?'+'+o.pop+' '+tr('pop'):''}${o.gold?' +'+o.gold+' ✦/'+tr('turno'):''}</span>`));
       if(!opts.length&&t.res&&t.city==null&&!u){const need=TECHS[{frutas:'coleta',caca:'caca',peixe:'navegacao',minerio:'mineracao'}[t.res]].n;line+=tr(' Pesquise {t} para aproveitar.',{t:need});}
       else if(opts.length&&!u)line+=tr(' · escolha uma ação abaixo.');}
     if(myTurn()&&canBridge(0,sel.x,sel.y))acts.push(pa('bridge',null,p.gold<bridgeCost(p),itemIcon('ponte'),p.clan==='brasa'?tr('Solidificar lava'):tr('Ponte de Lumen'),bridgeCost(p)));
@@ -1846,17 +1984,18 @@ function renderPanel(){const el=$('panel'),p=human();let h='';
     updateScores();
     const rank=[...S.players].sort((a,b)=>b.score-a.score),pos=rank.findIndex(q=>q.human)+1;
     const feed=(S.feed||[]).slice(-5);
-    if(feed.length||S.hits)h+=`<div class="sec"><div class="row"><span class="lbl">${tr('Enquanto isso')}</span><button class="btn small" data-a="clearfeed" aria-label="${tr('Fechar')}">✕</button></div>${S.hits?`<span class="hint">${trp(S.hits,'Suas unidades sofreram {n} ataque.','Suas unidades sofreram {n} ataques.')}</span>`:''}${feed.map(m=>`<span class="hint">${m}</span>`).join('')}</div>`;}
+    if(feed.length||S.hits)h+=`<div class="sec"><div class="row"><span class="lbl">${tr('Enquanto isso')}</span><button class="btn small" data-a="clearfeed" aria-label="${tr('Fechar')}">✕</button></div>${S.hits?`<span class="hint">${trp(S.hits,'Suas unidades sofreram {n} ataque.','Suas unidades sofreram {n} ataques.')}${S.lost?' '+trp(S.lost,'Você perdeu {n} unidade.','Você perdeu {n} unidades.'):''}</span>`:''}${feed.map(m=>`<span class="hint">${m}</span>`).join('')}</div>`;}
   el.innerHTML=h;el.hidden=!h;el.classList.remove('collapsed');}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b||b.disabled)return;const a=b.dataset.a,k=b.dataset.k,p=S&&human();
   switch(a){
     case 'close':ui.sel=null;selectUnit(null);refresh();break;
     case 'pexp':ui.panelOpen=!ui.panelOpen;renderPanel();break;
-    case 'clearfeed':S.feed=[];S.hits=0;renderPanel();break;
+    case 'clearfeed':S.feed=[];S.hits=0;S.lost=0;renderPanel();break;
     case 'techsel':ui.techSel=k;openTech();break;
     case 'techback':closeTech();refresh();break;
     case 'menu-log':closeModal();ui.logOpen=true;$('logbox').hidden=false;renderLog();break;
     case 'menu-pact':openPact();break;
+    case 'menu-endfree':if(S&&!S.over&&myTurn()){closeModal();gameOver();}break;
     case 'menu-home':if(S&&!S.over&&myTurn())saveGame();closeModal();showStart();break;
     case 'menu-rules':openRules();break;
     case 'stats':openStats();break;
@@ -1876,12 +2015,14 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b
     case 'lang-set':setLang(k);break;
     case 'togglescore':ui.scoreMin=!ui.scoreMin;try{localStorage.setItem('mosaica-placar',ui.scoreMin?'1':'0');}catch(e){}renderPanel();break;
     case 'rest':if(ui.unit){rest(ui.unit);selectUnit(ui.unit);refresh();}break;
+    case 'ship':if(ui.unit&&doShip(ui.unit,k)){selectUnit(ui.unit);refresh();}break;
+    case 'disband':if(ui.unit&&ui.unit.owner===0){const u=ui.unit,g=Math.floor(UNITS[u.type].cost/2);p.gold+=g;addLog(tr('{u} foi dispensado (+{n} ✦).',{u:UNITS[u.type].n,n:g}));killUnit(u);ui.undo=null;selectUnit(null);refresh();}break;
     case 'train':{const c=cityAt(ui.sel.x,ui.sel.y);const u=doTrain(c,k);if(u){toast(tr('{u} treinado em {city}.',{u:UNITS[k].n,city:c.name}));selectUnit(u);}refresh();break;}
     case 'harvest':doHarvest(0,ui.sel.x,ui.sel.y,k);refresh();showNextLevelUp();break;
     case 'bridge':doBridge(0,ui.sel.x,ui.sel.y);refresh();break;
     case 'research':if(research(p,k)){toast(tr('Você pesquisou {t}.',{t:TECHS[k].n}));ui.techSel=k;openTech();refresh();}break;
     case 'reward':{const lv=S.pendingLv.shift();applyReward(S.cities[lv.city],k);closeModal();refresh();setTimeout(showNextLevelUp,50);break;}
-    case 'truce':{const id=+k,cost=truceCost();if(p.gold<cost)break;const ai=P(id);const accept=p.score<=ai.score*1.1||Math.random()<.15;p.gold-=cost;p.truces=(p.truces||0)+1;
+    case 'truce':{const id=+k,cost=truceCost();if(p.gold<cost)break;const ai=P(id);const ms=moodSum(ai),accept=(p.score<=ai.score*1.1&&ms>=-2)||Math.random()<Math.max(.05,.15+.1*ms);p.gold-=cost;p.truces=(p.truces||0)+1;
       if(accept){const n=truceLen(0);setTruce(0,id,n);addLog(tr('Pacto de trégua com {c} por {n} turnos.',{c:CLANS[ai.clan].n,n}));toast(tr('{c} aceitou a trégua.',{c:CLANS[ai.clan].n}));}
       else{addLog(tr('{c} recusou a trégua.',{c:CLANS[ai.clan].n}));toast(tr('{c} recusou a trégua (o tributo foi gasto na embaixada).',{c:CLANS[ai.clan].n}));}openPact();refresh();break;}
     case 'break':{const id=+k;S.truces[Math.min(0,id)+'-'+Math.max(0,id)]=0;p.penalty+=150;addLog(tr('Você rompeu o pacto com {c} (−150 pontos).',{c:CLANS[P(id).clan].n}));openPact();refresh();break;}
@@ -1890,11 +2031,12 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(!b
     case 'plaza':{const c=cityAt(ui.sel.x,ui.sel.y);if(c&&doPlaza(c)){refresh();showNextLevelUp();}break;}
     case 'expand':{const c=cityAt(ui.sel.x,ui.sel.y);if(c&&doExpand(c))refresh();break;}
     case 'buywall':{const c=cityAt(ui.sel.x,ui.sel.y);if(c&&doBuyWall(c))refresh();break;}
+    case 'feira':{const c=cityAt(ui.sel.x,ui.sel.y);if(c&&doFair(c)){refresh();showNextLevelUp();}break;}
     case 'tut':showTut(+k);break;
     case 'modalclose':closeModal();break;
     case 'newgame':closeModal();showStart();break;
-    case 'again':{const o={clan:human().clan,diff:S.diff,mode:S.mode,seed:Math.floor(Math.random()*99999)+1};closeModal();if(!S.daily)startOpts=Object.assign({},startOpts,o);launch(o);break;}
-    case 'samemap':{const o={clan:human().clan,diff:S.diff,mode:S.mode,seed:S.seed},d=S.daily;closeModal();launch(o,d);break;}
+    case 'again':{const o={clan:human().clan,diff:S.diff,mode:S.mode,win:S.win,map:S.map,size:S.size,nclans:S.players.length,seed:Math.floor(Math.random()*99999)+1};closeModal();if(!S.daily)startOpts=Object.assign({},startOpts,o);launch(o);break;}
+    case 'samemap':{const o={clan:human().clan,diff:S.diff,mode:S.mode,win:S.win,map:S.map,size:S.size,nclans:S.players.length,seed:S.seed},d=S.daily;closeModal();launch(o,d);break;}
     case 'share':shareResult(S&&S.result);break;
   }});
 $('bEnd').onclick=humanEndTurn;$('bUndo').onclick=undoMove;$('bNext').onclick=nextUnit;$('bTech').onclick=()=>{ui.techSel=null;if(S&&S.tut)tutC().tech++;openTech();};$('bStats').onclick=()=>openStats();$('bMenu').onclick=()=>openMenu();
@@ -1937,11 +2079,24 @@ function openTech(){const p=human(),R=[0,150,268,378],HR=38;const w0=$('techv').
   $('techv').hidden=false;
   const w=$('techv').querySelector('.twrap');if(w){if(keep){w.scrollLeft=keep[0];w.scrollTop=keep[1];}else{w.scrollLeft=(w.scrollWidth-w.clientWidth)/2;w.scrollTop=(w.scrollHeight-w.clientHeight)/2;}}
   $('techv').querySelectorAll('.tn').forEach(g=>g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();g.dispatchEvent(new MouseEvent('click',{bubbles:true}));}}));}
+function moodOf(o){const h=human(),out=[],hb=o.hitBy||{},mh=h.hitBy||{};
+  if(hb[0]!=null&&S.turn-hb[0]<=3)out.push([-2,'Você atacou unidades deles há pouco']);
+  else if(hb[0]==null)out.push([1,'Você nunca atacou este clã']);else if(S.turn-hb[0]>=8)out.push([1,'Faz tempo que você não os ataca']);
+  if(inTruce(0,o.id))out.push([1,'Vocês estão em trégua']);
+  if(S.players.some(q=>q.id!==0&&q.id!==o.id&&q.alive&&hb[q.id]!=null&&mh[q.id]!=null&&S.turn-hb[q.id]<=5&&S.turn-mh[q.id]<=5))out.push([2,'Vocês têm um inimigo em comum']);
+  if(S.units.some(u=>u.owner===0&&playerCities(o.id).some(c=>cheb(u.x,u.y,c.x,c.y)<=2)))out.push([-1,'Seu exército está perto das cidades deles']);
+  {let touch=false;for(let i=0;i<N*N&&!touch;i++){if(ownerOf(S.tiles[i])!==0)continue;const x=i%N,y=Math.floor(i/N);for(const [dx,dy] of DIRS){if(inb(x+dx,y+dy)&&ownerOf(T(x+dx,y+dy))===o.id){touch=true;break;}}}if(touch)out.push([-1,'Suas fronteiras se tocam']);}
+  if(h.score>o.score*1.3)out.push([-1,'Você está muito à frente no placar']);
+  if(S.units.filter(u=>u.owner===0).length>S.units.filter(u=>u.owner===o.id).length*1.3)out.push([1,'Seu exército impõe respeito']);
+  return out;}
+function moodSum(o){return moodOf(o).reduce((a,m)=>a+m[0],0);}
+function moodLabel(m){return tr(m>=2?'Amistoso':m>=0?'Neutro':m>=-2?'Desconfiado':'Hostil');}
 function openPact(){const p=human();const met=S.players.filter(o=>!o.human&&o.alive&&(S.units.some(u=>u.owner===o.id&&p.explored[I(u.x,u.y)])||playerCities(o.id).some(c=>p.explored[I(c.x,c.y)])));
   const rows=met.map(o=>{const tv=S.truces[Math.min(0,o.id)+'-'+Math.max(0,o.id)]||0;
-    return `<div class="card"><div class="row"><b><span class="sw" style="background:${CLANS[o.clan].color}"></span>${CLANS[o.clan].n}</b><span class="muted">${o.score} pts</span></div>
+    const md=moodOf(o),ms=md.reduce((a,m)=>a+m[0],0);
+    return `<div class="card"><div class="row"><b><span class="sw" style="background:${CLANS[o.clan].color}"></span>${CLANS[o.clan].n}</b><span class="muted">${o.score} pts</span></div><span class="d"><b>${tr('Humor: {m}',{m:moodLabel(ms)})}</b></span><div class="chips">${md.map(m=>`<span class="chip" style="color:${m[0]>0?'#9ee6a8':'#ff8a7a'}">${m[0]>0?'+':'−'} ${tr(m[1])}</span>`).join('')}</div>
     ${tv>0?`<span class="d">${tr('Trégua por mais {n} turnos. Nenhum lado pode atacar.',{n:tv})}</span><div><button class="btn small" data-a="break" data-k="${o.id}">${tr('Romper pacto (−150 pontos)')}</button></div>`
-    :`<span class="d">${tr('Trégua de {n} turnos. Clãs atrás de você no placar quase sempre recusam. O tributo sobe a cada proposta.',{n:truceLen(0)})}</span><div><button class="btn small primary" data-a="truce" data-k="${o.id}" ${p.gold<truceCost()||!myTurn()?'disabled':''}>${tr('Propor trégua · {n} ✦',{n:truceCost()})}</button></div>`}</div>`;}).join('');
+    :`<span class="d">${tr('Trégua de {n} turnos. Clãs atrás de você no placar quase sempre recusam, e o humor deles pesa na resposta. O tributo sobe a cada proposta.',{n:truceLen(0)})}</span><div><button class="btn small primary" data-a="truce" data-k="${o.id}" ${p.gold<truceCost()||!myTurn()?'disabled':''}>${tr('Propor trégua · {n} ✦',{n:truceCost()})}</button></div>`}</div>`;}).join('');
   openModal(`<h2>${tr('Pactos')}</h2>${rows?`<div class="grid">${rows}</div>`:`<p class="muted">${tr('Você ainda não encontrou outros clãs. Explore o mapa.')}</p>`}`);}
 function showOffer(){if(!S||S.over||S.pendingLv.length)return;if(!S.offers)S.offers=[];const f=S.offers[0];if(!f)return;const o=P(f.from);if(!o.alive){S.offers.shift();return showOffer();}
   openModal(`<h2>${tr('{c} propõe uma trégua',{c:CLANS[o.clan].n})}</h2><p class="muted">${tr('Por {n} turnos, nenhum dos dois ataca o outro nem toma cidades dele. Romper depois custa 150 pontos.',{n:f.turns})}</p><div class="grid"><button class="card" data-a="offer" data-k="1"><b>${tr('Aceitar')}</b><span class="d">${tr('Trégua de {n} turnos com {c}.',{n:f.turns,c:CLANS[o.clan].n})}</span></button><button class="card" data-a="offer" data-k="0"><b>${tr('Recusar')}</b><span class="d">${tr('Seguir em guerra.')}</span></button></div>`,false);}
@@ -1956,6 +2111,7 @@ function openMenu(){openModal(`<h2>${tr('Menu')}</h2><div class="mlist">
   <button class="btn" data-a="tut" data-k="0"><span>${tr('Ver as dicas')}</span><span class="muted">${tr('{n} dicas',{n:TUT.length})}</span></button>
   <button class="btn" data-a="menu-rules"><span>${tr('Regras rápidas')}</span><span class="muted">${tr('e guia do mapa')}</span></button>
   <button class="btn" data-a="menu-settings"><span>${tr('Ajustes')}</span><span class="muted">${tr('som, vibração, velocidade e idioma')}</span></button>
+  ${S&&!S.over&&S.win==='livre'?`<button class="btn" data-a="menu-endfree"><span>${tr('Encerrar a partida livre')}</span><span class="muted">${tr('vence quem tiver mais pontos')}</span></button>`:''}
   <button class="btn" data-a="menu-home"><span>${tr('Voltar ao início')}</span><span class="muted">${S&&!S.over?tr('a partida fica salva'):''}</span></button></div>`);}
 function openStats(){const p=human();updateScores();const rank=[...S.players].sort((a,b)=>b.score-a.score),pos=rank.findIndex(q=>q.human)+1;
   openModal(`<h2>${tr('Clãs · você em {o}',{o:ord(pos)})}</h2>${scoreTable(rank)}
@@ -1967,23 +2123,48 @@ function rulesHtml(){return `<ul style="margin:0;padding-left:18px;color:var(--m
   ${['Renda por turno: cidade nível 1 rende 2 ✦, +1 por nível, e a capital rende +1.',
   'Combate sem dados: dano = fatia de ataque × Ataque × 4. Se o defensor sobrevive e alcança o atacante, ele contra-ataca.',
   'Floresta, montanha e cidades dão defesa ×1,5. Muralha dá ×3.',
-  'Tecnologia custa 4 + nível × número de cidades. Crescer rápido encarece a pesquisa.',
+  'Tecnologia custa 3 + 2 × nível, mais metade de (nível + 1) por cidade além da primeira. Crescer rápido encarece a pesquisa.',
   'Estações: a cada 8 turnos alterna verão (colheitas +1 pop) e inverno (água rasa congela e vira caminho).',
   'Modo Estações (opcional): primavera, verão, outono e inverno se alternam a cada {n} turnos, e cada estação dá +{b} de ataque aos clãs dela.',
+  'Fios de Lumen: cada cidade de nível 2 ou mais ligada à capital por terra do clã (ou ponte) rende +1 ✦ (⟡ no nome). Um inimigo parado no caminho corta o fio.',
+  'Ressonância: fazenda, mina e serraria ao lado de outra igual rendem +1 pop por vizinha (até +2). O Ateliê de Cristal rende +1 ✦ por mina vizinha.',
   'Pontes de Lumen ligam ilhas por 3 ✦. Pactos dão trégua de 5 turnos; romper custa 150 pontos.',
   'Cidade conquistada fica instável por 3 turnos (sem renda e sem treinar). Cada cidade acima de 5 custa 1 ✦ por turno.',
   'Cada clã tem uma unidade exclusiva (marcada com ★ ao treinar), uma capital própria e uma história.',
-  'Pontos: níveis das cidades, território, tecnologias, unidades, exploração e monumentos.'].map(s=>`<li>${tr(s,{n:SEASON4_LEN,b:SEASON_BONUS})}</li>`).join('')}</ul>`;}
+  'Habilidades: Investida (ataca de novo após derrotar), Estilhaço (atinge os vizinhos do alvo), Bruma (invisível de longe), Enraizar, Congelar e Queimar.',
+  'Veterano: depois de 2 vitórias a unidade se cura e ganha +1 de ataque. Unidades podem ser dispensadas e devolvem metade do custo.',
+  'Pontos: níveis das cidades, território, tecnologias, unidades, exploração e monumentos.',
+  'Humor dos clãs: no painel Pactos, cada rival mostra o que pensa de você. Um clã hostil recusa tréguas e mira as suas cidades.',
+  'Moldar o terreno: com Lavoura dá para abrir clareiras na floresta; os Brasa fazem queimadas férteis e os Raiz plantam bosques.',
+  'Vitória por Corrida: vence quem chegar primeiro à meta de pontos. No modo Livre não há limite de turnos.',
+  'Cada capital rival que você tiver vale +150 pontos. No modo Conquista não há limite de turnos: vence quem tiver dois terços das capitais (👑 no placar).',
+  'Coalizão: quem passar de 1,5 vez os pontos do 2º colocado enfrenta +1 de ataque de todos os outros clãs.',
+  'No oceano há baleias e naufrágios: pesquise Mar Aberto. Com ela, suas unidades na água ganham +1 de ataque.',
+  'Barcos de Lumen: construa um Porto na água rasa (Navegação). Uma unidade na água ao lado dele vira Barco de Guerra (alcance 2, exige Mar Aberto) ou Navio-Farol (+1 de movimento e +2 de visão).',
+  'Frutas, caça e peixes colhidos voltam {r} turnos depois. Com Praça, a cidade pode fazer uma Feira por turno (+2 pop).'].map(s=>`<li>${tr(s,{n:SEASON4_LEN,b:SEASON_BONUS,r:REGROW})}</li>`).join('')}</ul>`;}
 function openRules(){openModal(`<h2>${tr('Como jogar')}</h2>${rulesHtml()}<details><summary>${tr('Guia dos itens do mapa')}</summary><div class="grid" style="margin-top:10px">${Object.keys(ITEMS).map(k=>itemCard(k)).join('')}</div></details>`);}
 // ---- recordes e desafio do dia
 const REC_KEY='mosaica-recordes';
 function readRecords(){try{return JSON.parse(localStorage.getItem(REC_KEY)||'[]');}catch(e){return [];}}
 function addRecord(r){const l=readRecords();l.push(r);l.sort((a,b)=>b.score-a.score);try{localStorage.setItem(REC_KEY,JSON.stringify(l.slice(0,10)));}catch(e){}}
+const ACHS=[['primeira_partida','Primeiro ladrilho','Termine uma partida.'],['veterano','Veterano do mosaico','Termine 10 partidas.'],['primeira_vitoria','Primeira vitória','Vença uma partida.'],['pontos','Vitória por pontos','Termine os turnos com a maior pontuação.'],['dominacao','Mosaico unido','Vença por dominação, sendo o último clã de pé.'],['conquista','Senhor das capitais','Vença no modo Conquista.'],['dificil','Contra a maré','Vença uma partida no Difícil.'],['estacoes','Senhor das estações','Vença uma partida no modo Estações.'],['desafio','Desafio aceito','Termine um Desafio do dia.'],['desafio_vitoria','Desafio vencido','Vença um Desafio do dia.'],['todos_clas','Todos os clãs','Vença com cada um dos clãs.']];
+const ACH_KEY='mosaica-conquistas';
+function readAch(){try{return JSON.parse(localStorage.getItem(ACH_KEY))||{};}catch(e){return {};}}
+function achUpdate(){const r=S.result;if(!r)return;const st=readAch(),got=st.got||(st.got={}),fresh=[];
+  const up=(k,v=100)=>{v=Math.min(100,Math.round(v));if(v>(got[k]||0)){if(v>=100)fresh.push(k);got[k]=v;}};
+  st.games=(st.games||0)+1;st.clas=st.clas||[];if(r.won&&!st.clas.includes(r.clan))st.clas.push(r.clan);
+  const dom=r.won&&S.players.filter(p=>p.alive).length===1,conq=r.won&&S.winner===0&&S.win==='conquista';
+  up('primeira_partida');up('veterano',st.games*10);if(r.won)up('primeira_vitoria');if(dom)up('dominacao');if(conq)up('conquista');if(r.won&&!dom&&!conq)up('pontos');
+  if(r.won&&(S.diff==='dificil'||S.diff==='lendario'))up('dificil');if(r.won&&S.mode==='estacoes')up('estacoes');if(S.daily)up('desafio');if(S.daily&&r.won)up('desafio_vitoria');
+  up('todos_clas',st.clas.length/Object.keys(CLANS).length*100);
+  try{localStorage.setItem(ACH_KEY,JSON.stringify(st));}catch(e){}
+  fresh.forEach(k=>{const a=ACHS.find(x=>x[0]===k);toast(tr('Conquista desbloqueada: {t}',{t:tr(a[1])}));});}
+function achHtml(){const g=readAch().got||{};return `<div class="tier"><span class="lbl">${tr('Conquistas')} · ${ACHS.filter(a=>(g[a[0]]||0)>=100).length}/${ACHS.length}</span><div class="mlist">${ACHS.map(([k,n,d])=>{const v=g[k]||0;return `<div class="card" style="cursor:default"><div class="row"><b>${v>=100?'🏆 ':''}${tr(n)}</b><span class="muted">${v>=100?'✓':v+'%'}</span></div><span class="d">${tr(d)}</span>${v>0&&v<100?`<div class="bar"><i style="width:${v}%"></i></div>`:''}</div>`;}).join('')}</div></div>`;}
 function openRecords(){const l=readRecords();
   openModal(`<h2>${tr('Recordes')}</h2>${l.length?`<table class="score">${l.map((r,i)=>`<tr><td><b>${i+1}º</b> <span class="sw" style="background:${CLANS[r.clan].color};margin-left:6px"></span>${CLANS[r.clan].n} <span class="muted">· ${resLabel(r.res)} · ${DIFF[r.diff]?.n||''}${r.mode==='estacoes'?' · '+tr('Estações'):''}${r.daily?' · '+tr('Desafio {d}',{d:r.daily}):''}</span></td><td>${r.score.toLocaleString(LOC())} pts</td></tr>`).join('')}</table>`:`<p class="muted">${tr('Termine uma partida para registrar o seu primeiro recorde.')}</p>`}
-  ${l.length?`<div><button class="btn small" data-a="set-rec">${tr('Apagar recordes')}</button></div>`:''}`);}
+  ${l.length?`<div><button class="btn small" data-a="set-rec">${tr('Apagar recordes')}</button></div>`:''}${achHtml()}`);}
 function resLabel(s){const m=/^(\d+)º lugar$/.exec(s||'');return m?tr('{o} lugar',{o:ord(+m[1])}):tr(s||'');}
-function dailyOpts(){const d=new Date(),key=d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate();const ks=Object.keys(CLANS);
+function dailyOpts(){const d=new Date(),key=d.getFullYear()*10000+(d.getMonth()+1)*100+d.getDate();const ks=Object.keys(CLANS).filter(clanShown);
   return {key:`${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}`,opts:{clan:ks[key%ks.length],diff:'normal',mode:key%2?'estacoes':'classico',seed:key%99991+1}};}
 function launch(opts,daily){clearSave();$('home').hidden=true;$('setup').hidden=true;$('hud').hidden=false;newGame(opts);applyEco();if(daily)S.daily=daily;
   ui.logOpen=false;$('logbox').hidden=true;cam.z=W_<720?1.3:1.5;const c=S.cities[0];centerOn(c.x,c.y);if(!tutSeen()&&!daily){S.tut={i:0};S.tutc={harv:0,train:0,tech:0};}refresh();showLore(opts.clan);}
@@ -1991,14 +2172,14 @@ function showLore(k){let seen=true;try{seen=localStorage.getItem('mosaica-histor
   openModal(`<span class="lbl">${c.special?tr('Clã especial · {k}',{k:c.kind}):tr('Clã · {e}',{e:c.env})}</span><h2>${c.n}</h2><div class="chars">${showcase(k).map(t=>`<img src="${portrait(t,k)}" alt="">`).join('')}<img src="${capitalIcon(k)}" alt=""></div><p>${c.lore}</p><p class="hint">${tr(/^(Forja|Casa|Toca|Nave)/.test(c.capPt||c.cap)?'Sua capital é a {cap}.':'Sua capital é o {cap}.',{cap:c.cap})} ${tr('Só o seu clã treina {u}:',{u:UNITS[X].n})} ${UNITS[X].note}</p>`);}
 function startDaily(){const d=dailyOpts();launch(d.opts,d.key);}
 const PRODS=[['clas_extras','Clãs extras','Fera, Lume e os quatro clãs especiais.'],['mapas_grandes','Mapas grandes','Mapas Grande e Enorme, com partidas mais longas.'],['mais_clas','Mais clãs na partida','Até 8 clãs na mesma partida.'],['completo','Pacote completo','Libera tudo de uma vez.']];
-function openShop(){const L=SHOP();if(!L)return;const tem=id=>{try{return !!L.tem(id);}catch(e){return false;}};
+function openShop(){const L=SHOP();if(!L||HID())return;const tem=id=>{try{return !!L.tem(id);}catch(e){return false;}};
   openModal(`<h2>🛒 ${tr('Loja')}</h2><div class="mlist">${PRODS.map(([id,n,d])=>{const ok=tem('completo')||tem(id)||(id==='completo'&&PRODS.slice(0,3).every(p=>tem(p[0])));let pr='';try{pr=L.preco(id)||'';}catch(e){}
     return `<button class="btn" data-a="shop-buy" data-k="${id}" ${ok?'disabled':''}><span>${tr(n)}<span class="sub">${tr(d)}</span></span><span class="tg ${ok?'':'on'}">${ok?'✓ '+tr('Comprado'):(pr||tr('Comprar'))}</span></button>`;}).join('')}
   <button class="btn" data-a="shop-restore"><span>${tr('Restaurar compras')}</span><span class="muted"></span></button></div>`);}
 function shopDone(){if(!$('setup').hidden)showSetup();else if(!$('modal').hidden)openShop();}
 function shopBuy(id){const L=SHOP();if(!L)return;Promise.resolve().then(()=>L.comprar(id)).then(ok=>{if(ok){toast(tr('Obrigado! Conteúdo liberado.'));shopDone();}else toast(tr('Compra não concluída.'));}).catch(()=>toast(tr('Compra não concluída.')));}
 function shopRestore(){const L=SHOP();if(!L)return;Promise.resolve().then(()=>L.restaurar()).then(()=>{toast(tr('Compras restauradas.'));shopDone();}).catch(()=>toast(tr('Compra não concluída.')));}
-function openClans(){openModal(`<h2>${tr('Os {n} clãs',{n:Object.keys(CLANS).length})}</h2><div class="grid">${Object.entries(CLANS).map(([k,c])=>`<div class="card" style="cursor:default"><div class="chars">${showcase(k).map(t=>`<img src="${portrait(t,k)}" alt="">`).join('')}<img src="${capitalIcon(k)}" alt=""></div><b><span class="sw" style="background:${c.color}"></span>${c.n}</b><span class="d">${tr('{e} · começa com {t}',{e:c.env,t:TECHS[c.tech].n})}</span><span class="d">${c.trait}</span><span class="d">${tr('Exclusivo: {u}.',{u:UNITS[CLAN_UNIT[k]].n})} ${UNITS[CLAN_UNIT[k]].note}</span><span class="d">${tr('Capital: {cap} · Grande Obra: {g}',{cap:c.cap,g:GREAT[k].n})}</span>${c.special?`<span class="ctag spt">✦ ${tr('Especial · {k}',{k:c.kind})}</span>`:''}${clanLocked(k)?`<span class="ctag lkt">🔒 ${tr('Clãs extras')}</span>`:''}<details><summary>${tr('História')}</summary><p>${c.lore}</p></details></div>`).join('')}</div>`);}
+function openClans(){openModal(`<h2>${tr('Os {n} clãs',{n:Object.keys(CLANS).filter(clanShown).length})}</h2><div class="grid">${Object.entries(CLANS).filter(([k])=>clanShown(k)).map(([k,c])=>`<div class="card" style="cursor:default"><div class="chars">${showcase(k).map(t=>`<img src="${portrait(t,k)}" alt="">`).join('')}<img src="${capitalIcon(k)}" alt=""></div><b><span class="sw" style="background:${c.color}"></span>${c.n}</b><span class="d">${tr('{e} · começa com {t}',{e:c.env,t:TECHS[c.tech].n})}</span><span class="d">${c.trait}</span><span class="d">${tr('Exclusivo: {u}.',{u:UNITS[CLAN_UNIT[k]].n})} ${UNITS[CLAN_UNIT[k]].note}</span><span class="d">${tr('Capital: {cap} · Grande Obra: {g}',{cap:c.cap,g:GREAT[k].n})}</span>${c.special?`<span class="ctag spt">✦ ${tr('Especial · {k}',{k:c.kind})}</span>`:''}${clanLocked(k)?`<span class="ctag lkt">🔒 ${tr('Clãs extras')}</span>`:''}<details><summary>${tr('História')}</summary><p>${c.lore}</p></details></div>`).join('')}</div>`);}
 function openSettings(){const saved=readSave();const tg=(k,n,sub,on,lab)=>`<button class="btn" data-a="cfg" data-k="${k}" role="switch" aria-checked="${on}"><span>${n}<span class="sub">${sub}</span></span><span class="tg ${on?'on':''}">${lab||(on?tr('Ligado'):tr('Desligado'))}</span></button>`;
   openModal(`<h2>${tr('Ajustes')}</h2><div class="mlist">
   <button class="btn" data-a="lang-open"><span>🌐 ${tr('Idioma')}<span class="sub">Language · Idioma · Langue · Sprache · Lingua · 言語 · 语言</span></span><span class="tg on">${LANGS[LANG]}</span></button>
@@ -2006,7 +2187,7 @@ function openSettings(){const saved=readSave();const tg=(k,n,sub,on,lab)=>`<butt
   ${tg('music',tr('Música'),tr('trilha suave durante o jogo'),CFG.music)}
   ${tg('vib',tr('Vibração'),hapticOk()?tr('ao atacar, conquistar e nos avisos'):tr('indisponível neste aparelho'),CFG.vib&&hapticOk())}
   ${tg('speed',tr('Velocidade das animações'),tr('movimento das unidades e turno dos rivais'),fastUI(),fastUI()?tr('Rápida'):tr('Normal'))}
-  ${SHOP()?`<button class="btn" data-a="shop-open"><span>🛒 ${tr('Loja')}<span class="sub">${tr('clãs extras e mapas maiores')}</span></span><span class="muted"></span></button>`:''}
+  ${SHOP()&&!HID()?`<button class="btn" data-a="shop-open"><span>🛒 ${tr('Loja')}<span class="sub">${tr('clãs extras e mapas maiores')}</span></span><span class="muted"></span></button>`:''}
   <button class="btn" data-a="set-tut"><span>${tr('Refazer a partida guiada')}</span><span class="muted">${tr('na próxima partida')}</span></button>
   <button class="btn" data-a="set-save" ${saved&&!saved.over?'':'disabled'}><span>${tr('Apagar partida salva')}</span><span class="muted">${saved&&!saved.over?tr('turno {n}',{n:saved.turn}):tr('nenhuma')}</span></button>
   <button class="btn" data-a="home-records"><span>${tr('Recordes')}</span><span class="muted">${tr('{n} registrados',{n:readRecords().length})}</span></button></div>`);}
@@ -2053,10 +2234,10 @@ const SAVE_KEY='mosaica-save-v1';
 function saveGame(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));}catch(e){}}
 function clearSave(){try{localStorage.removeItem(SAVE_KEY);}catch(e){}}
 function readSave(){try{const s=localStorage.getItem(SAVE_KEY);return s?JSON.parse(s):null;}catch(e){return null;}}
-function loadState(st){S=st;setSize(S.size);applyEco();{const rf={campo:'frutas',floresta:'caca',raso:'peixe',montanha:'minerio',oceano:null};S.tiles.forEach(t=>{if(t.res&&t.res!==rf[t.t])t.res=rf[t.t];});}if(!S.offers)S.offers=[];if(!S.feed)S.feed=[];ui.undo=null;S.tiles.forEach(t=>{delete t.builtT;});S.units.forEach(u=>{u.rx=u.x;u.ry=u.y;delete u.hitT;delete u.lunge;});ui.sel=null;selectUnit(null);ui.busy=false;$('home').hidden=true;$('setup').hidden=true;$('hud').hidden=false;
+function loadState(st){S=st;setSize(S.size);applyEco();{const rf={campo:'frutas',floresta:'caca',raso:'peixe',montanha:'minerio',oceano:null};S.tiles.forEach(t=>{if(t.res&&t.res!=='baleia'&&t.res!==rf[t.t])t.res=rf[t.t];});}if(!S.offers)S.offers=[];if(!S.feed)S.feed=[];ui.undo=null;S.tiles.forEach(t=>{delete t.builtT;});S.units.forEach(u=>{u.rx=u.x;u.ry=u.y;delete u.hitT;delete u.lunge;});ui.sel=null;selectUnit(null);ui.busy=false;$('home').hidden=true;$('setup').hidden=true;$('hud').hidden=false;
   const cap=playerCities(0)[0]||S.cities[0];cam.z=W_<720?1.3:1.5;centerOn(cap.x,cap.y);
   if(S.current!==0&&!S.over){ui.busy=true;setTimeout(()=>endTurn(S.current),50);}refresh();showNextLevelUp();}
-let startOpts={clan:'raiz',diff:'normal',mode:'classico',size:'padrao',nclans:4,seed:Math.floor(Math.random()*99999)};
+let startOpts={clan:'raiz',diff:'normal',mode:'classico',win:'pontos',map:'continente',size:'padrao',nclans:4,seed:Math.floor(Math.random()*99999)};
 function showStart(){S=null;applyEco();$('hud').hidden=true;$('techv').hidden=true;$('setup').hidden=true;closeModal();const saved=readSave(),d=dailyOpts();
   let stars='';for(let i=0;i<34;i++)stars+=`<i style="left:${(i*37.3)%100}%;top:${(i*53.7)%62}%;animation-delay:${-(i%7)*.5}s"></i>`;
   $('home').innerHTML=`<div class="stars" aria-hidden="true">${stars}</div>
@@ -2083,17 +2264,19 @@ function showSetup(){$('home').hidden=true;closeModal();
   const loreCard=k=>{const c=CLANS[k],X=CLAN_UNIT[k],U=UNITS[X];return `<div class="card lorec${c.special?' spc':''}"><b><span class="sw" style="background:${c.color}"></span>${tr('A história dos {c}',{c:c.n})}</b><p>${c.lore}</p>
     <div class="lrow"><img src="${portrait(X,k)}" alt=""><div><span class="lbl">${tr('Unidade exclusiva')}</span><b>${U.n}</b><span class="d">${U.note} ${tr('Custa {n} ✦ e exige {t}.',{n:U.cost,t:TECHS[U.tech].n})}</span></div></div>
     <div class="lrow"><img src="${capitalIcon(k)}" alt=""><div><span class="lbl">${tr('Capital')}</span><b>${c.cap}</b><span class="d">${tr('Grande Obra: {g}.',{g:GREAT[k].n})} ${GREAT[k].d}</span></div></div></div>`;};
-  const clanCards=Object.entries(CLANS).filter(([k,c])=>!c.special).map(clanCard).join(''),specCards=Object.entries(CLANS).filter(([k,c])=>c.special).map(clanCard).join('');
+  const clanCards=Object.entries(CLANS).filter(([k,c])=>!c.special&&clanShown(k)).map(clanCard).join(''),specCards=Object.entries(CLANS).filter(([k,c])=>c.special&&clanShown(k)).map(clanCard).join('');
   $('startBody').innerHTML=`<div class="row" style="justify-content:flex-start;gap:16px"><button class="backbtn" data-a="setup-back" aria-label="${tr('Voltar ao início')}">${uiIcon('back')}</button><h2>${tr('Nova partida')}</h2></div>
   <p class="muted">${tr('O mundo se partiu em ladrilhos flutuantes. Os clãs religam os pedaços com Lumens (✦), a energia que brota de cada cidade. Em {n} turnos, quem tiver mais pontos une o mosaico.',{n:zs.t})}</p>
   <div class="tier"><span class="lbl">${tr('Escolha o seu clã')}</span><div class="grid">${clanCards}</div></div>
-  <div class="tier"><span class="lbl">${tr('Clãs especiais')}</span><div class="grid">${specCards}</div></div>
+  ${specCards?`<div class="tier"><span class="lbl">${tr('Clãs especiais')}</span><div class="grid">${specCards}</div></div>`:''}
   <div class="tier" id="loreBox">${loreCard(startOpts.clan)}</div>
-  <div class="row" style="flex-wrap:wrap;align-items:flex-start;justify-content:flex-start;gap:16px"><div class="tier"><span class="lbl">${tr('Tamanho do mapa')}</span><div class="seg">${Object.entries(SIZES).map(([k,z])=>`<button data-start-size="${k}" class="${startOpts.size===k?'on':''}">${sizeLocked(k)?lk:''}${tr(z.nm)}</button>`).join('')}</div><span class="hint">${tr('{a}×{a} casas · {t} turnos · até {m} clãs',{a:zs.n,t:zs.t,m:zs.max})}</span></div>
-  <div class="tier"><span class="lbl">${tr('Clãs na partida')}</span><div class="seg">${Array.from({length:zs.max-1},(_,i)=>i+2).map(n=>`<button data-start-n="${n}" class="${startOpts.nclans===n?'on':''}">${countLocked(n)?lk:''}${n}</button>`).join('')}</div></div>
-  ${SHOP()?`<div class="tier"><span class="lbl">&nbsp;</span><button class="btn" data-a="shop-open">🛒 ${tr('Loja')}</button></div>`:''}</div>
+  <div class="row" style="flex-wrap:wrap;align-items:flex-start;justify-content:flex-start;gap:16px"><div class="tier"><span class="lbl">${tr('Tamanho do mapa')}</span><div class="seg">${Object.entries(SIZES).filter(([k])=>!(HID()&&sizeLocked(k))).map(([k,z])=>`<button data-start-size="${k}" class="${startOpts.size===k?'on':''}">${sizeLocked(k)?lk:''}${tr(z.nm)}</button>`).join('')}</div><span class="hint">${tr('{a}×{a} casas · {t} turnos · até {m} clãs',{a:zs.n,t:zs.t,m:zs.max})}</span></div>
+  <div class="tier"><span class="lbl">${tr('Clãs na partida')}</span><div class="seg">${Array.from({length:zs.max-1},(_,i)=>i+2).filter(n=>!(HID()&&countLocked(n))).map(n=>`<button data-start-n="${n}" class="${startOpts.nclans===n?'on':''}">${countLocked(n)?lk:''}${n}</button>`).join('')}</div></div>
+  ${SHOP()&&!HID()?`<div class="tier"><span class="lbl">&nbsp;</span><button class="btn" data-a="shop-open">🛒 ${tr('Loja')}</button></div>`:''}</div>
   <div class="row" style="flex-wrap:wrap;align-items:flex-end"><div class="tier"><span class="lbl">${tr('Dificuldade')}</span><div class="seg">${Object.entries(DIFF).map(([k,d])=>`<button data-start-diff="${k}" class="${startOpts.diff===k?'on':''}">${d.n}</button>`).join('')}</div></div>
   <div class="tier"><span class="lbl">${tr('Modo de jogo')}</span><div class="seg"><button data-start-mode="classico" class="${startOpts.mode!=='estacoes'?'on':''}">${tr('Clássico')}</button><button data-start-mode="estacoes" class="${startOpts.mode==='estacoes'?'on':''}">${tr('Estações')}</button></div></div>
+  <div class="tier"><span class="lbl">${tr('Mapa')}</span><div class="seg"><button data-start-map="continente" class="${startOpts.map!=='arquipelago'?'on':''}">${tr('Continente')}</button><button data-start-map="arquipelago" class="${startOpts.map==='arquipelago'?'on':''}">${tr('Arquipélago')}</button></div><span class="hint">${startOpts.map==='arquipelago'?tr('Ilhas separadas pelo mar: pesquise Navegação cedo.'):tr('Uma grande terra no centro.')}</span></div>
+  <div class="tier"><span class="lbl">${tr('Vitória')}</span><div class="seg">${[['pontos','Pontos'],['conquista','Conquista'],['corrida','Corrida'],['livre','Livre']].map(([k,n])=>`<button data-start-win="${k}" class="${(startOpts.win||'pontos')===k?'on':''}">${tr(n)}</button>`).join('')}</div><span class="hint">${startOpts.win==='conquista'?tr('Sem limite de turnos: vence quem tiver {n} das {m} capitais.',{n:capsNeed(startOpts.nclans),m:startOpts.nclans}):startOpts.win==='corrida'?tr('Vence quem chegar primeiro a {n} pontos.',{n:({padrao:4000,grande:6000,enorme:8000}[startOpts.size]||4000).toLocaleString(LOC())}):startOpts.win==='livre'?tr('Sem limite de turnos. Encerre pelo Menu quando quiser.'):tr('Mais pontos no turno {n}.',{n:zs.t})}</span></div>
   <button class="btn primary" id="bStart" style="padding:10px 22px;font-size:16px">${tr('Começar partida')}</button></div>
   ${startOpts.mode==='estacoes'?`<div class="tier"><span class="lbl">${tr('Calendário das Estações')}</span><p class="hint" style="margin:0 0 8px">${tr('O ano tem 4 estações de {n} turnos. Em cada uma, os clãs da estação ganham +{b} de ataque em todas as unidades. O inverno congela a água rasa e as colheitas rendem +1 pop só no verão.',{n:SEASON4_LEN,b:SEASON_BONUS})}</p><div class="grid">${SEASONS4.map(se=>`<div class="card" style="cursor:default"><b>${se.ic} ${se.n}</b><span class="d">${se.d}</span><span class="d">${se.fav.map(k=>`<span class="sw" style="background:${CLANS[k].color}"></span>${CLANS[k].n}`).join(' · ')}${se.fav.includes(startOpts.clan)?` <b>${tr('(o seu clã)')}</b>`:''}</span></div>`).join('')}</div></div>`:''}
   <details><summary>${tr('Opções avançadas')}</summary><div class="tier" style="margin-top:8px"><label class="lbl" for="seed">${tr('Semente do mapa')}</label><input type="number" id="seed" value="${startOpts.seed}"><span class="hint">${tr('O mesmo número gera sempre o mesmo mapa. Deixe como está para um mapa sorteado.')}</span></div></details>
@@ -2103,6 +2286,8 @@ function showSetup(){$('home').hidden=true;closeModal();
   $('startBody').querySelectorAll('[data-start-size]').forEach(b=>b.onclick=()=>{startOpts.seed=+$('seed').value||1;if(sizeLocked(b.dataset.startSize))return openShop();startOpts.size=b.dataset.startSize;showSetup();});
   $('startBody').querySelectorAll('[data-start-n]').forEach(b=>b.onclick=()=>{startOpts.seed=+$('seed').value||1;if(countLocked(+b.dataset.startN))return openShop();startOpts.nclans=+b.dataset.startN;showSetup();});
   $('startBody').querySelectorAll('[data-start-mode]').forEach(b=>b.onclick=()=>{startOpts.mode=b.dataset.startMode;startOpts.seed=+$('seed').value||1;showSetup();});
+  $('startBody').querySelectorAll('[data-start-map]').forEach(b=>b.onclick=()=>{startOpts.map=b.dataset.startMap;startOpts.seed=+$('seed').value||1;showSetup();});
+  $('startBody').querySelectorAll('[data-start-win]').forEach(b=>b.onclick=()=>{startOpts.win=b.dataset.startWin;startOpts.seed=+$('seed').value||1;showSetup();});
   $('startBody').querySelectorAll('[data-start-diff]').forEach(b=>b.onclick=()=>{startOpts.diff=b.dataset.startDiff;startOpts.seed=+$('seed').value||1;showSetup();});
   $('bStart').onclick=()=>{startOpts.seed=Math.abs(+$('seed').value|0)||1;launch(startOpts);};}
 
@@ -2222,7 +2407,7 @@ const COACH=[
   {txt:()=>tr('Os <b>pontos brancos</b> mostram o alcance. Toque num deles para andar e revelar o mapa.'),done:()=>S.units.some(u=>u.owner===0&&u.moved)||S.turn>1},
   {txt:()=>tr('Toque na <b>casa destacada</b> do seu território e use a ação dourada que aparece embaixo. Colher faz a cidade crescer.'),tile:()=>{const h=harvTile();return h&&[h.x,h.y];},skip:()=>!harvTile()||S.turn>1,done:()=>tutC().harv>0},
   {txt:()=>tr('Agora toque na sua <b>capital</b> (a cidade com o losango dourado) e treine uma unidade. Cidade vazia pode ser tomada.'),tile:()=>{const c=playerCities(0)[0];return c&&[c.x,c.y];},
-    skip:()=>{const c=playerCities(0)[0],p=human();return S.turn>1||!c||!!unitAt(c.x,c.y)||homeCount(c)>=c.level+1||!trainable(c).some(k=>unitCost(p,k)<=p.gold);},done:()=>tutC().train>0},
+    skip:()=>{const c=playerCities(0)[0],p=human();return S.turn>1||!c||!!unitAt(c.x,c.y)||homeCount(c)>=unitCap(c)||!trainable(c).some(k=>unitCost(p,k)<=p.gold);},done:()=>tutC().train>0},
   {txt:()=>tr('Abra <b>Tecnologia</b> para ver o que o seu clã pode aprender. Cada pesquisa libera unidades ou construções.'),btn:'bTech',skip:()=>S.turn>1,done:()=>tutC().tech>0&&$('techv').hidden},
   {txt:()=>tr('Quando não houver mais o que fazer, toque em <b>Encerrar turno</b>. Os outros clãs jogam e você recebe Lumens (✦).'),btn:'bEnd',done:()=>S.turn>1},
   {txt:()=>tr(neutralNear()?'Hora de crescer: leve uma unidade até a <b>aldeia neutra</b> destacada e encerre o turno em cima dela para ocupá-la.':'Hora de crescer: explore com o Batedor até achar uma <b>aldeia neutra</b> (telhados cinza) e encerre o turno em cima dela.'),tile:()=>{const c=neutralNear();return c&&[c.x,c.y];},ok:'Entendi',done:()=>playerCities(0).length>1},
@@ -2245,7 +2430,7 @@ function coachUpdate(){const el=$('coach');document.querySelectorAll('.coachhl')
     _atk(a,d);if(quiet()||!seen)return;const dDead=!S.units.includes(d),aDead=!S.units.includes(a);
     if(dDead){burst(dx,dy,dcol);burst(dx,dy,'#ffffff');}if(aDead)burst(ax,ay,acol);
     if(mine){sfx(dDead||aDead?'kill':'hit');shake(dDead||aDead?7:4);haptic(dDead||aDead?'heavy':'medium');}else{sfx('hit');}
-    if(dDead&&a.owner===0&&a.vet&&a.kills===3)banner(tr('Veterano!'),tr('{u} ganhou +5 de vida',{u:UNITS[a.type].n}));};
+    if(dDead&&a.owner===0&&a.vet&&a.kills===2)banner(tr('Veterano!'),tr('{u} ganhou +1 de ataque',{u:UNITS[a.type].n}));};
   const _cap=captureCity;captureCity=function(c,pid){const old=c.owner,alive0=human().alive;_cap(c,pid);if(quiet())return;const col=clanOf(pid).color;
     if(vis(c.x,c.y)){burst(c.x,c.y,col);burst(c.x,c.y,'#ffd36b');}
     if(pid===0){sfx('capture');haptic('success');shake(5);banner(old==null?tr('Aldeia ocupada!'):tr('Cidade conquistada!'),tr('{city} agora é do clã {c}',{city:c.name,c:clanOf(0).n}),col);panTo(c.x,c.y);}
@@ -2265,7 +2450,7 @@ function coachUpdate(){const el=$('coach');document.querySelectorAll('.coachhl')
   const _ruin=ruinReward;ruinReward=function(u){_ruin(u);if(u.owner===0&&!quiet()){sfx('research');haptic('medium');}};
   const _rest=rest;rest=function(u){_rest(u);if(u.owner===0)sfx('ok');};
   const _season=seasonChange;seasonChange=function(){_season();if(!quiet())sfx('season');};
-  const _start=startTurn;startTurn=function(pid){_start(pid);if(pid===0&&!quiet()&&S&&!S.over&&S.turn>1){sfx('turn');dangerAlert();if(S.turn===MAX_TURNS)banner(tr('Último turno'),tr('Faça valer cada ação'),'#ffd36b');else if(S.turn===MAX_TURNS-4)toast(tr('Faltam 5 turnos para o fim da partida.'));}};
+  const _start=startTurn;startTurn=function(pid){_start(pid);if(pid===0&&!quiet()&&S&&!S.over&&S.turn>1){sfx('turn');dangerAlert();if(S.turn===turnCap())banner(tr('Último turno'),tr('Faça valer cada ação'),'#ffd36b');else if(S.turn===turnCap()-4)toast(tr('Faltam 5 turnos para o fim da partida.'));}};
   const _over=gameOver;gameOver=function(){const fast=quiet();_over();if(fast)return;ui.danger=[];$('danger').hidden=true;coachUpdate();const rank=[...S.players].sort((a,b)=>b.score-a.score);const won=human().alive&&rank[0].human;sfx(won?'win':'lose');haptic(won?'success':'heavy');};
   const _refresh=refresh;refresh=function(){_refresh();if(!S)return;renderDanger();coachUpdate();};
   const _sel=selectUnit;selectUnit=function(u){const prev=ui.unit;_sel(u);if(u&&u!==prev&&u.owner===0&&!quiet())sfx('select');};

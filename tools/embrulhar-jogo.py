@@ -14,7 +14,7 @@ head = '''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#14163a">
-<meta name="description" content="Jogue Mosaica no navegador: estratégia por turnos em ilhas, 12 clãs, 30 turnos.">
+<meta name="description" content="Jogue Mosaica no navegador: estratégia por turnos em ilhas, 12 clãs, 32 turnos.">
 <link rel="icon" href="/img/favicon.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 '''
