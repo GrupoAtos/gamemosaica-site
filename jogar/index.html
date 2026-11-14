@@ -2291,10 +2291,10 @@ function showTut(i){if(i>=TUT.length){try{localStorage.setItem('mosaica-tutorial
   openModal(`<span class="lbl">${tr('Dica {a} de {b}',{a:i+1,b:TUT.length})}</span><h2>${TUT[i][0]}</h2><p>${TUT[i][1]}</p><div class="row"><button class="btn" data-a="tut" data-k="${TUT.length}">${tr('Pular')}</button><button class="btn primary" data-a="tut" data-k="${i+1}">${i+1<TUT.length?tr('Próxima'):tr('Jogar')}</button></div>`,false);}
 function tutSeen(){try{return localStorage.getItem('mosaica-tutorial')==='1';}catch(e){return true;}}
 const SAVE_KEY='mosaica-save-v1';
-function saveGame(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));}catch(e){}}
+function saveGame(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S,(k,v)=>k==='lnk'?undefined:v));}catch(e){}}
 function clearSave(){try{localStorage.removeItem(SAVE_KEY);}catch(e){}}
 function readSave(){try{const s=localStorage.getItem(SAVE_KEY);return s?JSON.parse(s):null;}catch(e){return null;}}
-function loadState(st){S=st;setSize(S.size);applyEco();{const rf={campo:'frutas',floresta:'caca',raso:'peixe',montanha:'minerio',oceano:null};S.tiles.forEach(t=>{if(t.res&&t.res!=='baleia'&&t.res!==rf[t.t])t.res=rf[t.t];});}if(!S.offers)S.offers=[];if(!S.feed)S.feed=[];ui.undo=null;S.tiles.forEach(t=>{delete t.builtT;});S.units.forEach(u=>{u.rx=u.x;u.ry=u.y;delete u.hitT;delete u.lunge;});ui.sel=null;selectUnit(null);ui.busy=false;$('home').hidden=true;$('setup').hidden=true;$('hud').hidden=false;
+function loadState(st){S=st;delete S.lnk;setSize(S.size);{const n=Math.round(Math.sqrt(S.tiles.length));if(n*n===S.tiles.length&&n!==N){N=n;if(n===14&&S.size==='padrao')MAX_TURNS=30;}}applyEco();{const rf={campo:'frutas',floresta:'caca',raso:'peixe',montanha:'minerio',oceano:null};S.tiles.forEach(t=>{if(t.res&&t.res!=='baleia'&&t.res!==rf[t.t])t.res=rf[t.t];});}if(!S.offers)S.offers=[];if(!S.feed)S.feed=[];ui.undo=null;S.tiles.forEach(t=>{delete t.builtT;});S.units.forEach(u=>{u.rx=u.x;u.ry=u.y;delete u.hitT;delete u.lunge;});ui.sel=null;selectUnit(null);ui.busy=false;$('home').hidden=true;$('setup').hidden=true;$('hud').hidden=false;
   const cap=playerCities(0)[0]||S.cities[0];cam.z=W_<720?1.3:1.5;centerOn(cap.x,cap.y);
   if(S.current!==0&&!S.over){ui.busy=true;setTimeout(()=>endTurn(S.current),50);}refresh();showNextLevelUp();}
 let startOpts={clan:'raiz',diff:'normal',mode:'classico',win:'pontos',map:'continente',size:'padrao',nclans:4,seed:Math.floor(Math.random()*99999)};
@@ -2450,7 +2450,7 @@ function calcDanger(){if(!S||S.over||!human().alive)return [];return playerCitie
 function renderDanger(){const el=$('danger');ui.danger=S&&S.current===0&&!quiet()?calcDanger():(ui.danger||[]);if(S&&S.over)ui.danger=[];
   const hi=ui.danger.filter(d=>d.lvl>1),list=hi.length?hi:ui.danger;
   if(!list.length){el.hidden=true;return;}
-  const last=playerCities(0).length===1,nm=list.length>1?trp(list.length,'{n} cidade','{n} cidades'):(list[0].c.capital?tr('Capital'):list[0].c.name);
+  const last=playerCities(0).length===1,nm=list.length>1?trp(list.length,'{n} cidade','{n} cidades'):list[0].c.name;
   el.className=hi.length?'hi':'';el.hidden=false;
   el.innerHTML=`<span class="dz">!</span><span>${hi.length?`<b>${tr('{c} em perigo',{c:nm})}</b> · ${last?tr('é a sua última cidade'):tr('pode cair no próximo turno')}`:tr('Inimigos perto de {c}',{c:'<b>'+nm+'</b>'})}</span>`;}
 function dangerAlert(){const hi=calcDanger().filter(d=>d.lvl>1);if(!hi.length||ui.dangerTold===S.turn)return;ui.dangerTold=S.turn;sfx('danger');haptic('warn');
