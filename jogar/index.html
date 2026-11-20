@@ -863,7 +863,7 @@ function setTruce(a,b,n){S.truces[Math.min(a,b)+'-'+Math.max(a,b)]=n;}
 // ---- Grande Obra, Praça, Muralha comprada ----
 function capitalOf(pid){return S.cities.find(c=>c.owner===pid&&c.capital)||null;}
 function canGreat(pid){const p=P(pid);return greatPronto(p)&&!p.great&&!!capitalOf(pid);}
-function doGreat(pid){const p=P(pid),cap=capitalOf(pid);if(!canGreat(pid)||p.gold<GREAT_COST)return false;p.gold-=GREAT_COST;p.great=true;cap.great=true;p.bonusScore+=300;p.greatBonusAt=S.turn+GREAT_BONUS_TURNS;
+function doGreat(pid){const p=P(pid),cap=capitalOf(pid);if(!canGreat(pid)||p.gold<GREAT_COST)return false;p.gold-=GREAT_COST;p.great=true;cap.great=true;p.bonusScore+=300;p.greatBonusAt=S.turn+GREAT_BONUS_TURNS;greatLocal(p,cap);
   const G=GREAT[p.clan];
   if(p.clan==='raiz')playerCities(pid).forEach(c=>addPop(c,2));
   if(p.clan==='geada')playerCities(pid).forEach(c=>{if(c.level>=3)c.wall=true;});
@@ -1697,7 +1697,7 @@ function drawCity(c,g){const roof=c.owner==null?'#b9ad98':clanOf(c.owner).color;
   if(c.owner!=null&&c.level>=5){const fy=g.cy-(c.capital?40:24);ctx.strokeStyle='#e8dcc0';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(g.cx+7,fy+12);ctx.lineTo(g.cx+7,fy);ctx.stroke();ctx.fillStyle=roof;ctx.beginPath();ctx.moveTo(g.cx+7,fy);ctx.lineTo(g.cx+14,fy+2+Math.sin(time*.005));ctx.lineTo(g.cx+7,fy+5);ctx.closePath();ctx.fill();}
   ctx.restore();}
   if(c.plaza)cityFountain(g);if(c.bonus>0&&c.owner!=null)cityWorkshop(g);if(c.fair===S.turn&&c.owner!=null)cityFair(g);if(c.wall)cityWall(g,true);
-  if(c.great&&c.owner!=null){const gk=P(c.owner).clan;drawGreatWork(ctx,gk,g.cx-18,g.cy+6,CLANS[gk].color,time);}
+  if(c.great&&c.owner!=null&&!c.gwTile){const gk=P(c.owner).clan;drawGreatWork(ctx,gk,g.cx-18,g.cy+6,CLANS[gk].color,time);}
   if(c.capital){const y=g.cy-(c.owner==null?24:44)+Math.sin(time*.003)*2;ctx.fillStyle='#ffd36b';ctx.beginPath();ctx.moveTo(g.cx,y-7);ctx.lineTo(g.cx+5,y);ctx.lineTo(g.cx,y+7);ctx.lineTo(g.cx-5,y);ctx.closePath();ctx.fill();
     ctx.fillStyle='rgba(255,211,107,.25)';ctx.beginPath();ctx.arc(g.cx,y,10,0,7);ctx.fill();}
   if(cam.z>.6)labels.push({c,x:g.cx,y:g.cy});}
@@ -2008,7 +2008,7 @@ function render(ts){time=ts||0;
     drawTerrainDetail(t,g,winter);drawRes(t,g,x,y);
     if(ui.sel&&ui.sel.x===x&&ui.sel.y===y){ctx.strokeStyle='#ffffff';ctx.lineWidth=2.5;diamond(g.cx,g.cy,TW-6,TH-3);ctx.stroke();}
     if(moveSet.has(x+','+y)){ctx.fillStyle='rgba(255,255,255,.85)';ctx.beginPath();ctx.ellipse(g.cx,g.cy,6,3.5,0,0,7);ctx.fill();ctx.fillStyle='rgba(255,255,255,.12)';diamond(g.cx,g.cy,TW-8,TH-4);ctx.fill();}
-    if(t.city!=null)drawCity(S.cities[t.city],g);
+    if(t.city!=null)drawCity(S.cities[t.city],g);if(t.gw&&CLANS[t.gw])drawGreatWork(ctx,t.gw,g.cx,g.cy+5,CLANS[t.gw].color,time);
     for(const u of S.units)if(Math.round(u.rx)===x&&Math.round(u.ry)===y&&!hiddenFrom(u,0))drawUnit(u);
     if(atkSet.has(x+','+y)){ctx.strokeStyle='#ff8a7a';ctx.lineWidth=2.5;ctx.beginPath();ctx.ellipse(g.cx,g.cy,22,11,0,0,7);ctx.stroke();
       const e=unitAt(x,y);if(e&&ui.unit){const r=preview(ui.unit,e);const txt=r.kill?tr('−{n} derrota',{n:r.dmg}):`−${r.dmg}  ↩${r.counter}`;ctx.font='700 12px "MosaicaNum","Atkinson Hyperlegible",sans-serif';ctx.textAlign='center';
@@ -3389,6 +3389,11 @@ function drawGreatWork(c,clan,x,y,col,t){c.save();c.translate(x,y);c.scale(1.25,
   }
   c.restore();}
 
+// escolhe o terreno vizinho da capital para a obra: de preferência ao lado na tela, no próprio território, livre
+function greatLocal(p,cap){let best=null,bv=-1;const ordem=[[1,-1],[-1,1],[1,0],[0,-1],[-1,0],[0,1],[1,1],[-1,-1]];
+  ordem.forEach(([dx,dy],i)=>{const x=cap.x+dx,y=cap.y+dy;if(!inb(x,y))return;const t=T(x,y);if(t.city!=null||t.gw||t.t==='raso'||t.t==='oceano')return;
+    let v=20-i;if(ownerOf(t)===p.id)v+=40;if(!t.res&&!t.imp)v+=30;if(t.t==='campo')v+=8;else if(t.t==='floresta')v+=5;if(v>bv){bv=v;best=t;}});
+  if(best){best.gw=p.clan;cap.gwTile=true;}}
 function greatPronto(p){return p.techs.length>=Object.keys(TECHS).length&&exploredPct(p)>=0.999;}
 function greatFalta(p){return tr('Grande Obra ({g}): pesquise todas as tecnologias ({a}/{b}) e revele o mapa inteiro ({p}%).',{g:GREAT[p.clan].n,a:p.techs.length,b:Object.keys(TECHS).length,p:Math.floor(exploredPct(p)*100)});}
 // bônus de Lumens no 3º turno depois da Grande Obra
