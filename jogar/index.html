@@ -447,6 +447,46 @@ span.sic{width:30px;height:30px;margin:8px;border-radius:7px;transform:rotate(45
 .arqconv .sub{display:block}
 .arq{max-width:100%;min-width:0}
 @media (max-height:760px){#startBody.npc{gap:7px;padding:10px 12px}#startBody.npc .opt{gap:3px}.np-sum{font-size:12px}.cpk img{width:28px;height:28px}#startBody.npc .o2{gap:7px 12px}#startBody.npc .seg button{min-height:30px;padding:3px 10px}.np-bot #bStart{padding:9px 20px}}
+
+/* v29d: barra da Tecnologia somava o recheio aos 100% de largura e empurrava o botão de voltar para fora da tela */
+#techv .tbar{box-sizing:border-box;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+#techv .tbar .tboard{min-width:0;flex:0 1 auto}
+@media (max-width:420px){#techv .tbar{gap:8px}#techv .tbar .kpi{padding:2px 8px}}
+/* v29d: celular deitado (tela baixa): placar à esquerda ao lado do Desfazer, painel compacto à direita, botões menores */
+@media (orientation:landscape) and (max-height:500px){
+  #hud{gap:5px;padding-block:calc(6px + env(safe-area-inset-top,0px)) calc(6px + env(safe-area-inset-bottom,0px));padding-left:calc(max(12px,env(safe-area-inset-left,0px)) + 66px)}
+  #board,#sSeason,#danger,#coach{align-self:flex-start}
+  #board{padding:3px 4px;border-radius:12px}
+  .kpi{padding:1px 10px}.kpi b{font-size:18px}.kpi b small{font-size:11px}.kpi span{font-size:9.5px}
+  #sSeason{margin-top:0;font-size:12px;padding:3px 9px}
+  #danger{font-size:12px;padding:3px 10px 3px 4px;max-width:calc(100% - min(290px,38vw) - 20px)}
+  #danger .dz{width:18px;height:18px;font-size:12px}
+  #coach{width:min(360px,calc(100% - min(290px,38vw) - 20px));padding:8px 10px;gap:6px;font-size:13px}
+  #bUndo{top:calc(6px + env(safe-area-inset-top,0px));left:max(12px,env(safe-area-inset-left,0px));width:56px}
+  #bUndo .gem{width:36px;height:36px}#bUndo .dl{font-size:11px}
+  #panel{left:auto;right:max(12px,env(safe-area-inset-right,0px));top:calc(6px + env(safe-area-inset-top,0px));bottom:auto;width:min(290px,38vw);max-height:calc(100% - 100px - env(safe-area-inset-bottom,0px) - env(safe-area-inset-top,0px));padding:8px 10px;gap:6px;border-radius:12px}
+  #panel h3{font-size:15px}
+  #panel.collapsed{width:auto;left:auto}
+  .acts{grid-template-columns:repeat(auto-fill,minmax(54px,1fr));gap:4px 2px}
+  .pa{padding:4px 0 2px;gap:2px}.pa .pd{width:44px;height:44px}.pa .pt{width:36px;height:36px}.pa .pg{font-size:16px}.pa .pn{font-size:10.5px}.pa .px{font-size:10px}.pa .c{font-size:10px;padding:0 4px;right:-6px}
+  #dock{bottom:calc(6px + env(safe-area-inset-bottom,0px));gap:clamp(4px,2vw,14px)}
+  #dock .dk{width:58px}#dock .dk .gem{width:38px;height:38px;border-radius:10px}#dock .dk .gem svg{width:20px;height:20px}#dock .dk .dl{font-size:11px}
+  #toasts{top:auto;bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  #logbox{top:calc(56px + env(safe-area-inset-top,0px))}
+  #techv .tbar .kpi{padding:1px 10px}
+  #panel{box-sizing:border-box}
+  .arqtop{flex-direction:row;justify-content:center;gap:14px}.arqmos{width:min(130px,34vh)}
+  #modal .sheet{padding:12px 16px;gap:10px}
+  #startBody.npc{width:min(900px,100%);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-auto-flow:column;grid-template-rows:auto auto 1fr;column-gap:16px;row-gap:7px;padding:10px 12px}
+  #startBody.npc .np-top{grid-column:1;grid-row:1}#startBody.npc .cpks{grid-column:1;grid-row:2}#startBody.npc .cinfo{grid-column:1;grid-row:3;align-self:start}
+  #startBody.npc .npsel{grid-column:2;grid-row:1 / 3;align-self:start}#startBody.npc .np-sum{grid-column:2;grid-row:3;align-self:start}#startBody.npc .np-bot{grid-column:2;grid-row:3;align-self:end}
+  #startBody.npc .npsel select{min-height:34px}.cpk img{width:28px;height:28px}
+  #techv:not([hidden]){display:grid;grid-template-columns:minmax(0,1fr) min(320px,40vw);grid-template-rows:auto minmax(0,1fr) auto;column-gap:14px;row-gap:6px;align-items:start;padding-block:calc(6px + env(safe-area-inset-top,0px)) calc(6px + env(safe-area-inset-bottom,0px))}
+  #techv .tbar{grid-column:1 / -1;max-width:none}
+  #techv .twrap{grid-column:1;grid-row:2 / 4;height:100%;align-self:stretch}
+  #techv .tinfo{grid-column:2;grid-row:2;margin-right:max(12px,env(safe-area-inset-right,0px));max-height:100%;overflow:auto;box-sizing:border-box;width:auto}
+  #techv .tfoot{grid-column:2;grid-row:3;margin:0 max(12px,env(safe-area-inset-right,0px)) 0 0;font-size:11.5px;text-align:left}
+}
 </style>
 
 <canvas id="cv" aria-label="Tabuleiro do jogo"></canvas>
